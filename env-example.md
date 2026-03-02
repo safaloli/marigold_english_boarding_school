@@ -1,71 +1,54 @@
-# ===== GYAN JYOTI SCHOOL WEBSITE ENVIRONMENT CONFIGURATION =====
+# ===== MARIGOLD SCHOOL WEBSITE ENVIRONMENT CONFIGURATION =====
 
 # ===== SERVER CONFIGURATION =====
-PORT=3000
+PORT=5173
 NODE_ENV=development
 
-# ===== DATABASE CONFIGURATION =====
-# MySQL Database Connection (REQUIRED for both development and production)
-# 
-# For Development (Local MySQL):
-# DB_HOST=localhost
-# DB_PORT=3306
-# DB_USER=root
-# DB_PASSWORD=your_password
-# DB_NAME=
-#
-# For Production (cPanel MySQL):
-# DB_HOST=localhost
-# DB_PORT=3306
-# DB_USER=crossroa_gjss
-# DB_PASSWORD=your_password
-# DB_NAME=
-
-DB_HOST=localhost
-DB_PORT=3306
+# ===== DATABASE CONFIGURATION (MySQL) =====
+# Port changed from 5432 (PostgreSQL) to 3306 (MySQL)
+DB_HOST=
 DB_USER=root
 DB_PASSWORD=
 DB_NAME=
 
+# If special character $ in password causes issues, use URL-encoded version:
+# DATABASE_URL=
+
 # ===== JWT CONFIGURATION =====
-JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+JWT_SECRET=
 JWT_EXPIRES_IN=7d
+
+# ===== SESSION SECRET =====
+SESSION_SECRET=
 
 # ===== EMAIL CONFIGURATION =====
 # Gmail SMTP
 EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
-EMAIL_SECURE=false  
-EMAIL_USER=safaloligyanjyoti@gmail.com
-EMAIL_PASS=bnad bjzs jxhd xkbi
+EMAIL_SECURE=false
+EMAIL_USER=
+EMAIL_PASS=
 
-# SendGrid (Alternative)
-# SENDGRID_API_KEY=your-sendgrid-api-key
-# EMAIL_FROM=noreply@gyanjyotischool.com
+#school contact details
+SCHOOL_PHONE=
 
-# ===== CONTACT FORM EMAIL CONFIGURATION =====
-# Admin emails that will receive contact form notifications (comma-separated)
-CONTACT_ADMIN_EMAILS=admin@gyanjyotischool.com,principal@gyanjyotischool.com,info@gyanjyotischool.com
+# Admin emails for admission notifications
+ADMISSION_ADMIN_EMAILS=
 
-# Contact form auto-reply settings
-CONTACT_AUTO_REPLY_ENABLED=true
-CONTACT_AUTO_REPLY_SUBJECT=Thank you for contacting GyanJyoti Secondary School
+# Admin Email Configuration (use commas for multiple emails)
+CONTACT_ADMIN_EMAILS=
 
-# ===== ADMISSION EMAIL CONFIGURATION =====
-# Admin emails that will receive admission application notifications (comma-separated)
-ADMISSION_ADMIN_EMAILS=admissions@gyanjyotischool.com,principal@gyanjyotischool.com
+# ===== CLOUDINARY CONFIGURATION =====
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+CLOUDINARY_FOLDER=
 
 # ===== FILE UPLOAD CONFIGURATION =====
 UPLOAD_PATH=./uploads
-MAX_FILE_SIZE=26214400
+MAX_FILE_SIZE=5242880
 ALLOWED_IMAGE_TYPES=image/jpeg,image/png,image/gif,image/webp
 ALLOWED_DOCUMENT_TYPES=application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document
-
-# ===== CLOUDINARY CONFIGURATION =====
-CLOUDINARY_CLOUD_NAME=dtjr46kcg
-CLOUDINARY_API_KEY=899943974314847
-CLOUDINARY_API_SECRET=Y5gCtxxfaHw6BukjlPqHvkvhuHA
-CLOUDINARY_FOLDER=gyan-jyoti-school
 
 # ===== REDIS CONFIGURATION (CACHING LAYER) =====
 REDIS_URL=redis://localhost:6379
@@ -75,10 +58,10 @@ REDIS_PASSWORD=
 REDIS_DB=0
 REDIS_TTL=3600
 REDIS_SESSION_TTL=86400
-REDIS_CACHE_ENABLED=true
+REDIS_CACHE_ENABLED=false
 
 # ===== CORS CONFIGURATION =====
-CORS_ORIGIN=http://localhost:3000
+CORS_ORIGIN=https://mebs.edu.np
 CORS_CREDENTIALS=true
 
 # ===== RATE LIMITING =====
@@ -87,32 +70,21 @@ RATE_LIMIT_MAX_REQUESTS=100
 
 # ===== SECURITY CONFIGURATION =====
 BCRYPT_ROUNDS=12
-SESSION_SECRET=your-session-secret-key
 
 # ===== LOGGING CONFIGURATION =====
 LOG_LEVEL=info
 LOG_FILE=./logs/app.log
 
-# ===== ANALYTICS (OPTIONAL) =====
-# GOOGLE_ANALYTICS_ID=GA_MEASUREMENT_ID
-# FACEBOOK_PIXEL_ID=your-facebook-pixel-id
-
 # ===== SOCIAL MEDIA LINKS =====
-FACEBOOK_URL=https://www.facebook.com/gyan.joyti.5
+FACEBOOK_URL=
 INSTAGRAM_URL=
 TWITTER_URL=
 YOUTUBE_URL=
 
-# ===== SCHOOL INFORMATION =====
-SCHOOL_NAME=GyanJyoti Secondary School
-SCHOOL_EMAIL=info@gyanjyotischool.com
-SCHOOL_PHONE=+977-1-4XXXXXX
-SCHOOL_ADDRESS=Kathmandu, Nepal
 
 # ===== ADMIN DEFAULT CREDENTIALS =====
-# These will be used to create the first admin user
-ADMIN_EMAIL=admin@gyanjyotischool.com
-ADMIN_PASSWORD=admin123
+ADMIN_EMAIL=
+ADMIN_PASSWORD=
 ADMIN_FIRST_NAME=Admin
 ADMIN_LAST_NAME=User
 
@@ -132,15 +104,8 @@ ENABLE_HEALTH_CHECK=true
 HEALTH_CHECK_INTERVAL=300000
 
 # ===== DEVELOPMENT TOOLS =====
-ENABLE_DEBUG_MODE=true
-ENABLE_API_DOCS=true
+ENABLE_DEBUG_MODE=false
+ENABLE_API_DOCS=false
 ENABLE_TEST_ROUTES=false
 
-# ===== PRODUCTION SETTINGS =====
-# Set these in production
-# NODE_ENV=production
-# JWT_SECRET=your-production-jwt-secret
-# SESSION_SECRET=your-production-session-secret
-# CORS_ORIGIN=https://gyanjyotischool.com
-# ENABLE_DEBUG_MODE=false
-# ENABLE_TEST_ROUTES=false
+

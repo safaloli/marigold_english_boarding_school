@@ -1,56 +1,56 @@
-# ===== MARIGOLD SCHOOL WEBSITE ENVIRONMENT CONFIGURATION =====
+ ===== MARIGOLD SCHOOL WEBSITE ENVIRONMENT CONFIGURATION =====
 
-# ===== SERVER CONFIGURATION =====
+ ===== SERVER CONFIGURATION =====
 PORT=5173
 NODE_ENV=development
 
-# ===== DATABASE CONFIGURATION (MySQL) =====
-# Port changed from 5432 (PostgreSQL) to 3306 (MySQL)
+ ===== DATABASE CONFIGURATION (MySQL) =====
+ Port changed from 5432 (PostgreSQL) to 3306 (MySQL)
 DB_HOST=
 DB_USER=root
 DB_PASSWORD=
 DB_NAME=
 
-# If special character $ in password causes issues, use URL-encoded version:
-# DATABASE_URL=
+ If special character $ in password causes issues, use URL-encoded version:
+ DATABASE_URL=
 
-# ===== JWT CONFIGURATION =====
+ ===== JWT CONFIGURATION =====
 JWT_SECRET=
 JWT_EXPIRES_IN=7d
 
-# ===== SESSION SECRET =====
+ ===== SESSION SECRET =====
 SESSION_SECRET=
 
-# ===== EMAIL CONFIGURATION =====
-# Gmail SMTP
+ ===== EMAIL CONFIGURATION =====
+ Gmail SMTP
 EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
 EMAIL_SECURE=false
 EMAIL_USER=
 EMAIL_PASS=
 
-#school contact details
+school contact details
 SCHOOL_PHONE=
 
-# Admin emails for admission notifications
+ Admin emails for admission notifications
 ADMISSION_ADMIN_EMAILS=
 
-# Admin Email Configuration (use commas for multiple emails)
+ Admin Email Configuration (use commas for multiple emails)
 CONTACT_ADMIN_EMAILS=
 
-# ===== CLOUDINARY CONFIGURATION =====
+ ===== CLOUDINARY CONFIGURATION =====
 CLOUDINARY_CLOUD_NAME=
 CLOUDINARY_API_KEY=
 CLOUDINARY_API_SECRET=
 CLOUDINARY_FOLDER=
 
-# ===== FILE UPLOAD CONFIGURATION =====
+ ===== FILE UPLOAD CONFIGURATION =====
 UPLOAD_PATH=./uploads
 MAX_FILE_SIZE=5242880
 ALLOWED_IMAGE_TYPES=image/jpeg,image/png,image/gif,image/webp
 ALLOWED_DOCUMENT_TYPES=application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document
 
-# ===== REDIS CONFIGURATION (CACHING LAYER) =====
+ ===== REDIS CONFIGURATION (CACHING LAYER) =====
 REDIS_URL=redis://localhost:6379
 REDIS_HOST=localhost
 REDIS_PORT=6379
@@ -60,50 +60,50 @@ REDIS_TTL=3600
 REDIS_SESSION_TTL=86400
 REDIS_CACHE_ENABLED=false
 
-# ===== CORS CONFIGURATION =====
+ ===== CORS CONFIGURATION =====
 CORS_ORIGIN=https://mebs.edu.np
 CORS_CREDENTIALS=true
 
-# ===== RATE LIMITING =====
+ ===== RATE LIMITING =====
 RATE_LIMIT_WINDOW_MS=900000
 RATE_LIMIT_MAX_REQUESTS=100
 
-# ===== SECURITY CONFIGURATION =====
+ ===== SECURITY CONFIGURATION =====
 BCRYPT_ROUNDS=12
 
-# ===== LOGGING CONFIGURATION =====
+ ===== LOGGING CONFIGURATION =====
 LOG_LEVEL=info
 LOG_FILE=./logs/app.log
 
-# ===== SOCIAL MEDIA LINKS =====
+ ===== SOCIAL MEDIA LINKS =====
 FACEBOOK_URL=
 INSTAGRAM_URL=
 TWITTER_URL=
 YOUTUBE_URL=
 
 
-# ===== ADMIN DEFAULT CREDENTIALS =====
+ ===== ADMIN DEFAULT CREDENTIALS =====
 ADMIN_EMAIL=
 ADMIN_PASSWORD=
 ADMIN_FIRST_NAME=Admin
 ADMIN_LAST_NAME=User
 
-# ===== FEATURE FLAGS =====
+ ===== FEATURE FLAGS =====
 ENABLE_REGISTRATION=false
 ENABLE_COMMENTS=false
 ENABLE_NEWSLETTER=false
 ENABLE_ONLINE_ADMISSIONS=false
 
-# ===== BACKUP CONFIGURATION =====
+ ===== BACKUP CONFIGURATION =====
 BACKUP_ENABLED=true
 BACKUP_SCHEDULE=0 2 * * *
 BACKUP_RETENTION_DAYS=30
 
-# ===== MONITORING =====
+ ===== MONITORING =====
 ENABLE_HEALTH_CHECK=true
 HEALTH_CHECK_INTERVAL=300000
 
-# ===== DEVELOPMENT TOOLS =====
+ ===== DEVELOPMENT TOOLS =====
 ENABLE_DEBUG_MODE=false
 ENABLE_API_DOCS=false
 ENABLE_TEST_ROUTES=false

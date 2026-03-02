@@ -1,0 +1,2133 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Marigold School</title>
+    <meta name="description" content="Explore our photo gallery showcasing school events, activities, and memorable moments at Marigold School.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" as="script">
+    <link rel="preload" href="https://unpkg.com/lucide@latest/dist/umd/lucide.js" as="script">
+    
+    <!-- jQuery - Load async -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" async></script>
+    
+    <!-- Lucide Icons - Load async -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" async></script>
+    
+    <!-- Owl Carousel CSS - Load async -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <script>
+        // Initialize Lucide icons after DOM is loaded
+        function initializeLucideIcons() {
+            if (typeof lucide !== 'undefined') {
+                console.log('Initializing Lucide icons...');
+                lucide.createIcons();
+            } else {
+                console.log('Lucide not loaded, trying fallback...');
+                // Fallback if unpkg fails
+                const script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js';
+                script.onload = function() {
+                    console.log('CDNJS loaded successfully');
+                    if (typeof lucide !== 'undefined') {
+                        lucide.createIcons();
+                    }
+                };
+                script.onerror = function() {
+                    console.log('CDNJS failed, trying jsDelivr...');
+                    const script2 = document.createElement('script');
+                    script2.src = 'https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.js';
+                    script2.onload = function() {
+                        console.log('jsDelivr loaded successfully');
+                        if (typeof lucide !== 'undefined') {
+                            lucide.createIcons();
+                        }
+                    };
+                    script2.onerror = function() {
+                        console.error('All CDN sources failed');
+                    };
+                    document.head.appendChild(script2);
+                };
+                document.head.appendChild(script);
+            }
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeLucideIcons);
+        } else {
+            initializeLucideIcons();
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Loading Screen Management -->
+    <script>
+        // Hide loading screen when page is fully loaded
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+                // Add a small delay to ensure smooth transition
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                }, 300);
+            }
+        });
+        
+        // Fallback: Hide loading screen after 3 seconds maximum
+        setTimeout(() => {
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
+                loadingScreen.classList.add('hidden');
+            }
+        }, 3000);
+    </script>
+    
+    <!-- Dynamic Favicon Loader -->
+    <script src="/js/favicon-loader.js"></script>
+    
+    <style>
+        .main{
+            padding-top: 40px !important;
+        }
+        
+        /* Gallery Hero Banner */
+        .gallery-hero {
+            position: relative;
+            min-height: 480px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.2), transparent);
+        }
+
+        .hero-content {
+            position: relative;
+            height: 100%;
+            min-height: 480px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            color: white;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            color: #ffffff;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-btn {
+            background: #137fec;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            width: fit-content;
+        }
+
+        .hero-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Gallery Grid Styling */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            padding: 1rem 0;
+            justify-content: center;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            min-height: 150px;
+            width: 100%;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04);
+        }
+
+        .gallery-image {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            background: linear-gradient(45deg, #f0f9ff, #e0f2fe);
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-image img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.3), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: start;
+            padding: 1.5rem;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-info {
+            color: white;
+        }
+
+        .gallery-info h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .gallery-info p {
+            font-size: 0.9rem;
+            opacity: 0.95;
+            line-height: 1.4;
+            color: #ffffff;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .gallery-view-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.95);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #137fec;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: scale(0.8);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item:hover .gallery-view-btn {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .gallery-view-btn:hover {
+            background: white;
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* Gallery Item Badge */
+        .gallery-badge {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            background: #3B82F6;
+            color: #FFFFFF;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: capitalize;
+            z-index: 3;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Category-specific badge colors */
+        .gallery-badge.academics {
+            background: #3B82F6;
+        }
+
+        .gallery-badge.sports {
+            background: #10B981;
+        }
+
+        .gallery-badge.cultural {
+            background: #F59E0B;
+        }
+
+        .gallery-badge.campus {
+            background: #8B5CF6;
+        }
+
+        .gallery-badge.student-life {
+            background: #EC4899;
+        }
+
+        .gallery-badge.general {
+            background: #6B7280;
+        }
+
+        /* Default color for custom categories */
+        .gallery-badge:not(.academics):not(.sports):not(.cultural):not(.campus):not(.student-life):not(.general) {
+            background: #6366F1; /* Indigo for custom categories */
+        }
+
+        /* Filter Buttons */
+        .filter-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            padding: 1rem 0;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid #137fec;
+            background: white;
+            color: #137fec;
+            font-weight: 500;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .filter-btn:hover {
+            background: #137fec;
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(19, 127, 236, 0.3);
+        }
+
+        .filter-btn.active {
+            background: #137fec;
+            color: white;
+            box-shadow: 0 2px 6px rgba(19, 127, 236, 0.3);
+        }
+
+        /* Loading State */
+        .loading-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            color: #64748b;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #e2e8f0;
+            border-top: 3px solid #137fec;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Featured Album Banner */
+        .featured-banner-carousel {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        /* Featured Banner Loading Styles */
+        .featured-banner-loading {
+            padding: 2rem 0;
+        }
+
+        .featured-banner-loading .loading-placeholder {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .featured-banner-loading .banner-title-box {
+            height: 2.5rem;
+            width: 80%;
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 8px;
+        }
+
+        .featured-banner-loading .banner-description-box {
+            height: 1.25rem;
+            width: 90%;
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 6px;
+        }
+
+        .featured-banner-loading .banner-button-box {
+            height: 2.5rem;
+            width: 140px;
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 25px;
+        }
+
+        .featured-banner-loading .yearbook-cover-box {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 12px;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        /* Hide items initially until carousel loads */
+        .featured-banner-carousel .featured-banner-item {
+            display: none;
+        }
+
+        .featured-banner-carousel.owl-carousel .featured-banner-item {
+            display: block;
+        }
+
+        /* Owl Carousel sliding animations */
+        .owl-carousel .owl-item {
+            overflow: hidden;
+        }
+
+        .owl-carousel .owl-item .featured-banner-item {
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Custom sliding animations for Owl Carousel */
+        .owl-carousel .owl-item.animate-out .featured-banner-item {
+            animation: slideOutLeft 0.8s ease-in-out;
+        }
+
+        .owl-carousel .owl-item.animate-in .featured-banner-item {
+            animation: slideInRight 0.8s ease-in-out;
+        }
+
+        @keyframes slideOutLeft {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .featured-banner-item {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 280px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .banner-content {
+            flex: 1;
+            color: #2c3e50;
+            z-index: 2;
+            max-width: 60%;
+        }
+
+        .banner-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: #2c3e50;
+        }
+
+        .banner-description {
+            font-size: 1rem;
+            color: #6c757d;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .banner-btn {
+            background: #137fec;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(19, 127, 236, 0.3);
+        }
+
+        .banner-btn:hover {
+            background: #0f6bc7;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(19, 127, 236, 0.4);
+        }
+
+        .banner-image {
+            flex: 0 0 250px;
+            height: 200px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .yearbook-cover {
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            width: 180px;
+            height: 140px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transform: rotate(-5deg);
+        }
+
+        .yearbook-cover.sports {
+            background: linear-gradient(135deg, #28a745, #20c997);
+        }
+
+        .yearbook-cover.cultural {
+            background: linear-gradient(135deg, #dc3545, #e83e8c);
+        }
+
+        .yearbook-cover.science {
+            background: linear-gradient(135deg, #6f42c1, #6610f2);
+        }
+
+        .yearbook-text {
+            width: 100%;
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: white;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .yearbook-subtitle {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+            letter-spacing: 0.5px;
+        }
+
+        /* Owl Carousel Navigation */
+        .owl-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .owl-prev, .owl-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-size: 1.2rem;
+            color: #137fec;
+        }
+
+        .owl-prev:before, .owl-next:before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        .owl-prev:before {
+            border-width: 8px 12px 8px 0;
+            border-color: transparent #137fec transparent transparent;
+            margin-left: -2px;
+        }
+
+        .owl-next:before {
+            border-width: 8px 0 8px 12px;
+            border-color: transparent transparent transparent #137fec;
+            margin-right: -2px;
+        }
+
+        .owl-prev:hover, .owl-next:hover {
+            background: #137fec;
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .owl-prev:hover:before {
+            border-color: transparent white transparent transparent;
+        }
+
+        .owl-next:hover:before {
+            border-color: transparent transparent transparent white;
+        }
+
+        .owl-prev {
+            left: -25px;
+        }
+
+        .owl-next {
+            right: -25px;
+        }
+
+        /* Owl Carousel Dots */
+        .owl-dots {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .owl-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #dee2e6;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .owl-dot.active, .owl-dot:hover {
+            background: #137fec;
+            transform: scale(1.2);
+        }
+
+        /* Albums Section */
+        .albums-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 320px);
+            gap: 2rem;
+            padding: 2rem 0;
+            justify-content: center;
+        }
+
+        .album-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .album-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .album-cover {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .album-cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.3), transparent);
+            opacity: 1;
+            transition: background 0.3s ease;
+        }
+
+        .album-card:hover .album-cover::before {
+            background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4), transparent);
+        }
+
+        .album-info {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            right: 1rem;
+            color: white;
+            z-index: 2;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .album-card:hover .album-info {
+            transform: translateY(-5px);
+        }
+
+        .album-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: #ffffff;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.9);
+        }
+
+        .album-count {
+            font-size: 0.9rem;
+            color: #ffffff;
+            opacity: 0.95;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.7), 0 1px 2px rgba(0,0,0,0.8);
+        }
+
+        /* Album Badge */
+        .album-badge {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            background: #3B82F6;
+            color: #FFFFFF;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: capitalize;
+            z-index: 3;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Category-specific badge colors for albums */
+        .album-badge.academics {
+            background: #3B82F6;
+        }
+
+        .album-badge.sports {
+            background: #10B981;
+        }
+
+        .album-badge.cultural {
+            background: #F59E0B;
+        }
+
+        .album-badge.campus {
+            background: #8B5CF6;
+        }
+
+        .album-badge.student-life {
+            background: #EC4899;
+        }
+
+        .album-badge.general {
+            background: #6B7280;
+        }
+
+        .album-badge.photoAlbum {
+            background: #3B82F6;
+        }
+
+        .album-badge.videoAlbum {
+            background: #EF4444;
+        }
+
+        /* Default color for custom categories */
+        .album-badge:not(.academics):not(.sports):not(.cultural):not(.campus):not(.student-life):not(.general):not(.photoAlbum):not(.videoAlbum) {
+            background: #6366F1; /* Indigo for custom categories */
+        }
+
+        /* Load More Button */
+        .load-more-container {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .load-more-btn {
+            background: #137fec;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .load-more-btn:hover {
+            background: #0f6bc7;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(19, 127, 236, 0.3);
+        }
+
+        .btn-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .load-more-btn:hover .btn-icon {
+            transform: translateY(2px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-content {
+                padding: 1.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .filter-controls {
+                gap: 0.4rem;
+            }
+
+            .filter-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
+            }
+
+            .gallery-overlay {
+                padding: 1rem;
+            }
+
+            .gallery-info h3 {
+                font-size: 1.1rem;
+            }
+
+            .gallery-info p {
+                font-size: 0.85rem;
+            }
+
+            /* Featured Banner Responsive */
+            .featured-banner-item {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 1.5rem;
+                min-height: auto;
+            }
+
+            .featured-banner-item .d-flex{
+                flex-direction: column-reverse;
+                align-items: center;
+                gap: 1rem !important
+            }
+
+            .banner-content {
+                max-width: 100%;
+                margin-bottom: 2rem;
+            }
+
+            .banner-title {
+                font-size: 1.8rem;
+            }
+
+            .banner-image {
+                margin-top: 1rem;
+                flex: none;
+                width: 100%;
+                max-width: 220px;
+                height: 160px;
+            }
+
+            .yearbook-cover {
+                width: 140px;
+                height: 110px;
+            }
+
+            .owl-prev {
+                left: 10px;
+            }
+
+            .owl-next {
+                right: 10px;
+            }
+
+            /* Albums Grid Responsive */
+            .albums-grid {
+                grid-template-columns: repeat(auto-fill, 280px);
+                gap: 1.5rem;
+            }
+
+            .album-cover {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .gallery-overlay {
+                padding: 0.75rem;
+            }
+
+            .gallery-info h3 {
+                font-size: 1rem;
+            }
+
+            .gallery-info p {
+                font-size: 0.8rem;
+            }
+
+            /* Featured Banner Mobile */
+            .banner-title {
+                font-size: 1.4rem;
+            }
+
+            .banner-description {
+                font-size: 0.9rem;
+            }
+
+            .banner-image {
+                height: 140px;
+            }
+
+            .yearbook-cover {
+                width: 120px;
+                height: 90px;
+            }
+
+            .yearbook-text {
+                font-size: 1rem;
+            }
+
+            .yearbook-subtitle {
+                font-size: 0.8rem;
+            }
+
+            .owl-prev, .owl-next {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .owl-prev {
+                left: 5px;
+            }
+
+            .owl-next {
+                right: 5px;
+            }
+
+        /* Albums Grid Mobile */
+        .albums-grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .album-cover {
+            height: 160px;
+        }
+    }
+
+    /* Lightbox Modal Styles */
+    .gallery-lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(16, 25, 34, 0.8);
+        backdrop-filter: blur(10px);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .gallery-lightbox.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .lightbox-content {
+        position: relative;
+        width: 100%;
+        max-width: 60rem; /* 4xl equivalent */
+        padding: 1rem;
+        margin: 0 auto;
+    }
+
+    .lightbox-main-container {
+        position: relative;
+        margin-bottom: 1rem;
+    }
+
+    .lightbox-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        border: none;
+        background: rgb(0 0 0 / 60%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 10;
+        color: white;
+    }
+
+    .lightbox-close:hover {
+        background: rgb(0 0 0 / 50%);
+        transform: scale(1.05);
+    }
+
+    .lightbox-nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3rem;
+        height: 3rem;
+        border: none;
+        background: rgb(0 0 0 / 60%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 10;
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    .lightbox-nav-btn:hover:not(:disabled) {
+        background: rgb(0 0 0 / 50%);;
+        transform: translateY(-50%) scale(1.05);
+    }
+
+    .lightbox-nav-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+
+    .lightbox-nav-btn.prev {
+        left: 1rem;
+    }
+
+    .lightbox-nav-btn.next {
+        right: 1rem;
+    }
+
+    .lightbox-main-image-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 0.5rem;
+        aspect-ratio: 16/8;
+        background: #f6f7f8;
+    }
+
+    .lightbox-main-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.3s ease;
+    }
+
+    .lightbox-main-image.loading {
+        opacity: 0.5;
+        filter: blur(2px);
+    }
+
+    .lightbox-image-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+    }
+
+    .lightbox-image-title {
+        color: white;
+        font-size: 1.125rem;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .lightbox-thumbnails-container {
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    .lightbox-thumbnails-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .lightbox-thumbnails {
+        display: flex;
+        align-items: flex-start;
+        padding: 0.75rem;
+        gap: 0.75rem;
+        min-height: 120px;
+    }
+
+    .lightbox-thumbnail {
+        flex-shrink: 0;
+        width: 8rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        opacity: 0.7;
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
+
+    .lightbox-thumbnail:hover {
+        opacity: 1;
+    }
+
+    .lightbox-thumbnail.active {
+        opacity: 1;
+    }
+
+    .lightbox-thumbnail-content {
+        overflow: hidden;
+        border-radius: 0.5rem;
+        aspect-ratio: 16/9;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .lightbox-thumbnail.active .lightbox-thumbnail-content {
+        box-shadow: 0 0 0 4px #137fec;
+    }
+
+    .lightbox-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .lightbox-thumbnail:hover img {
+        transform: scale(1.1);
+    }
+
+    /* Loading state for lightbox */
+    .lightbox-loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 60vh;
+        color: #6c757d;
+    }
+
+    .lightbox-spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid #e9ecef;
+        border-top: 3px solid #137fec;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-right: 1rem;
+    }
+
+    /* Responsive lightbox */
+    @media (max-width: 768px) {
+        .lightbox-content {
+            max-width: 95vw;
+            padding: 0.5rem;
+        }
+
+        .lightbox-close {
+            top: 0.5rem;
+            right: 0.5rem;
+            width: 2rem;
+            height: 2rem;
+            font-size: 1rem;
+        }
+
+        .lightbox-nav-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            font-size: 1.25rem;
+        }
+
+        .lightbox-nav-btn.prev {
+            left: 0.5rem;
+        }
+
+        .lightbox-nav-btn.next {
+            right: 0.5rem;
+        }
+
+        .lightbox-thumbnail {
+            width: 6rem;
+        }
+
+        .lightbox-image-title {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .lightbox-content {
+            max-width: 98vw;
+            padding: 0.25rem;
+        }
+
+        .lightbox-close {
+            width: 1.75rem;
+            height: 1.75rem;
+            font-size: 0.875rem;
+        }
+
+        .lightbox-nav-btn {
+            width: 2rem;
+            height: 2rem;
+            font-size: 1rem;
+        }
+
+        .lightbox-nav-btn.prev {
+            left: 0.25rem;
+        }
+
+        .lightbox-nav-btn.next {
+            right: 0.25rem;
+        }
+
+        .lightbox-thumbnail {
+            width: 4rem;
+        }
+
+        .lightbox-image-title {
+            font-size: 0.875rem;
+        }
+
+        .lightbox-thumbnails {
+            gap: 0.5rem;
+            padding: 0.25rem;
+        }
+    }
+
+    /* Gallery Page CTA Loading Placeholders */
+    .cta-loading .cta-title-box {
+        height: 40px;
+        width: 400px;
+        margin: 0 auto 1rem;
+    }
+
+    .cta-loading .cta-subtitle-box {
+        height: 60px;
+        width: 600px;
+        margin: 0 auto 2rem;
+    }
+
+    .cta-loading .cta-buttons-box {
+        height: 48px;
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    /* Photo Gallery Loading Placeholders */
+    .photo-loading-state {
+        display: grid;
+        grid-template-columns: 1fr; /* 1 card on very small devices */
+        gap: 1.5rem;
+        padding: 2rem 0;
+        grid-column: span 3;
+    }
+
+    /* 2 cards per row on small to medium screens */
+    @media (min-width: 480px) {
+        .photo-loading-state {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+    }
+
+    /* 3 cards per row on larger screens */
+    @media (min-width: 768px) {
+        .photo-loading-state {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .photo-loading-card {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .photo-loading-thumbnail {
+        width: 100%;
+        height: 250px;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+    }
+
+    .photo-loading-content {
+        padding: 1rem;
+    }
+
+    .photo-loading-title {
+        height: 20px;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+        border-radius: 4px;
+        margin-bottom: 0.5rem;
+    }
+
+    .photo-loading-count {
+        height: 16px;
+        width: 60%;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+        border-radius: 4px;
+    }
+
+    /* Video Gallery Loading Placeholders */
+    .video-loading-state {
+        display: grid;
+        grid-template-columns: 1fr; /* 1 card on very small devices */
+        gap: 1.5rem;
+        padding: 2rem 0;
+        grid-column: span 3;
+    }
+
+    /* 2 cards per row on small to medium screens */
+    @media (min-width: 480px) {
+        .video-loading-state {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+    }
+
+    /* 3 cards per row on larger screens */
+    @media (min-width: 768px) {
+        .video-loading-state {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .video-loading-card {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .video-loading-thumbnail {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+    }
+
+    .video-loading-content {
+        padding: 1rem;
+    }
+
+    .video-loading-title {
+        height: 20px;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+        border-radius: 4px;
+        margin-bottom: 0.5rem;
+    }
+
+    .video-loading-count {
+        height: 16px;
+        width: 60%;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+        border-radius: 4px;
+    }
+
+    @keyframes shimmer {
+        0% {
+            background-position: -200% 0;
+        }
+        100% {
+            background-position: 200% 0;
+        }
+    }
+
+    /* ===== VIDEO MODAL ===== */
+    .video-modal,
+    .video-player-modal {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background: rgba(0, 0, 0, 0.95) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        z-index: 999999 !important;
+        backdrop-filter: blur(4px);
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: all !important;
+    }
+
+    .video-modal-content {
+        position: relative !important;
+        width: 90% !important;
+        max-width: 900px !important;
+        background: #000 !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        display: block !important;
+        margin: 0 auto !important;
+    }
+
+    .video-modal-close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: rgba(0, 0, 0, 0.7);
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+        color: white;
+    }
+
+    .video-modal-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: scale(1.1);
+    }
+
+    .video-modal-close svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .video-modal-player {
+        position: relative !important;
+        width: 100% !important;
+        background: #000 !important;
+        min-height: 300px !important;
+        border: 2px solid #333 !important;
+    }
+
+    .video-modal-player video {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 70vh !important;
+        display: block !important;
+        background: #000 !important;
+    }
+
+    .video-modal-info {
+        padding: 20px;
+        background: #111;
+        color: white;
+    }
+
+    .video-modal-info h3 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: white;
+    }
+
+    /* Responsive video modal */
+    @media (max-width: 768px) {
+        .video-modal-content {
+            width: 95%;
+            margin: 20px;
+        }
+
+        .video-modal-player video {
+            max-height: 50vh;
+        }
+
+        .video-modal-info {
+            padding: 15px;
+        }
+
+        .video-modal-info h3 {
+            font-size: 1.1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .video-modal-content {
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            margin: 0;
+        }
+
+        .video-modal-player video {
+            max-height: 60vh;
+        }
+
+        .video-modal-close {
+            top: 10px;
+            right: 10px;
+            width: 35px;
+            height: 35px;
+        }
+
+        .video-modal-close svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+    </style>
+</head>
+<body>
+
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Gallery Hero Banner -->
+        <section class="gallery-hero">
+            <!-- Loading Placeholder -->
+            <div class="hero-loading" id="hero-loading">
+                <div class="hero-bg loading-placeholder"></div>
+                <div class="hero-overlay"></div>
+                <div class="hero-content container">
+                    <div class="loading-box" style="width: 60%; height: 60px; margin: 0 auto 20px;"></div>
+                    <div class="loading-box" style="width: 80%; height: 24px; margin: 0 auto 10px;"></div>
+                    <div class="loading-box" style="width: 70%; height: 24px; margin: 0 auto 30px;"></div>
+                    <div class="loading-box" style="width: 200px; height: 50px; margin: 0 auto; border-radius: 25px;"></div>
+                </div>
+            </div>
+
+            <!-- Dynamic Content (hidden initially) -->
+            <div class="hero-dynamic" id="hero-dynamic" style="display: none;">
+                <div class="hero-bg"></div>
+                <div class="hero-overlay"></div>
+                <div class="hero-content container">
+                    <h1 class="hero-title"></h1>
+                    <!-- <p class="hero-description"></p> -->
+                    <a href="#explore-gallery" class="hero-btn" id="hero-explore-btn"></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section class="photo-gallery-section" id="explore-gallery">
+            <div class="container">
+                <div class="gallery-header">
+                    <div class="gallery-title-section">
+                        <h2 class="gallery-main-title">Photo Gallery</h2>
+                        <p class="gallery-subtitle">Browse through different categories of our photo collection</p>
+                    </div>
+                    <div class="gallery-controls">
+                        <div class="search-container">
+                            <input type="text" class="gallery-search" placeholder="Search photos...">
+                            <i data-lucide="search" class="search-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-grid" id="gallery-grid">
+                    <!-- Loading placeholders -->
+                    <div class="photo-loading-state" id="photo-loading">
+                        <div class="photo-loading-card">
+                            <div class="photo-loading-thumbnail"></div>
+                            <div class="photo-loading-content">
+                                <div class="photo-loading-title"></div>
+                                <div class="photo-loading-count"></div>
+                    </div>
+                        </div>
+                        <div class="photo-loading-card">
+                            <div class="photo-loading-thumbnail"></div>
+                            <div class="photo-loading-content">
+                                <div class="photo-loading-title"></div>
+                                <div class="photo-loading-count"></div>
+                            </div>
+                        </div>
+                        <div class="photo-loading-card">
+                            <div class="photo-loading-thumbnail"></div>
+                            <div class="photo-loading-content">
+                                <div class="photo-loading-title"></div>
+                                <div class="photo-loading-count"></div>
+                            </div>
+                        </div>
+                        <div class="photo-loading-card">
+                            <div class="photo-loading-thumbnail"></div>
+                            <div class="photo-loading-content">
+                                <div class="photo-loading-title"></div>
+                                <div class="photo-loading-count"></div>
+                            </div>
+                        </div>
+                        <div class="photo-loading-card">
+                            <div class="photo-loading-thumbnail"></div>
+                            <div class="photo-loading-content">
+                                <div class="photo-loading-title"></div>
+                                <div class="photo-loading-count"></div>
+                            </div>
+                        </div>
+                        <div class="photo-loading-card">
+                            <div class="photo-loading-thumbnail"></div>
+                            <div class="photo-loading-content">
+                                <div class="photo-loading-title"></div>
+                                <div class="photo-loading-count"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Photo Gallery Load More Button -->
+                <div class="load-more-container" id="photo-load-more-container" style="display: none;">
+                    <button class="load-more-btn" id="photo-load-more-btn">
+                        <span class="btn-text">Load More Albums</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-down" class="lucide lucide-arrow-down btn-icon"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Gallery Section -->
+        <section class="video-gallery-section">
+            <div class="container">
+                <div class="gallery-header">
+                    <div class="gallery-title-section">
+                        <h2 class="gallery-main-title">Video Gallery</h2>
+                        <p class="gallery-subtitle">Watch memorable moments from our school events</p>
+                    </div>
+                    <div class="gallery-controls">
+                        <div class="search-container">
+                            <input type="text" class="gallery-search" placeholder="Search videos...">
+                            <i data-lucide="search" class="search-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-gallery-grid" id="video-gallery-grid">
+                    <!-- Loading placeholders -->
+                    <div class="video-loading-state" id="video-loading">
+                        <div class="video-loading-card">
+                            <div class="video-loading-thumbnail"></div>
+                            <div class="video-loading-content">
+                                <div class="video-loading-title"></div>
+                                <div class="video-loading-count"></div>
+                            </div>
+                        </div>
+                        <div class="video-loading-card">
+                            <div class="video-loading-thumbnail"></div>
+                            <div class="video-loading-content">
+                                <div class="video-loading-title"></div>
+                                <div class="video-loading-count"></div>
+                    </div>
+                            </div>
+                        <div class="video-loading-card">
+                            <div class="video-loading-thumbnail"></div>
+                            <div class="video-loading-content">
+                                <div class="video-loading-title"></div>
+                                <div class="video-loading-count"></div>
+                        </div>
+                    </div>
+                        <div class="video-loading-card">
+                            <div class="video-loading-thumbnail"></div>
+                            <div class="video-loading-content">
+                                <div class="video-loading-title"></div>
+                                <div class="video-loading-count"></div>
+                            </div>
+                        </div>
+                        <div class="video-loading-card">
+                            <div class="video-loading-thumbnail"></div>
+                            <div class="video-loading-content">
+                                <div class="video-loading-title"></div>
+                                <div class="video-loading-count"></div>
+                    </div>
+                            </div>
+                        <div class="video-loading-card">
+                            <div class="video-loading-thumbnail"></div>
+                            <div class="video-loading-content">
+                                <div class="video-loading-title"></div>
+                                <div class="video-loading-count"></div>
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                <!-- Video Gallery Load More Button -->
+                <div class="load-more-container" id="video-load-more-container" style="display: none;">
+                    <button class="load-more-btn" id="video-load-more-btn">
+                        <span class="btn-text">Load More Albums</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-down" class="lucide lucide-arrow-down btn-icon"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Featured Album Carousel -->
+        <!-- Featured Album Banner -->
+        <section class="featured-album-banner section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Featured Album</h2>
+                    <p class="section-subtitle">Discover our most memorable moments and special collections</p>
+                </div>
+                
+                <div class="owl-carousel featured-banner-carousel" id="featured-banner-carousel">
+                    <!-- Loading placeholder -->
+                    <div class="featured-banner-loading" id="featured-banner-loading">
+                        <div class="d-flex justify-content-between">
+                            <div class="banner-content">
+                                <div class="loading-placeholder">
+                                    <div class="loading-box banner-title-box"></div>
+                                    <div class="loading-box banner-description-box"></div>
+                                    <div class="loading-box banner-button-box"></div>
+                            </div>
+                            </div>
+                            <div class="banner-image">
+                                <div class="loading-placeholder">
+                                    <div class="loading-box yearbook-cover-box"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+
+        <!-- Call to Action -->
+        <section class="cta-gallery section bg-primary text-white">
+            <!-- Loading Placeholder -->
+            <div class="cta-loading" id="cta-loading">
+                <div class="container">
+                    <div class="cta-content text-center">
+                        <div class="loading-placeholder">
+                            <div class="loading-box cta-title-box"></div>
+                            <div class="loading-box cta-subtitle-box"></div>
+                            <div class="loading-box cta-buttons-box"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dynamic CTA Content (hidden initially) -->
+            <div id="cta-container" style="display: none;">
+                <!-- CTA content will be dynamically loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Footer content will be dynamically generated by footer.js -->
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <!-- Cache manager loads first for better performance -->
+    <script src="/js/utils/cache-manager.js"></script>
+    <script src="/js/main.js" defer></script>
+    <script src="/js/footer.js" defer></script>
+    <script src="/js/components.js" defer></script>
+    <script src="/js/navbar.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    <script src="/js/pageLoader/galleryPageLoader.js"></script>
+    <script src="/js/application-modal.js" defer></script>
+    <script src="/js/components/cta.js" defer></script>
+    
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        // Initialize Lucide icons and theme
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize theme
+            function initializeTheme() {
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                document.documentElement.setAttribute('data-theme', savedTheme);
+                
+                // Update theme toggle icon
+                const themeToggle = document.getElementById('theme-toggle');
+                if (themeToggle) {
+                    const icon = themeToggle.querySelector('i');
+                    if (icon) {
+                        icon.setAttribute('data-lucide', savedTheme === 'dark' ? 'moon' : 'sun');
+                    }
+                }
+            }
+            
+            // Theme toggle functionality
+            function setupThemeToggle() {
+                const themeToggle = document.getElementById('theme-toggle');
+                if (themeToggle) {
+                    themeToggle.addEventListener('click', function() {
+                        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                        
+                        document.documentElement.setAttribute('data-theme', newTheme);
+                        localStorage.setItem('theme', newTheme);
+                        
+                        // Update icon
+                        const icon = themeToggle.querySelector('i');
+                        if (icon) {
+                            icon.setAttribute('data-lucide', newTheme === 'dark' ? 'moon' : 'sun');
+                            if (typeof lucide !== 'undefined') {
+                                lucide.createIcons();
+                            }
+                        }
+                    });
+                }
+            }
+            
+            // Initialize theme and toggle
+            initializeTheme();
+            setupThemeToggle();
+            
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            // Simple carousel fallback
+            function createSimpleCarousel() {
+                const items = document.querySelectorAll('.featured-banner-item');
+                const totalItems = items.length;
+                let currentItem = 0;
+
+                // Hide all items except first
+                items.forEach((item, index) => {
+                    item.style.display = index === 0 ? 'block' : 'none';
+                    item.style.opacity = index === 0 ? '1' : '0';
+                    item.style.transform = index === 0 ? 'translateX(0)' : 'translateX(100%)';
+                    item.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                });
+
+                // Create navigation arrows
+                const prevBtn = document.createElement('button');
+                prevBtn.innerHTML = '‹';
+                prevBtn.className = 'simple-prev';
+                prevBtn.style.cssText = `
+                    position: absolute;
+                    left: -25px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    border: none;
+                    background: rgba(255,255,255,0.9);
+                    color: #137fec;
+                    font-size: 24px;
+                    cursor: pointer;
+                    z-index: 10;
+                    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                `;
+
+                const nextBtn = document.createElement('button');
+                nextBtn.innerHTML = '›';
+                nextBtn.className = 'simple-next';
+                nextBtn.style.cssText = `
+                    position: absolute;
+                    right: -25px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    border: none;
+                    background: rgba(255,255,255,0.9);
+                    color: #137fec;
+                    font-size: 24px;
+                    cursor: pointer;
+                    z-index: 10;
+                    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                `;
+
+                const carousel = document.getElementById('featured-banner-carousel');
+                carousel.style.position = 'relative';
+                carousel.appendChild(prevBtn);
+                carousel.appendChild(nextBtn);
+
+                // Create dots
+                const dotsContainer = document.createElement('div');
+                dotsContainer.className = 'simple-dots';
+                dotsContainer.style.cssText = `
+                    text-align: center;
+                    margin-top: 2rem;
+                `;
+
+                for (let i = 0; i < totalItems; i++) {
+                    const dot = document.createElement('span');
+                    dot.className = `simple-dot ${i === 0 ? 'active' : ''}`;
+                    dot.style.cssText = `
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 50%;
+                        background: ${i === 0 ? '#137fec' : '#dee2e6'};
+                        margin: 0 5px;
+                        cursor: pointer;
+                        display: inline-block;
+                        transition: all 0.3s ease;
+                    `;
+                    dotsContainer.appendChild(dot);
+                }
+                carousel.appendChild(dotsContainer);
+
+                // Navigation functions
+                function showItem(index) {
+                    const prevIndex = currentItem;
+                    
+                    items.forEach((item, i) => {
+                        if (i === index) {
+                            // Current item - slide in from right
+                            item.style.display = 'block';
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateX(0)';
+                        } else if (i === prevIndex) {
+                            // Previous item - slide out to left
+                            item.style.transform = 'translateX(-100%)';
+                            item.style.opacity = '0';
+                            // Hide after animation
+                            setTimeout(() => {
+                                if (i !== index) item.style.display = 'none';
+                            }, 800);
+                        } else {
+                            // Other items - prepare for next slide
+                            item.style.display = 'none';
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateX(100%)';
+                        }
+                    });
+                    
+                    // Update dots
+                    document.querySelectorAll('.simple-dot').forEach((dot, i) => {
+                        dot.style.background = i === index ? '#137fec' : '#dee2e6';
+                    });
+                }
+
+                function nextSlide() {
+                    currentItem = (currentItem + 1) % totalItems;
+                    showItem(currentItem);
+                }
+
+                function prevSlide() {
+                    currentItem = (currentItem - 1 + totalItems) % totalItems;
+                    showItem(currentItem);
+                }
+
+                // Event listeners
+                nextBtn.addEventListener('click', nextSlide);
+                prevBtn.addEventListener('click', prevSlide);
+                
+                document.querySelectorAll('.simple-dot').forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        currentItem = index;
+                        showItem(currentItem);
+                    });
+                });
+
+                // Auto-play
+                setInterval(nextSlide, 5000);
+
+            }
+
+            // Initialize Featured Banner Carousel with proper loading sequence
+            let retryCount = 0;
+            const maxRetries = 10;
+            
+            function initializeCarousel() {
+                if (typeof $ !== 'undefined' && typeof $.fn.owlCarousel !== 'undefined') {
+                    console.log('Initializing Owl Carousel...');
+                    try {
+                        $('#featured-banner-carousel').owlCarousel({
+                            items: 1,
+                            loop: true,
+                            autoplay: true,
+                            autoplayTimeout: 5000,
+                            autoplayHoverPause: true,
+                            nav: true,
+                            navText: ['', ''],
+                            dots: true,
+                            smartSpeed: 800,
+                            animateOut: 'slideOutLeft',
+                            animateIn: 'slideInRight',
+                            responsive: {
+                                0: {
+                                    items: 1,
+                                    nav: true
+                                },
+                                768: {
+                                    items: 1,
+                                    nav: true
+                                },
+                                1024: {
+                                    items: 1,
+                                    nav: true
+                                }
+                            }
+                        });
+                        console.log('Owl Carousel initialized successfully!');
+                    } catch (error) {
+                        console.error('Error initializing Owl Carousel:', error);
+                        // Fallback: create a simple carousel
+                        createSimpleCarousel();
+                    }
+                } else {
+                    retryCount++;
+                    if (retryCount < maxRetries) {
+                        setTimeout(initializeCarousel, 500);
+                    } else {
+                        createSimpleCarousel();
+                    }
+                }
+            }
+
+            // Wait for all scripts to load, then initialize
+            if (document.readyState === 'complete') {
+                setTimeout(initializeCarousel, 500);
+            } else {
+                window.addEventListener('load', function() {
+                    setTimeout(initializeCarousel, 500);
+                });
+            }
+        });
+        
+    </script>
+    
+    <!-- Tawk.to Live Chat Widget -->
+    <script src="/js/components/tawk-to.js"></script>
+</body>
+</html> 
+
+
+
+
+

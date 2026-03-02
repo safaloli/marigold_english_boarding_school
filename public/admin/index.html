@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Marigold English Boarding School - Admin Dashboard</title>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://unpkg.com/lucide@latest/dist/umd/lucide.js" as="script">
+
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Critical CSS first -->
+    <link rel="stylesheet" href="css/output.tailwind.css">
+    <link rel="stylesheet" href="css/admin.css?v=1.0.8">
+    <link rel="stylesheet" href="css/searchable-select.css">
+    <link rel="preload" href="css/admin-responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/admission-requests.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/contact-requests.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <!-- Load Poppins font without preconnect to avoid warnings -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Dynamic Favicon Loader -->
+    <script src="/js/favicon-loader.js"></script>
+
+    <!-- Fallback for browsers that don't support preload -->
+    <noscript>
+        <link rel="stylesheet" href="css/admin-responsive.css">
+        <link rel="stylesheet" href="css/admission-requests.css">
+        <link rel="stylesheet" href="css/contact-requests.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
+
+    <!-- Loading Screen Management -->
+    <script>
+        // Optimized loading screen management for Admin Dashboard
+        let adminLoadingHidden = false;
+
+        function hideAdminLoadingScreen() {
+            if (adminLoadingHidden) return;
+            adminLoadingHidden = true;
+
+            // Hide all loading placeholders
+            const loadingElements = document.querySelectorAll('.loading-placeholder, .loading-box, [id$="-loading"]');
+            loadingElements.forEach(el => {
+                el.style.transition = 'opacity 0.3s ease-out';
+                el.style.opacity = '0';
+                setTimeout(() => {
+                    el.style.display = 'none';
+                }, 300);
+            });
+
+            // Show dynamic content
+            const dynamicElements = document.querySelectorAll('[id$="-dynamic"], .admin-content');
+            dynamicElements.forEach(el => {
+                el.style.display = 'block';
+            });
+        }
+
+        // Hide loading screen when DOM is ready
+        document.addEventListener('DOMContentLoaded', function () {
+            // Override global fetch to prevent caching
+            if (typeof ApiOptimizer !== 'undefined') {
+                const apiOptimizer = new ApiOptimizer();
+                apiOptimizer.overrideGlobalFetch();
+                console.log('🚫 Global fetch override enabled - all requests will bypass cache');
+            }
+
+            // Hide loading screen after a short delay to allow content to load
+            setTimeout(hideAdminLoadingScreen, 800);
+        });
+
+        // Fallback: Hide loading screen after 2 seconds maximum
+        setTimeout(hideAdminLoadingScreen, 2000);
+    </script>
+
+</head>
+
+<body>
+
+    
+
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="brand">
+                    <div class="brand-logo">
+                        <img id="sidebar-favicon" src="" alt="Site Favicon"
+                            style="display: none; width: 32px; height: 32px; object-fit: contain; border-radius: var(--radius-lg);">
+                        <svg id="sidebar-logo-fallback" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                        </svg>
+                    </div>
+                    <div class="brand-text">
+                        <h1 id="sidebar-school-name"></h1>
+                        <span>School Admin</span>
+                    </div>
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-content">
+                <div class="nav-section">
+                    <h3 class="nav-title">Main</h3>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="#dashboard" class="nav-link active" data-section="dashboard"
+                                data-tooltip="Dashboard">
+                                <i data-lucide="layout-dashboard"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#admission-requests" class="nav-link" data-section="admission-requests"
+                                data-tooltip="Admission Requests">
+                                <i data-lucide="user-plus"></i>
+                                <span>Admission Requests</span>
+                                <span class="badge" id="admission-badge" style="display: none;">0</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact-requests" class="nav-link" data-section="contact-requests"
+                                data-tooltip="Contact Requests">
+                                <i data-lucide="mail"></i>
+                                <span>Contact Requests</span>
+                                <span class="badge" id="contact-badge" style="display: none;">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-title">Content Management</h3>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="#home-content" class="nav-link" data-section="home-content"
+                                data-tooltip="Home Page">
+                                <i data-lucide="home"></i>
+                                <span>Home Page</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#about-content" class="nav-link" data-section="about-content"
+                                data-tooltip="About Page">
+                                <i data-lucide="info"></i>
+                                <span>About Page</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#academics-content" class="nav-link" data-section="academics-content"
+                                data-tooltip="Academics Page">
+                                <i data-lucide="book-open"></i>
+                                <span>Academics Page</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact-content" class="nav-link" data-section="contact-content"
+                                data-tooltip="Contact Page">
+                                <i data-lucide="phone"></i>
+                                <span>Contact Page</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#events-content" class="nav-link" data-section="events-content"
+                                data-tooltip="Notices & Events">
+                                <i data-lucide="calendar"></i>
+                                <span>Notices & Events</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#gallery" class="nav-link" data-section="gallery" data-tooltip="Gallery">
+                                <i data-lucide="image"></i>
+                                <span>Gallery</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#downloads" class="nav-link" data-section="downloads" data-tooltip="downloads">
+                                <i data-lucide="download"></i>
+                                <span>Downloads</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-title">Website Settings</h3>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="#website-settings" class="nav-link" data-section="website-settings"
+                                data-tooltip="General Settings">
+                                <i data-lucide="settings"></i>
+                                <span>General Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-title">User Management</h3>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="#users" class="nav-link" data-section="users" data-tooltip="Users">
+                                <i data-lucide="users"></i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="user-profile-dropdown">
+                    <div class="user-profile" id="userProfileToggle">
+                        <div class="user-avatar">
+                            <div class="avatar-placeholder loading-placeholder"
+                                style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%); display: flex; align-items: center; justify-content: center; color: #9ca3af; font-weight: 600; font-size: 16px; animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;">
+                                <div class="loading-dot"></div>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face"
+                                alt="Admin User" style="display: none;">
+                            <div class="status-indicator online"></div>
+                        </div>
+                        <div class="user-info">
+                            <h4 class="loading-text">Loading...</h4>
+                            <p class="loading-text">Loading...</p>
+                        </div>
+                        <div class="dropdown-arrow">
+                            <i data-lucide="chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="user-dropdown-menu" id="userDropdownMenu">
+                        <div class="dropdown-item" id="changePasswordDropdownBtn">
+                            <i data-lucide="lock"></i>
+                            <span>Change Password</span>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-item" id="logoutDropdownBtn">
+                            <i data-lucide="log-out"></i>
+                            <span>Logout</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="desktop-sidebar-toggle" id="desktopSidebarToggle" title="Toggle Sidebar">
+                        <i data-lucide="panel-left-close"></i>
+                    </button>
+                    <h2 class="page-title" id="pageTitle">Dashboard</h2>
+                </div>
+                <div class="header-right">
+                    <button class="btn btn-warning btn-sm" id="admin-cache-clear-btn"
+                        title="Clear client-side cache on public pages">
+                        <i data-lucide="trash-2"></i>
+                        <span>Clear Client Cache</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content" id="pageContent">
+                <!-- Content will be loaded dynamically here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- modal -->
+     <div class="modalOverlay hide"></div>
+
+
+    <!-- Scripts - Load with performance optimizations -->
+    <!-- Cache busting version: Update the 'v' parameter when you make changes to force reload -->
+    <script src="js/utils/notification.js?v=1.0.2" defer></script>
+    <script src="js/utils/deleteConfirmation.js?v=1.0.2" defer></script>
+    <script src="js/utils/SaveButton.js?v=1.0.2" defer></script>
+    <script src="js/utils/ImageUpload.js?v=1.0.2" defer></script>
+    <script src="js/utils/SearchableSelect.js?v=1.0.0" defer></script>
+    <script src="js/admin.js?v=1.1.2" defer></script>
+    <script src="js/homepage-admin.js?v=1.0.2" defer></script>
+
+    <!-- Cloudinary Upload Widget - Load async -->
+    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript" async></script>
+    <!-- <script>
+        // Set Cloudinary configuration
+        window.CLOUDINARY_CLOUD_NAME = 'dtjr46kcg';
+        window.CLOUDINARY_UPLOAD_PRESET = 'marigold_events'; // We'll create this preset
+        window.CLOUDINARY_API_KEY = '163961827116715';
+    </script> -->
+
+    <!-- Performance Optimizer -->
+    <script src="/js/performance-optimizer.js?v=1.0.2" defer></script>
+    <script src="js/utils/api-optimizer.js?v=1.0.2" defer></script>
+
+    <!-- Page Loader Scripts - Load with defer for better performance -->
+    <script src="js/pageLoader/dashboardLoader.js?v=1.0.2" defer></script>
+    <script src="js/utils/auth-fix.js?v=1.0.4" defer></script>
+    <script src="js/pageLoader/admissionRequestsLoader.js?v=1.0.2" defer></script>
+    <script src="js/pageLoader/contactRequestsLoader.js?v=1.0.2" defer></script>
+    <script src="js/pageLoader/eventsLoader.js?v=1.0.2" defer></script>
+    <script src="js/pageLoader/galleryLoader.js?v=1.0.2" defer></script>
+    <script src="js/pageLoader/usersLoader.js?v=1.0.2" defer></script>
+    <script src="js/pageLoader/changePasswordLoader.js?v=1.0.2" defer></script>
+    <script src="js/pageLoader/websiteSettingsLoader.js?v=1.0.2" defer></script>
+    <script src="js/pageLoader/homepageContentLoader.js?v=1.2.18" defer></script>
+    <script src="js/pageLoader/aboutContentLoader.js?v=1.0.2" defer></script>
+    <script src="js/pageLoader/academicsContentLoader.js?v=1.0.2" defer></script>
+    <script src="js/pageLoader/contactContentLoader.js?v=1.0.2" defer></script>
+    <script type="module" src="js/pageLoader/downloadsContentLoader.js?v=1.0.2" defer></script>
+    <script src="js/components/cloudinaryUploader.js?v=1.0.2" defer></script>
+    <script src="js/components/SaveButton.js?v=1.0.2" defer></script>
+    <script src="js/utils/ImageUpload.js?v=1.0.2" defer></script>
+
+    <!-- Cache Clear Utility -->
+    <script src="js/utils/cache-clear.js?v=2.0.0" defer></script>
+
+    <script>
+        // Initialize Lucide icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+            console.log("lucide icon created")
+        } else {
+            console.warn('Lucide library not loaded');
+        }
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

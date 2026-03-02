@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics at Marigold School - Building Strong Foundations for a Bright Future</title>
+    <meta name="description" content="Discover our comprehensive academic programs, modern teaching methodologies, and holistic approach to education at Marigold School. From pre-primary to secondary, we nurture excellence.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://unpkg.com/lucide@latest/dist/umd/lucide.js" as="script">
+    
+    <!-- Lucide Icons - Load async -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" async></script>
+    
+    <!-- Custom CSS - Load critical CSS first -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preload" href="css/components.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Fallback for browsers that don't support preload -->
+    <noscript>
+        <link rel="stylesheet" href="css/components.css">
+        <link rel="stylesheet" href="css/responsive.css">
+    </noscript>
+    
+    <!-- Dynamic Favicon Loader -->
+    <script src="/js/favicon-loader.js"></script>
+    
+    <!-- Loading Screen Management -->
+    <script>
+        // Optimized loading screen management for Academics page
+        let academicsLoadingHidden = false;
+        
+        function hideAcademicsLoadingScreen() {
+            if (academicsLoadingHidden) return;
+            academicsLoadingHidden = true;
+            
+            // Hide all loading placeholders
+            const loadingElements = document.querySelectorAll('[id$="-loading"], .loading-placeholder, .loading-box');
+            loadingElements.forEach(el => {
+                el.style.transition = 'opacity 0.3s ease-out';
+                el.style.opacity = '0';
+                setTimeout(() => {
+                    el.style.display = 'none';
+                }, 300);
+            });
+            
+            // Show dynamic content
+            const dynamicElements = document.querySelectorAll('[id$="-dynamic"]');
+            dynamicElements.forEach(el => {
+                el.style.display = 'block';
+            });
+        }
+        
+        // Hide loading screen when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide loading screen after a short delay to allow content to load
+            setTimeout(hideAcademicsLoadingScreen, 1000);
+        });
+        
+        // Fallback: Hide loading screen after 3 seconds maximum
+        setTimeout(hideAcademicsLoadingScreen, 3000);
+    </script>
+</head>
+<body>
+    <!-- Main Content -->
+    <main class="main">
+
+
+        <!-- Academic Philosophy / Approach -->
+        <section class="academic-philosophy section">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="academic-philosophy-loading" id="academic-philosophy-loading">
+                    <div class="loading-box philosophy-title-box"></div>
+                    <div class="philosophy-content">
+                        <div class="philosophy-text">
+                            <div class="loading-box philosophy-description-box"></div>
+                            <div class="philosophy-highlights">
+                                <div class="highlight-item loading-placeholder">
+                                    <div class="loading-box highlight-icon-box"></div>
+                                    <div class="loading-box highlight-title-box"></div>
+                                    <div class="loading-box highlight-description-box"></div>
+                                </div>
+                                <div class="highlight-item loading-placeholder">
+                                    <div class="loading-box highlight-icon-box"></div>
+                                    <div class="loading-box highlight-title-box"></div>
+                                    <div class="loading-box highlight-description-box"></div>
+                                </div>
+                                <div class="highlight-item loading-placeholder">
+                                    <div class="loading-box highlight-icon-box"></div>
+                                    <div class="loading-box highlight-title-box"></div>
+                                    <div class="loading-box highlight-description-box"></div>
+                                </div>
+                                <div class="highlight-item loading-placeholder">
+                                    <div class="loading-box highlight-icon-box"></div>
+                                    <div class="loading-box highlight-title-box"></div>
+                                    <div class="loading-box highlight-description-box"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="philosophy-image">
+                            <div class="loading-box philosophy-image-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) - Populated by JavaScript ONLY -->
+                <div class="academic-philosophy-dynamic" id="academic-philosophy-dynamic" style="display: none;">
+                <h2 class="section-title"></h2>
+                <div class="philosophy-content">
+                    <div class="philosophy-text">
+                        <p class="philosophy-description"></p>
+                        <div class="philosophy-highlights">
+                            <!-- Philosophy highlights populated from database -->
+                        </div>
+                    </div>
+                    <div class="philosophy-image">
+                        <img src="" alt="" loading="lazy" style="display: none;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Curriculum Overview -->
+        <section class="curriculum-overview section bg-secondary">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="curriculum-overview-loading" id="curriculum-overview-loading">
+                    <div class="section-header text-center loading-placeholder">
+                        <div class="loading-box curriculum-overview-title-box"></div>
+                        <div class="loading-box curriculum-overview-subtitle-box"></div>
+                    </div>
+                    <div class="curriculum-grid">
+                        <div class="curriculum-card loading-placeholder">
+                            <div class="loading-box curriculum-icon-box"></div>
+                            <div class="loading-box curriculum-title-box"></div>
+                            <div class="loading-box curriculum-description-box"></div>
+                        </div>
+                        <div class="curriculum-card loading-placeholder">
+                            <div class="loading-box curriculum-icon-box"></div>
+                            <div class="loading-box curriculum-title-box"></div>
+                            <div class="loading-box curriculum-description-box"></div>
+                        </div>
+                        <div class="curriculum-card loading-placeholder">
+                            <div class="loading-box curriculum-icon-box"></div>
+                            <div class="loading-box curriculum-title-box"></div>
+                            <div class="loading-box curriculum-description-box"></div>
+                        </div>
+                        <div class="curriculum-card loading-placeholder">
+                            <div class="loading-box curriculum-icon-box"></div>
+                            <div class="loading-box curriculum-title-box"></div>
+                            <div class="loading-box curriculum-description-box"></div>
+                        </div>
+                        <div class="curriculum-card loading-placeholder">
+                            <div class="loading-box curriculum-icon-box"></div>
+                            <div class="loading-box curriculum-title-box"></div>
+                            <div class="loading-box curriculum-description-box"></div>
+                        </div>
+                        <div class="curriculum-card loading-placeholder">
+                            <div class="loading-box curriculum-icon-box"></div>
+                            <div class="loading-box curriculum-title-box"></div>
+                            <div class="loading-box curriculum-description-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="curriculum-overview-dynamic" id="curriculum-overview-dynamic" style="display: none;">
+                <div class="section-header text-center">
+                    <h2 class="section-title"></h2>
+                    <p class="section-subtitle"></p>
+                </div>
+                
+                <div class="curriculum-grid">
+                    <!-- Curriculum cards populated from database -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Grade Levels / Academic Programs -->
+        <section class="grade-levels section">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="grade-levels-loading" id="grade-levels-loading">
+                    <div class="section-header text-center">
+                        <div class="loading-box grade-levels-title-box"></div>
+                        <div class="loading-box grade-levels-subtitle-box"></div>
+                    </div>
+                    <div class="grade-levels-grid">
+                        <div class="grade-level-card loading-placeholder">
+                            <div class="loading-box grade-level-image-box"></div>
+                            <div class="grade-level-content">
+                                <div class="loading-box grade-level-title-box"></div>
+                                <div class="loading-box grade-level-description-box"></div>
+                                <div class="grade-features">
+                                    <div class="feature-item loading-placeholder">
+                                        <div class="loading-box feature-icon-box"></div>
+                                        <div class="loading-box feature-text-box"></div>
+                                    </div>
+                                    <div class="feature-item loading-placeholder">
+                                        <div class="loading-box feature-icon-box"></div>
+                                        <div class="loading-box feature-text-box"></div>
+                                    </div>
+                                    <div class="feature-item loading-placeholder">
+                                        <div class="loading-box feature-icon-box"></div>
+                                        <div class="loading-box feature-text-box"></div>
+                                    </div>
+                                    <div class="feature-item loading-placeholder">
+                                        <div class="loading-box feature-icon-box"></div>
+                                        <div class="loading-box feature-text-box"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grade-level-card reverse loading-placeholder">
+                            <div class="loading-box grade-level-image-box"></div>
+                            <div class="grade-level-content">
+                                <div class="loading-box grade-level-title-box"></div>
+                                <div class="loading-box grade-level-description-box"></div>
+                                <div class="grade-features">
+                                    <div class="feature-item loading-placeholder">
+                                        <div class="loading-box feature-icon-box"></div>
+                                        <div class="loading-box feature-text-box"></div>
+                                    </div>
+                                    <div class="feature-item loading-placeholder">
+                                        <div class="loading-box feature-icon-box"></div>
+                                        <div class="loading-box feature-text-box"></div>
+                                    </div>
+                                    <div class="feature-item loading-placeholder">
+                                        <div class="loading-box feature-icon-box"></div>
+                                        <div class="loading-box feature-text-box"></div>
+                                    </div>
+                                    <div class="feature-item loading-placeholder">
+                                        <div class="loading-box feature-icon-box"></div>
+                                        <div class="loading-box feature-text-box"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grade-level-card loading-placeholder">
+                            <div class="loading-box grade-level-image-box"></div>
+                            <div class="grade-level-content">
+                                <div class="loading-box grade-level-title-box"></div>
+                                <div class="loading-box grade-level-description-box"></div>
+                                <div class="grade-features">
+                                    <div class="feature-item loading-placeholder">
+                                        <div class="loading-box feature-icon-box"></div>
+                                        <div class="loading-box feature-text-box"></div>
+                                    </div>
+                                    <div class="feature-item loading-placeholder">
+                                        <div class="loading-box feature-icon-box"></div>
+                                        <div class="loading-box feature-text-box"></div>
+                                    </div>
+                                    <div class="feature-item loading-placeholder">
+                                        <div class="loading-box feature-icon-box"></div>
+                                        <div class="loading-box feature-text-box"></div>
+                                    </div>
+                                    <div class="feature-item loading-placeholder">
+                                        <div class="loading-box feature-icon-box"></div>
+                                        <div class="loading-box feature-text-box"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grade-level-card reverse loading-placeholder">
+                            <div class="loading-box grade-level-image-box"></div>
+                            <div class="grade-level-content">
+                                <div class="loading-box grade-level-title-box"></div>
+                                <div class="loading-box grade-level-description-box"></div>
+                                <div class="grade-features">
+                                    <div class="feature-item loading-placeholder">
+                                        <div class="loading-box feature-icon-box"></div>
+                                        <div class="loading-box feature-text-box"></div>
+                                    </div>
+                                    <div class="feature-item loading-placeholder">
+                                        <div class="loading-box feature-icon-box"></div>
+                                        <div class="loading-box feature-text-box"></div>
+                                    </div>
+                                    <div class="feature-item loading-placeholder">
+                                        <div class="loading-box feature-icon-box"></div>
+                                        <div class="loading-box feature-text-box"></div>
+                                    </div>
+                                    <div class="feature-item loading-placeholder">
+                                        <div class="loading-box feature-icon-box"></div>
+                                        <div class="loading-box feature-text-box"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="grade-levels-dynamic" id="grade-levels-dynamic" style="display: none;">
+                <div class="section-header text-center">
+                    <h2 class="section-title"></h2>
+                    <p class="section-subtitle"></p>
+                </div>
+                
+                <div class="grade-levels-grid">
+                    <!-- Grade level cards populated from database -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaching Methodologies -->
+        <section class="teaching-methods section bg-secondary">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="teaching-methods-loading" id="teaching-methods-loading">
+                    <div class="section-header text-center loading-placeholder">
+                        <div class="loading-box teaching-methods-title-box"></div>
+                        <div class="loading-box teaching-methods-subtitle-box"></div>
+                    </div>
+                    <div class="methods-grid">
+                        <div class="method-card loading-placeholder">
+                            <div class="loading-box method-icon-box"></div>
+                            <div class="loading-box method-title-box"></div>
+                            <div class="loading-box method-description-box"></div>
+                        </div>
+                        <div class="method-card loading-placeholder">
+                            <div class="loading-box method-icon-box"></div>
+                            <div class="loading-box method-title-box"></div>
+                            <div class="loading-box method-description-box"></div>
+                        </div>
+                        <div class="method-card loading-placeholder">
+                            <div class="loading-box method-icon-box"></div>
+                            <div class="loading-box method-title-box"></div>
+                            <div class="loading-box method-description-box"></div>
+                        </div>
+                        <div class="method-card loading-placeholder">
+                            <div class="loading-box method-icon-box"></div>
+                            <div class="loading-box method-title-box"></div>
+                            <div class="loading-box method-description-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="teaching-methods-dynamic" id="teaching-methods-dynamic" style="display: none;">
+                <div class="section-header text-center">
+                    <h2 class="section-title"></h2>
+                    <p class="section-subtitle"></p>
+                </div>
+                
+                <div class="methods-grid">
+                    <!-- Teaching method cards populated from database -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Beyond Academics -->
+        <section class="beyond-academics section">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="beyond-academics-loading" id="beyond-academics-loading">
+                    <div class="section-header text-center loading-placeholder">
+                        <div class="loading-box beyond-academics-title-box"></div>
+                        <div class="loading-box beyond-academics-subtitle-box"></div>
+                    </div>
+                    <div class="extracurricular-grid">
+                        <div class="extracurricular-category loading-placeholder">
+                            <div class="loading-box category-title-box"></div>
+                            <div class="activity-list">
+                                <div class="activity-item loading-placeholder">
+                                    <div class="loading-box activity-icon-box"></div>
+                                    <div class="loading-box activity-text-box"></div>
+                                </div>
+                                <div class="activity-item loading-placeholder">
+                                    <div class="loading-box activity-icon-box"></div>
+                                    <div class="loading-box activity-text-box"></div>
+                                </div>
+                                <div class="activity-item loading-placeholder">
+                                    <div class="loading-box activity-icon-box"></div>
+                                    <div class="loading-box activity-text-box"></div>
+                                </div>
+                                <div class="activity-item loading-placeholder">
+                                    <div class="loading-box activity-icon-box"></div>
+                                    <div class="loading-box activity-text-box"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="extracurricular-category loading-placeholder">
+                            <div class="loading-box category-title-box"></div>
+                            <div class="activity-list">
+                                <div class="activity-item loading-placeholder">
+                                    <div class="loading-box activity-icon-box"></div>
+                                    <div class="loading-box activity-text-box"></div>
+                                </div>
+                                <div class="activity-item loading-placeholder">
+                                    <div class="loading-box activity-icon-box"></div>
+                                    <div class="loading-box activity-text-box"></div>
+                                </div>
+                                <div class="activity-item loading-placeholder">
+                                    <div class="loading-box activity-icon-box"></div>
+                                    <div class="loading-box activity-text-box"></div>
+                                </div>
+                                <div class="activity-item loading-placeholder">
+                                    <div class="loading-box activity-icon-box"></div>
+                                    <div class="loading-box activity-text-box"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="extracurricular-category loading-placeholder">
+                            <div class="loading-box category-title-box"></div>
+                            <div class="activity-list">
+                                <div class="activity-item loading-placeholder">
+                                    <div class="loading-box activity-icon-box"></div>
+                                    <div class="loading-box activity-text-box"></div>
+                                </div>
+                                <div class="activity-item loading-placeholder">
+                                    <div class="loading-box activity-icon-box"></div>
+                                    <div class="loading-box activity-text-box"></div>
+                                </div>
+                                <div class="activity-item loading-placeholder">
+                                    <div class="loading-box activity-icon-box"></div>
+                                    <div class="loading-box activity-text-box"></div>
+                                </div>
+                                <div class="activity-item loading-placeholder">
+                                    <div class="loading-box activity-icon-box"></div>
+                                    <div class="loading-box activity-text-box"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="beyond-academics-dynamic" id="beyond-academics-dynamic" style="display: none;">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Beyond Academics</h2>
+                    <p class="section-subtitle">Holistic development through extracurricular activities and programs</p>
+                </div>
+                
+                <div class="extracurricular-grid">
+                    <div class="extracurricular-category">
+                        <h3>Arts & Culture</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <i data-lucide="music"></i>
+                                <span>Music & Instrumental</span>
+                            </div>
+                            <div class="activity-item">
+                                <i data-lucide="radio"></i>
+                                <span>Dance & Movement</span>
+                            </div>
+                            <div class="activity-item">
+                                <i data-lucide="palette"></i>
+                                <span>Visual Arts</span>
+                            </div>
+                            <div class="activity-item">
+                                <i data-lucide="drama"></i>
+                                <span>Drama & Theater</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="extracurricular-category">
+                        <h3>Sports & Fitness</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <i data-lucide="circle"></i>
+                                <span>Football</span>
+                            </div>
+                            <div class="activity-item">
+                                <i data-lucide="circle"></i>
+                                <span>Basketball</span>
+                            </div>
+                            <div class="activity-item">
+                                <i data-lucide="trophy"></i>
+                                <span>Badminton</span>
+                            </div>
+                            <div class="activity-item">
+                                <i data-lucide="activity"></i>
+                                <span>Athletics</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="extracurricular-category">
+                        <h3>Leadership & Clubs</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <i data-lucide="message-square"></i>
+                                <span>Debate Club</span>
+                            </div>
+                            <div class="activity-item">
+                                <i data-lucide="leaf"></i>
+                                <span>Environment Club</span>
+                            </div>
+                            <div class="activity-item">
+                                <i data-lucide="code"></i>
+                                <span>IT Club</span>
+                            </div>
+                            <div class="activity-item">
+                                <i data-lucide="heart"></i>
+                                <span>Community Service</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Achievements -->
+        <section class="academic-achievements section bg-secondary">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="academic-achievements-loading" id="academic-achievements-loading">
+                    <div class="section-header text-center loading-placeholder">
+                        <div class="loading-box academic-achievements-title-box"></div>
+                        <div class="loading-box academic-achievements-subtitle-box"></div>
+                            </div>
+                    <div class="achievements-grid">
+                        <div class="achievement-card loading-placeholder">
+                            <div class="loading-box achievement-icon-box"></div>
+                            <div class="loading-box achievement-number-box"></div>
+                            <div class="loading-box achievement-label-box"></div>
+                            </div>
+                        <div class="achievement-card loading-placeholder">
+                            <div class="loading-box achievement-icon-box"></div>
+                            <div class="loading-box achievement-number-box"></div>
+                            <div class="loading-box achievement-label-box"></div>
+                            </div>
+                        <div class="achievement-card loading-placeholder">
+                            <div class="loading-box achievement-icon-box"></div>
+                            <div class="loading-box achievement-number-box"></div>
+                            <div class="loading-box achievement-label-box"></div>
+                            </div>
+                        <div class="achievement-card loading-placeholder">
+                            <div class="loading-box achievement-icon-box"></div>
+                            <div class="loading-box achievement-number-box"></div>
+                            <div class="loading-box achievement-label-box"></div>
+                    </div>
+                </div>
+            </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="academic-achievements-dynamic" id="academic-achievements-dynamic" style="display: none;">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Academic Achievements</h2>
+                    <p class="section-subtitle">Celebrating our students' success and academic excellence</p>
+                </div>
+                
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i data-lucide="trophy"></i>
+                        </div>
+                        <div class="achievement-number">95%</div>
+                        <div class="achievement-label">Students Score Distinction in SEE</div>
+                    </div>
+                    
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i data-lucide="medal"></i>
+                        </div>
+                        <div class="achievement-number">100%</div>
+                        <div class="achievement-label">SEE Pass Rate</div>
+                    </div>
+                    
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i data-lucide="star"></i>
+                        </div>
+                        <div class="achievement-number">50+</div>
+                        <div class="achievement-label">Competition Winners</div>
+                    </div>
+                    
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i data-lucide="graduation-cap"></i>
+                        </div>
+                        <div class="achievement-number">200+</div>
+                        <div class="achievement-label">Successful Alumni</div>
+                    </div>
+                </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section section">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="cta-section-loading" id="cta-section-loading">
+                    <div class="cta-content text-center loading-placeholder">
+                        <div class="loading-box cta-title-box"></div>
+                        <div class="loading-box cta-description-box"></div>
+                        <div class="cta-buttons">
+                            <div class="loading-box cta-button-box"></div>
+                            <div class="loading-box cta-button-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="cta-section-dynamic" id="cta-section-dynamic" style="display: none;">
+                <div class="cta-content text-center">
+                    <h2 class="cta-title">Ready to Join Our Academic Excellence?</h2>
+                    <p class="cta-description">
+                        Discover how Marigold School can nurture your child's academic potential and prepare them for a bright future.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="/contact.html" class="btn btn-outline">
+                            <i data-lucide="phone"></i>
+                            Contact Us
+                        </a>
+                        <button class="btn btn-secondary" onclick="openApplicationModal()">
+                            <i data-lucide="user-plus"></i>
+                            Apply for Admission
+                        </button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Footer content will be dynamically generated by footer.js -->
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="/js/main.js"></script>
+    <script src="/js/footer.js"></script>
+    <script src="/js/components.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/application-modal.js"></script>
+    <script>
+        // Initialize Lucide icons and theme
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize theme
+            function initializeTheme() {
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                document.documentElement.setAttribute('data-theme', savedTheme);
+                
+                // Update theme toggle icon
+                const themeToggle = document.getElementById('theme-toggle');
+                if (themeToggle) {
+                    const icon = themeToggle.querySelector('i');
+                    if (icon) {
+                        icon.setAttribute('data-lucide', savedTheme === 'dark' ? 'moon' : 'sun');
+                    }
+                }
+            }
+            
+            // Theme toggle functionality
+            function setupThemeToggle() {
+                const themeToggle = document.getElementById('theme-toggle');
+                if (themeToggle) {
+                    themeToggle.addEventListener('click', function() {
+                        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                        
+                        document.documentElement.setAttribute('data-theme', newTheme);
+                        localStorage.setItem('theme', newTheme);
+                        
+                        // Update icon
+                        const icon = themeToggle.querySelector('i');
+                        if (icon) {
+                            icon.setAttribute('data-lucide', newTheme === 'dark' ? 'moon' : 'sun');
+                            if (typeof lucide !== 'undefined') {
+                                lucide.createIcons();
+                            }
+                        }
+                    });
+                }
+            }
+            
+            // Initialize theme and toggle
+            initializeTheme();
+            setupThemeToggle();
+            
+            // Initialize counter animation
+            initializeCounterAnimation();
+            
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+        
+        // Counter animation function
+        function initializeCounterAnimation() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            const animateCounter = (element) => {
+                const target = parseInt(element.getAttribute('data-target'));
+                const duration = 2000; // 2 seconds
+                const increment = target / (duration / 16); // 60fps
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    element.textContent = Math.floor(current);
+                }, 16);
+                
+                element.classList.add('animate');
+            };
+            
+            // Intersection Observer to trigger animation when section is visible
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        statNumbers.forEach(animateCounter);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const achievementsSection = document.querySelector('.achievements-highlight');
+            if (achievementsSection) {
+                observer.observe(achievementsSection);
+            }
+        };
+    </script>
+    
+    <!-- Cache manager for better performance -->
+    <script src="/js/utils/cache-manager.js"></script>
+    
+    <!-- Page Loader -->
+    <script src="/js/pageLoader/academics-loader.js"></script>
+    
+    <!-- Tawk.to Live Chat Widget -->
+    <script src="/js/components/tawk-to.js"></script>
+</body>
+</html>

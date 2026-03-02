@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Marigold School</title>
+    <meta name="description"
+        content="Learn about Marigold School's history, mission, values, and commitment to excellence in education since 1995.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://unpkg.com/lucide@latest/dist/umd/lucide.js" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" as="script">
+
+    <!-- Lucide Icons - Load async -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" async></script>
+
+    <!-- jQuery - Load async -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" async></script>
+
+    <!-- Owl Carousel - Load async -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" async></script>
+
+    <!-- Custom CSS - Load critical CSS first -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preload" href="css/components.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <!-- Fallback for browsers that don't support preload -->
+    <noscript>
+        <link rel="stylesheet" href="css/components.css">
+        <link rel="stylesheet" href="css/responsive.css">
+    </noscript>
+
+    <!-- Dynamic Favicon Loader -->
+    <script src="/js/favicon-loader.js"></script>
+
+    <!-- Loading Screen Management -->
+    <script>
+        // Optimized loading screen management for About page
+        let loadingScreenHidden = false;
+
+        function hideLoadingScreen() {
+            if (loadingScreenHidden) return;
+            loadingScreenHidden = true;
+
+            // Hide the main page loading screen if it exists
+            const pageLoader = document.querySelector('.loading-screen, .page-loader');
+            if (pageLoader) {
+                pageLoader.style.display = 'none';
+            }
+
+            // Note: Section loading placeholders and dynamic content are managed by aboutPageLoader.js
+            // This ensures database content loads BEFORE showing sections (no flash of static content)
+        }
+
+        // Hide loading screen when DOM is ready
+        document.addEventListener('DOMContentLoaded', function () {
+            // Hide loading screen after a short delay to allow content to load
+            setTimeout(hideLoadingScreen, 1000);
+        });
+
+        // Fallback: Hide loading screen after 3 seconds maximum
+        setTimeout(hideLoadingScreen, 3000);
+    </script>
+</head>
+
+<body>
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero-about">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="hero-loading" id="hero-loading">
+                    <div class="hero-content text-center text-white">
+                        <div class="loading-placeholder">
+                            <div class="loading-box hero-title-box"></div>
+                            <div class="loading-box hero-subtitle-box"></div>
+                            <div class="loading-box hero-buttons-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) - Populated by JavaScript ONLY -->
+                <div class="hero-content text-center text-white" id="hero-dynamic" style="display: none;">
+                    <h1 class="hero-title" id="hero-title"></h1>
+                    <p class="hero-subtitle" id="hero-subtitle"></p>
+                    <div class="hero-actions" id="hero-actions">
+                        <!-- Hero buttons populated from database -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story Timeline -->
+        <section class="our-story section">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="timeline-loading" id="timeline-loading">
+                    <div class="section-header text-center">
+                        <div class="loading-placeholder">
+                            <div class="loading-box timeline-title-box"></div>
+                            <div class="loading-box timeline-subtitle-box"></div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-container">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-events">
+                            <!-- Loading timeline events -->
+                            <div class="timeline-event timeline-event-left">
+                                <div class="timeline-content">
+                                    <div class="loading-box timeline-event-title-box"></div>
+                                    <div class="loading-box timeline-event-description-box"></div>
+                                    <div class="loading-box timeline-event-date-box"></div>
+                                </div>
+                                <div class="timeline-marker"></div>
+                            </div>
+
+                            <div class="timeline-event timeline-event-right">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <div class="loading-box timeline-event-title-box"></div>
+                                    <div class="loading-box timeline-event-description-box"></div>
+                                    <div class="loading-box timeline-event-date-box"></div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-event timeline-event-left">
+                                <div class="timeline-content">
+                                    <div class="loading-box timeline-event-title-box"></div>
+                                    <div class="loading-box timeline-event-description-box"></div>
+                                    <div class="loading-box timeline-event-date-box"></div>
+                                </div>
+                                <div class="timeline-marker"></div>
+                            </div>
+
+                            <div class="timeline-event timeline-event-right">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <div class="loading-box timeline-event-title-box"></div>
+                                    <div class="loading-box timeline-event-description-box"></div>
+                                    <div class="loading-box timeline-event-date-box"></div>
+                                </div>
+                            </div>
+
+                            <div class="timeline-event timeline-event-left">
+                                <div class="timeline-content">
+                                    <div class="loading-box timeline-event-title-box"></div>
+                                    <div class="loading-box timeline-event-description-box"></div>
+                                    <div class="loading-box timeline-event-date-box"></div>
+                                </div>
+                                <div class="timeline-marker"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="timeline-dynamic" id="timeline-dynamic" style="display: none;">
+                    <div class="section-header text-center">
+                        <h2 class="section-title" id="timeline-section-title">Our Story</h2>
+                        <p class="section-subtitle" id="timeline-section-subtitle">A legacy of excellence spanning over
+                            25 years</p>
+                    </div>
+
+                    <div class="timeline-container">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-events" id="timeline-events">
+                            <!-- Dynamic timeline events will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="mission-section">
+            <div class="mission-container">
+                <!-- Loading Placeholder -->
+                <div class="mission-loading" id="mission-loading">
+                    <div class="mission-header loading-placeholder">
+                        <div class="loading-box mission-title-box"></div>
+                        <div class="loading-box mission-underline-box"></div>
+                    </div>
+
+                    <div class="mission-cards">
+                        <div class="mission-card loading-placeholder">
+                            <div class="loading-box mission-icon-box"></div>
+                            <div class="loading-box mission-card-title-box"></div>
+                            <div class="loading-box mission-description-box"></div>
+                        </div>
+
+                        <div class="mission-card loading-placeholder">
+                            <div class="loading-box mission-icon-box"></div>
+                            <div class="loading-box mission-card-title-box"></div>
+                            <div class="loading-box mission-description-box"></div>
+                        </div>
+
+                        <div class="mission-card loading-placeholder">
+                            <div class="loading-box mission-icon-box"></div>
+                            <div class="loading-box mission-card-title-box"></div>
+                            <div class="loading-box mission-description-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="mission-dynamic" id="mission-dynamic" style="display: none;">
+                    <div class="mission-header">
+                        <h2 class="mission-title" id="mission-section-title">Our Mission</h2>
+                        <div class="mission-underline"></div>
+                    </div>
+
+                    <div class="mission-cards" id="mission-cards">
+                        <div class="mission-connector"></div>
+                        <!-- Dynamic mission cards will be inserted here -->
+                    </div>
+                </div>
+        </section>
+
+        <!-- Principal's Message -->
+        <section class="principal-message section">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="principal-loading" id="principal-loading">
+                    <div class="principal-grid">
+                        <div class="principal-image">
+                            <div class="loading-box principal-image-box"></div>
+                        </div>
+                        <div class="principal-content">
+                            <div class="loading-box principal-title-box"></div>
+                            <div class="loading-box principal-name-box"></div>
+                            <div class="loading-box principal-message-box"></div>
+                            <div class="loading-box principal-qualifications-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="principal-dynamic" id="principal-dynamic" style="display: none;">
+                    <div class="principal-grid">
+                        <div class="principal-image">
+                            <div class="dummy-image-card principal-dummy" id="principal-dummy"></div>
+                            <img src="" alt="" class="img-fluid rounded-lg" loading="lazy" data-dummy="principal-dummy"
+                                style="display: none;" id="principal-image">
+                        </div>
+                        <div class="principal-content">
+                            <h2 class="section-title" id="principal-section-title">A Word from Our Principal</h2>
+                            <p class="principal-name" id="principal-name">Principal Name</p>
+                            <p class="principal-message-text" id="principal-message-text">
+                                Principal message content will be loaded here.
+                            </p>
+                            <div class="principal-qualifications" id="principal-qualifications">
+                                <!-- Dynamic qualifications will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Facts Section -->
+        <section class="quick-facts section">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="quick-facts-loading" id="quick-facts-loading">
+                    <div class="loading-placeholder">
+                        <div class="loading-box quick-facts-title-box"></div>
+                    </div>
+                    <div class="quick-facts-grid">
+                        <div class="fact-card loading-placeholder">
+                            <div class="loading-box fact-icon-box"></div>
+                            <div class="loading-box fact-number-box"></div>
+                            <div class="loading-box fact-label-box"></div>
+                        </div>
+
+                        <div class="fact-card loading-placeholder">
+                            <div class="loading-box fact-icon-box"></div>
+                            <div class="loading-box fact-number-box"></div>
+                            <div class="loading-box fact-label-box"></div>
+                        </div>
+
+                        <div class="fact-card loading-placeholder">
+                            <div class="loading-box fact-icon-box"></div>
+                            <div class="loading-box fact-number-box"></div>
+                            <div class="loading-box fact-label-box"></div>
+                        </div>
+
+                        <div class="fact-card loading-placeholder">
+                            <div class="loading-box fact-icon-box"></div>
+                            <div class="loading-box fact-number-box"></div>
+                            <div class="loading-box fact-label-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="quick-facts-dynamic" id="quick-facts-dynamic" style="display: none;">
+                    <h2 class="quick-facts-title" id="quick-facts-section-title">Our results in numbers</h2>
+                    <div class="quick-facts-grid" id="quick-facts-grid">
+                        <!-- Dynamic fact cards will be inserted here -->
+                    </div>
+                </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="why-choose-us section">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="why-choose-loading" id="why-choose-loading">
+                    <div class="section-header loading-placeholder">
+                        <div class="loading-box why-choose-title-box"></div>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-card loading-placeholder">
+                            <div class="loading-box feature-image-box"></div>
+                            <div class="loading-box feature-title-box"></div>
+                            <div class="loading-box feature-description-box"></div>
+                        </div>
+
+                        <div class="feature-card loading-placeholder">
+                            <div class="loading-box feature-image-box"></div>
+                            <div class="loading-box feature-title-box"></div>
+                            <div class="loading-box feature-description-box"></div>
+                        </div>
+
+                        <div class="feature-card loading-placeholder">
+                            <div class="loading-box feature-image-box"></div>
+                            <div class="loading-box feature-title-box"></div>
+                            <div class="loading-box feature-description-box"></div>
+                        </div>
+
+                        <div class="feature-card loading-placeholder">
+                            <div class="loading-box feature-image-box"></div>
+                            <div class="loading-box feature-title-box"></div>
+                            <div class="loading-box feature-description-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="why-choose-dynamic" id="why-choose-dynamic" style="display: none;">
+                    <div class="section-header">
+                        <h2 class="section-title">Why Choose Us</h2>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-image">
+                                <div class="dummy-image-card feature-dummy" id="feature-1-dummy"></div>
+                                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=300&fit=crop&auto=format"
+                                    alt="Academic Excellence" class="img-fluid" loading="lazy"
+                                    data-dummy="feature-1-dummy" style="display: none;">
+                            </div>
+                            <h3 class="feature-title">Academic Excellence</h3>
+                            <p class="feature-description">Our rigorous curriculum and innovative teaching methods
+                                prepare students for success in higher education and beyond.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-image">
+                                <div class="dummy-image-card feature-dummy" id="feature-2-dummy"></div>
+                                <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=400&h=300&fit=crop&auto=format"
+                                    alt="Vibrant Campus Life" class="img-fluid" loading="lazy" style="display: none;"
+                                    data-dummy="feature-2-dummy">
+                            </div>
+                            <h3 class="feature-title">Vibrant Campus Life</h3>
+                            <p class="feature-description">We offer a wide range of extracurricular activities to enrich
+                                the student experience and develop well-rounded individuals.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-image">
+                                <div class="dummy-image-card feature-dummy" id="feature-3-dummy"></div>
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&auto=format"
+                                    alt="Dedicated Faculty" class="img-fluid" loading="lazy" style="display: none;"
+                                    data-dummy="feature-3-dummy">
+                            </div>
+                            <h3 class="feature-title">Dedicated Faculty</h3>
+                            <p class="feature-description">Our experienced and passionate teachers provide personalized
+                                attention and mentorship to every student.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-image">
+                                <div class="dummy-image-card feature-dummy" id="feature-4-dummy"></div>
+                                <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=300&fit=crop&auto=format"
+                                    alt="Modern Facilities" class="img-fluid" loading="lazy" style="display: none;"
+                                    data-dummy="feature-4-dummy">
+                            </div>
+                            <h3 class="feature-title">Modern Facilities</h3>
+                            <p class="feature-description">Our state-of-the-art campus with modern classrooms, labs, and
+                                sports facilities supports comprehensive learning.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Team -->
+        <section class="leadership section">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="leadership-loading" id="leadership-loading">
+                    <div class="section-header loading-placeholder">
+                        <div class="loading-box leadership-title-box"></div>
+                        <div class="loading-box leadership-subtitle-box"></div>
+                    </div>
+
+                    <div class="leadership-grid">
+                        <div class="leader-card loading-placeholder">
+                            <div class="loading-box leader-image-box"></div>
+                            <div class="loading-box leader-name-box"></div>
+                            <div class="loading-box leader-position-box"></div>
+                        </div>
+
+                        <div class="leader-card loading-placeholder">
+                            <div class="loading-box leader-image-box"></div>
+                            <div class="loading-box leader-name-box"></div>
+                            <div class="loading-box leader-position-box"></div>
+                        </div>
+
+                        <div class="leader-card loading-placeholder">
+                            <div class="loading-box leader-image-box"></div>
+                            <div class="loading-box leader-name-box"></div>
+                            <div class="loading-box leader-position-box"></div>
+                        </div>
+
+                        <div class="leader-card loading-placeholder">
+                            <div class="loading-box leader-image-box"></div>
+                            <div class="loading-box leader-name-box"></div>
+                            <div class="loading-box leader-position-box"></div>
+                        </div>
+
+                        <div class="leader-card loading-placeholder">
+                            <div class="loading-box leader-image-box"></div>
+                            <div class="loading-box leader-name-box"></div>
+                            <div class="loading-box leader-position-box"></div>
+                        </div>
+
+                        <div class="leader-card loading-placeholder">
+                            <div class="loading-box leader-image-box"></div>
+                            <div class="loading-box leader-name-box"></div>
+                            <div class="loading-box leader-position-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="leadership-dynamic" id="leadership-dynamic" style="display: none;">
+                    <div class="section-header">
+                        <h2 class="section-title">Our Leadership Team</h2>
+                        <p class="section-subtitle">Meet the dedicated professionals guiding our institution</p>
+                    </div>
+
+                    <div class="leadership-grid">
+                        <div class="leader-card">
+                            <div class="leader-image">
+                                <div class="dummy-image-card leader-dummy" id="leader-1-dummy"></div>
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&h=200&fit=crop&auto=format"
+                                    alt="Mrs. Sunita Sharma" class="img-fluid" loading="lazy" style="display: none;"
+                                    data-dummy="leader-1-dummy">
+                                <div class="leader-image-overlay">Mrs. Sunita Sharma</div>
+                            </div>
+                            <h3 class="leader-name">Mrs. Sunita Sharma</h3>
+                            <p class="leader-position">Principal</p>
+                        </div>
+
+                        <div class="leader-card">
+                            <div class="leader-image">
+                                <div class="dummy-image-card leader-dummy" id="leader-2-dummy"></div>
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&auto=format"
+                                    alt="Mr. Rajesh Kumar" class="img-fluid" loading="lazy" style="display: none;"
+                                    data-dummy="leader-2-dummy">
+                                <div class="leader-image-overlay">Mr. Rajesh Kumar</div>
+                            </div>
+                            <h3 class="leader-name">Mr. Rajesh Kumar</h3>
+                            <p class="leader-position">Vice Principal</p>
+                        </div>
+
+                        <div class="leader-card">
+                            <div class="leader-image">
+                                <div class="dummy-image-card leader-dummy" id="leader-3-dummy"></div>
+                                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&h=200&fit=crop&auto=format"
+                                    alt="Dr. Priya Patel" class="img-fluid" loading="lazy" data-dummy="leader-3-dummy"
+                                    style="display: none;">
+                                <div class="leader-image-overlay">Dr. Priya Patel</div>
+                            </div>
+                            <h3 class="leader-name">Dr. Priya Patel</h3>
+                            <p class="leader-position">Academic Head</p>
+                        </div>
+
+                        <div class="leader-card">
+                            <div class="leader-image">
+                                <div class="dummy-image-card leader-dummy" id="leader-4-dummy"></div>
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&auto=format"
+                                    alt="Mr. Amit Singh" class="img-fluid" loading="lazy" data-dummy="leader-4-dummy"
+                                    style="display: none;">
+                                <div class="leader-image-overlay">Mr. Amit Singh</div>
+                            </div>
+                            <h3 class="leader-name">Mr. Amit Singh</h3>
+                            <p class="leader-position">Head of Mathematics</p>
+                        </div>
+
+                        <div class="leader-card">
+                            <div class="leader-image">
+                                <div class="dummy-image-card leader-dummy" id="leader-5-dummy"></div>
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&auto=format"
+                                    alt="Ms. Kavita Sharma" class="img-fluid" loading="lazy" data-dummy="leader-5-dummy"
+                                    style="display: none;">
+                                <div class="leader-image-overlay">Ms. Kavita Sharma</div>
+                            </div>
+                            <h3 class="leader-name">Ms. Kavita Sharma</h3>
+                            <p class="leader-position">Head of English</p>
+                        </div>
+
+                        <div class="leader-card">
+                            <div class="leader-image">
+                                <div class="dummy-image-card leader-dummy" id="leader-6-dummy"></div>
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop&auto=format"
+                                    alt="Dr. Ravi Verma" class="img-fluid" loading="lazy" data-dummy="leader-6-dummy"
+                                    style="display: none;">
+                                <div class="leader-image-overlay">Dr. Ravi Verma</div>
+                            </div>
+                            <h3 class="leader-name">Dr. Ravi Verma</h3>
+                            <p class="leader-position">Head of Science</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Infrastructure & Facilities -->
+        <section class="facilities section">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="facilities-loading" id="facilities-loading">
+                    <div class="section-header text-center">
+                        <h2 class="section-title">Infrastructure & Facilities</h2>
+                    </div>
+
+                    <div class="facilities-grid">
+                        <div class="facility-main loading-placeholder">
+                            <div class="loading-box facility-main-box"></div>
+                        </div>
+                        <div class="facility-secondary loading-placeholder">
+                            <div class="loading-box facility-secondary-box"></div>
+                        </div>
+                        <div class="facility-small loading-placeholder">
+                            <div class="loading-box facility-small-box"></div>
+                        </div>
+                        <div class="facility-small loading-placeholder">
+                            <div class="loading-box facility-small-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="facilities-dynamic" id="facilities-dynamic" style="display: none;">
+                    <div class="section-header text-center">
+                        <h2 class="section-title">Infrastructure & Facilities</h2>
+                    </div>
+
+                    <div class="facilities-grid" id="facilities-grid">
+                        <!-- Dynamic facility items will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements & Awards -->
+        <section class="achievements section">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="achievements-loading" id="achievements-loading">
+                    <div class="section-header loading-placeholder">
+                        <div class="loading-box achievements-title-box"></div>
+                    </div>
+
+                    <div class="achievements-grid">
+                        <div class="achievement-card loading-placeholder">
+                            <div class="loading-box achievement-icon-box"></div>
+                            <div class="loading-box achievement-title-box"></div>
+                            <div class="loading-box achievement-description-box"></div>
+                        </div>
+
+                        <div class="achievement-card loading-placeholder">
+                            <div class="loading-box achievement-icon-box"></div>
+                            <div class="loading-box achievement-title-box"></div>
+                            <div class="loading-box achievement-description-box"></div>
+                        </div>
+
+                        <div class="achievement-card loading-placeholder">
+                            <div class="loading-box achievement-icon-box"></div>
+                            <div class="loading-box achievement-title-box"></div>
+                            <div class="loading-box achievement-description-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="achievements-dynamic" id="achievements-dynamic" style="display: none;">
+                    <div class="section-header">
+                        <h2 class="section-title">Achievements & Awards</h2>
+                    </div>
+
+                    <div class="achievements-grid">
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <i data-lucide="trophy"></i>
+                            </div>
+                            <h3 class="achievement-title">National Science Olympiad Winners</h3>
+                            <p class="achievement-description">Our students consistently excel in national academic
+                                competitions and bring home prestigious awards.</p>
+                        </div>
+
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <i data-lucide="award"></i>
+                            </div>
+                            <h3 class="achievement-title">State Education Excellence Award</h3>
+                            <p class="achievement-description">Recognized for outstanding contributions to education and
+                                student development in the state.</p>
+                        </div>
+
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <i data-lucide="star"></i>
+                            </div>
+                            <h3 class="achievement-title">100% Board Exam Success Rate</h3>
+                            <p class="achievement-description">Maintaining a perfect pass rate in board examinations for
+                                the past 10 years.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials section" id="testimonials">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="testimonials-loading" id="testimonials-loading">
+                    <div class="testimonials-header text-center loading-placeholder">
+                        <div class="loading-box testimonials-badge-box"></div>
+                        <div class="loading-box testimonials-title-box"></div>
+                        <div class="loading-box testimonials-subtitle-box"></div>
+                    </div>
+
+                    <div class="testimonials-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-track">
+                                <div class="testimonial-card loading-placeholder">
+                                    <div class="loading-box testimonial-avatar-box"></div>
+                                    <div class="loading-box testimonial-name-box"></div>
+                                    <div class="loading-box testimonial-handle-box"></div>
+                                    <div class="loading-box testimonial-text-box"></div>
+                                </div>
+
+                                <div class="testimonial-card loading-placeholder">
+                                    <div class="loading-box testimonial-avatar-box"></div>
+                                    <div class="loading-box testimonial-name-box"></div>
+                                    <div class="loading-box testimonial-handle-box"></div>
+                                    <div class="loading-box testimonial-text-box"></div>
+                                </div>
+
+                                <div class="testimonial-card loading-placeholder">
+                                    <div class="loading-box testimonial-avatar-box"></div>
+                                    <div class="loading-box testimonial-name-box"></div>
+                                    <div class="loading-box testimonial-handle-box"></div>
+                                    <div class="loading-box testimonial-text-box"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) - Populated by JavaScript ONLY -->
+                <div class="testimonials-dynamic" id="testimonials-dynamic" style="display: none;">
+                    <div class="testimonials-header text-center">
+                        <div class="testimonials-badge">Testimonials</div>
+                        <h2 class="testimonials-title"></h2>
+                        <p class="testimonials-subtitle"></p>
+                    </div>
+
+                    <div class="testimonials-carousel-container">
+                        <div class="testimonials-carousel owl-carousel owl-theme" id="testimonials-carousel">
+                            <!-- Testimonials populated from database -->
+                        </div>
+
+                        <!-- Navigation Arrows -->
+                        <div class="testimonials-nav">
+                            <button class="testimonials-nav-btn testimonials-nav-prev"
+                                aria-label="Previous testimonials">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="m15 18-6-6 6-6"></path>
+                                </svg>
+                            </button>
+                            <button class="testimonials-nav-btn testimonials-nav-next" aria-label="Next testimonials">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="m9 18 6-6-6-6"></path>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Pagination Dots -->
+                        <div class="testimonials-dots" id="testimonials-dots"></div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-about section bg-primary text-white">
+            <!-- Loading Placeholder -->
+            <div class="cta-loading" id="cta-loading">
+                <div class="container">
+                    <div class="cta-content text-center">
+                        <div class="loading-placeholder">
+                            <div class="loading-box cta-title-box"></div>
+                            <div class="loading-box cta-subtitle-box"></div>
+                            <div class="loading-box cta-buttons-box"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic CTA Content (hidden initially) -->
+            <div id="cta-container" style="display: none;">
+                <!-- CTA content will be dynamically loaded here -->
+            </div>
+        </section>
+    </main>
+
+
+    
+    
+
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <!-- Footer content will be dynamically generated by footer.js -->
+        </footer>
+
+        <!-- Back to Top Button -->
+        <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+            <i data-lucide="arrow-up"></i>
+        </button>
+
+        <!-- Toast Notifications -->
+        <div id="toast-container" class="toast-container"></div>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Custom Scripts -->
+        <!-- Scripts - Load with performance optimizations -->
+        <!-- Cache manager loads first (no defer) for immediate availability -->
+        <script src="/js/utils/cache-manager.js"></script>
+        <script src="/js/performance-optimizer.js" defer></script>
+        <script src="/js/main.js" defer></script>
+        <script src="/js/footer.js" defer></script>
+        <script src="/js/components.js" defer></script>
+        <script src="/js/components/cta.js" defer></script>
+        <script src="/js/navbar.js" defer></script>
+        <script src="/js/application-modal.js" defer></script>
+        <script src="/js/pageLoader/aboutPageLoader.js" defer></script>
+
+        <script>
+
+            // Initialize Lucide icons and theme
+            document.addEventListener('DOMContentLoaded', function () {
+                // Initialize theme
+                function initializeTheme() {
+                    const savedTheme = localStorage.getItem('theme') || 'light';
+                    document.documentElement.setAttribute('data-theme', savedTheme);
+
+                    // Update theme toggle icon
+                    const themeToggle = document.getElementById('theme-toggle');
+                    if (themeToggle) {
+                        const icon = themeToggle.querySelector('i');
+                        if (icon) {
+                            icon.setAttribute('data-lucide', savedTheme === 'dark' ? 'moon' : 'sun');
+                        }
+                    }
+                }
+
+                // Theme toggle functionality
+                function setupThemeToggle() {
+                    const themeToggle = document.getElementById('theme-toggle');
+                    if (themeToggle) {
+                        themeToggle.addEventListener('click', function () {
+                            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                            document.documentElement.setAttribute('data-theme', newTheme);
+                            localStorage.setItem('theme', newTheme);
+
+                            // Update icon
+                            const icon = themeToggle.querySelector('i');
+                            if (icon) {
+                                icon.setAttribute('data-lucide', newTheme === 'dark' ? 'moon' : 'sun');
+                                if (typeof lucide !== 'undefined') {
+                                    lucide.createIcons();
+                                }
+                            }
+                        });
+                    }
+                }
+
+                // Initialize theme and toggle
+                initializeTheme();
+                setupThemeToggle();
+
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+
+                // Initialize scroll animations
+                initializeScrollAnimations();
+
+                // Initialize counter animations
+                initializeCounterAnimation();
+            });
+
+            // Scroll animations
+            function initializeScrollAnimations() {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const element = entry.target;
+                            const delay = element.getAttribute('data-delay') || '0s';
+
+                            setTimeout(() => {
+                                element.classList.add('animate-visible');
+                            }, parseFloat(delay) * 1000);
+
+                            observer.unobserve(element);
+                        }
+                    });
+                }, observerOptions);
+
+                // Observe all animated elements
+                document.querySelectorAll('.animate-fade-in-up, .animate-fade-in-right').forEach(el => {
+                    observer.observe(el);
+                });
+            }
+
+            // Counter animation function
+            function initializeCounterAnimation() {
+                const statNumbers = document.querySelectorAll('.stat-number');
+                const animateCounter = (element) => {
+                    const target = parseInt(element.textContent.replace('+', ''));
+                    const duration = 2000; // 2 seconds
+                    const increment = target / (duration / 16); // 60fps
+                    let current = 0;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : '');
+                    }, 16);
+                    element.classList.add('animate');
+                };
+
+                // Intersection Observer to trigger animation when section is visible
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            statNumbers.forEach(animateCounter);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                const statsSection = document.querySelector('.school-stats');
+                if (statsSection) {
+                    observer.observe(statsSection);
+                }
+            }
+
+            // Image loading handler for dummy cards
+            window.handleImageLoading = function () {
+                // Remove any conflicting image-placeholder elements
+                const conflictingPlaceholders = document.querySelectorAll('.image-placeholder');
+                conflictingPlaceholders.forEach(placeholder => {
+                    const img = placeholder.nextElementSibling;
+                    if (img && img.hasAttribute('data-dummy')) {
+                        placeholder.remove();
+                    }
+                });
+
+                const images = document.querySelectorAll('img[data-dummy]');
+
+                images.forEach((img, index) => {
+                    const dummyId = img.getAttribute('data-dummy');
+                    const dummy = document.getElementById(dummyId);
+
+                    // If image is already loaded
+                    if (img.complete && img.naturalHeight !== 0) {
+                        if (dummy) {
+                            dummy.style.display = 'none';
+                        }
+                        img.style.display = 'block';
+                    } else {
+
+                        // Handle loading
+                        img.addEventListener('load', function () {
+                            if (dummy) {
+                                dummy.style.display = 'none';
+                            }
+                            this.style.display = 'block';
+                        });
+
+                        // Handle error
+                        img.addEventListener('error', function () {
+                            if (dummy) {
+                                dummy.style.display = 'none';
+                            }
+                            this.style.display = 'block';
+                        });
+                    }
+                });
+            }
+
+            // Initialize image loading handler
+            document.addEventListener('DOMContentLoaded', function () {
+                handleImageLoading();
+            });
+
+            // Re-initialize when dynamic content loads
+            const observer = new MutationObserver(function (mutations) {
+                mutations.forEach(function (mutation) {
+                    if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                        // Check if any new images with data-dummy were added
+                        mutation.addedNodes.forEach(function (node) {
+                            if (node.nodeType === 1) { // Element node
+                                if (node.matches && node.matches('img[data-dummy]')) {
+                                    handleImageLoading();
+                                } else if (node.querySelector && node.querySelector('img[data-dummy]')) {
+                                    handleImageLoading();
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+
+            // Start observing
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+
+            // Initialize Testimonials Carousel
+            window.initializeTestimonialsCarousel = function () {
+                if (typeof $ !== 'undefined' && $.fn.owlCarousel) {
+                    const carouselElement = document.getElementById('testimonials-carousel');
+
+                    if (carouselElement) {
+                        try {
+                            // Destroy existing carousel if it exists
+                            $('#testimonials-carousel').trigger('destroy.owl.carousel');
+
+                            $('#testimonials-carousel').owlCarousel({
+                                loop: true,
+                                margin: 20,
+                                nav: false,
+                                dots: false,
+                                autoplay: true,
+                                autoplayTimeout: 5000,
+                                autoplayHoverPause: true,
+                                smartSpeed: 750,
+                                stagePadding: 0,
+                                animateOut: 'fadeOut',
+                                animateIn: 'fadeIn',
+                                responsive: {
+                                    0: {
+                                        items: 1,
+                                        margin: 10,
+                                        stagePadding: 0,
+                                        nav: false,
+                                        dots: false
+                                    },
+                                    576: {
+                                        items: 1,
+                                        margin: 15,
+                                        stagePadding: 0,
+                                        nav: false,
+                                        dots: false
+                                    },
+                                    992: {
+                                        items: 2,
+                                        margin: 20,
+                                        stagePadding: 0,
+                                        nav: false,
+                                        dots: false
+                                    },
+                                    1280: {
+                                        items: 3,
+                                        margin: 20,
+                                        stagePadding: 0,
+                                        nav: false,
+                                        dots: false
+                                    }
+                                }
+                            });
+
+                            // Custom navigation setup
+                            const carousel = $('#testimonials-carousel');
+                            const prevBtn = document.querySelector('.testimonials-nav-prev');
+                            const nextBtn = document.querySelector('.testimonials-nav-next');
+                            const dotsContainer = document.querySelector('.testimonials-dots');
+
+                            // Navigation buttons
+                            if (prevBtn) {
+                                prevBtn.addEventListener('click', () => {
+                                    carousel.trigger('prev.owl.carousel');
+                                });
+                            }
+
+                            if (nextBtn) {
+                                nextBtn.addEventListener('click', () => {
+                                    carousel.trigger('next.owl.carousel');
+                                });
+                            }
+
+                            // Create custom dots
+                            if (dotsContainer) {
+                                const totalItems = carousel.find('.owl-item').length;
+                                dotsContainer.innerHTML = '';
+
+                                for (let i = 0; i < totalItems; i++) {
+                                    const dot = document.createElement('button');
+                                    dot.className = 'testimonials-dot';
+                                    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                                    dot.addEventListener('click', () => {
+                                        carousel.trigger('to.owl.carousel', i);
+                                    });
+                                    dotsContainer.appendChild(dot);
+                                }
+                            }
+
+                            // Update dots on carousel change
+                            carousel.on('changed.owl.carousel', function (event) {
+                                const dots = dotsContainer?.querySelectorAll('.testimonials-dot');
+                                dots?.forEach((dot, index) => {
+                                    dot.classList.toggle('active', index === event.item.index);
+                                });
+
+                                // Update navigation button states
+                                const isFirst = event.item.index === 0;
+                                const isLast = event.item.index === event.item.count - 1;
+
+                                if (prevBtn) {
+                                    prevBtn.disabled = isFirst;
+                                    prevBtn.style.opacity = isFirst ? '0.5' : '1';
+                                }
+
+                                if (nextBtn) {
+                                    nextBtn.disabled = isLast;
+                                    nextBtn.style.opacity = isLast ? '0.5' : '1';
+                                }
+                            });
+
+                            // Reinitialize Lucide icons after carousel is created
+                            if (typeof lucide !== 'undefined') {
+                                lucide.createIcons();
+                            }
+
+                        } catch (error) {
+                            console.error('Error initializing carousel:', error);
+                        }
+                    } else {
+                        setTimeout(initializeTestimonialsCarousel, 500);
+                    }
+                } else {
+                    setTimeout(initializeTestimonialsCarousel, 500);
+                }
+            }
+
+
+            // Initialize testimonials carousel when DOM is ready
+            // Note: The aboutPageLoader.js will show the dynamic content after database loads
+            // We just need to be ready to initialize the carousel when it's shown
+            document.addEventListener('DOMContentLoaded', function () {
+                // Don't force show content - let aboutPageLoader.js handle that
+                // Just initialize the carousel functionality when ready
+            });
+
+            // Also try to initialize when dynamic content becomes visible
+            const testimonialsObserver = new MutationObserver(function (mutations) {
+                mutations.forEach(function (mutation) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                        const dynamicContent = document.getElementById('testimonials-dynamic');
+                        if (dynamicContent && dynamicContent.style.display !== 'none') {
+                            setTimeout(() => {
+                                initializeTestimonialsCarousel();
+                            }, 500);
+                        }
+                    }
+                });
+            });
+
+            // Observe the dynamic content div
+            const dynamicContent = document.getElementById('testimonials-dynamic');
+            if (dynamicContent) {
+                testimonialsObserver.observe(dynamicContent, { attributes: true });
+            }
+        </script>
+
+        <!-- Tawk.to Live Chat Widget -->
+        <script src="/js/components/tawk-to.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notices & Events - Marigold School</title>
+    <meta name="description" content="Stay updated with the latest events, notices, and announcements from Marigold Education Foundation.">
+    
+    <!-- DNS Prefetch & Preconnect for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/js/utils/cache-manager.js" as="script">
+    <link rel="preload" href="/css/main.css" as="style">
+    <link rel="preload" href="https://unpkg.com/lucide@latest/dist/umd/lucide.js" as="script">
+    
+    <!-- Lucide Icons - Load async -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" async></script>
+    
+    <!-- Custom CSS - Load critical CSS first -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preload" href="css/components.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Fallback for browsers that don't support preload -->
+    <noscript>
+        <link rel="stylesheet" href="css/components.css">
+        <link rel="stylesheet" href="css/responsive.css">
+    </noscript>
+    
+    <!-- Dynamic Favicon Loader -->
+    <script src="/js/favicon-loader.js"></script>
+    
+    <style>
+        /* Academy Central Style Design */
+        :root {
+            --primary-color: #137fec;
+            --background-light: #f6f7f8;
+            --background-dark: #101922;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-light: #94a3b8;
+            --border-color: rgba(19, 127, 236, 0.2);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .main{
+            padding-top: 40px !important;
+        }
+
+        .academy-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .academy-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+            background: white;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .academy-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .academy-logo {
+            width: 2rem;
+            height: 2rem;
+            background: var(--primary-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .academy-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .academy-nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .action-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .action-btn:hover {
+            background: rgba(19, 127, 236, 0.1);
+            color: var(--primary-color);
+        }
+
+        .profile-img {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: 2px solid var(--primary-color);
+        }
+
+        /* Featured Event Hero */
+        .featured-hero {
+            position: relative;
+            min-height: 480px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Featured Hero Loading Placeholder */
+        .hero-loading-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+        }
+
+        .hero-loading-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+            animation: shimmer 2s infinite;
+        }
+
+        .hero-loading-content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .hero-loading-title {
+            width: 70%;
+            height: 2.5rem;
+            background: linear-gradient(90deg, #e5e7eb, #f3f4f6, #e5e7eb);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            animation: shimmer 2s infinite;
+        }
+
+        .hero-loading-description {
+            width: 85%;
+            height: 1.5rem;
+            background: linear-gradient(90deg, #e5e7eb, #f3f4f6, #e5e7eb);
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            animation: shimmer 2s infinite;
+        }
+
+        .hero-loading-description::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 1.5rem;
+            background: linear-gradient(90deg, #e5e7eb, #f3f4f6, #e5e7eb);
+            border-radius: 6px;
+            margin-top: 0.5rem;
+            animation: shimmer 2s infinite;
+        }
+
+        .hero-loading-button {
+            width: 120px;
+            height: 2.5rem;
+            background: linear-gradient(90deg, #e5e7eb, #f3f4f6, #e5e7eb);
+            border-radius: 8px;
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200px 0; }
+            100% { background-position: calc(200px + 100%) 0; }
+        }
+
+        /* Section Header with Search */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+
+        .search-container {
+            flex-shrink: 0;
+        }
+
+        .search-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            min-width: 280px;
+        }
+
+        .search-input-wrapper:focus-within {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(19, 127, 236, 0.1);
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            outline: none;
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            background: transparent;
+        }
+
+        .search-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .search-btn {
+            padding: 0.75rem 1rem;
+            background: var(--primary-color);
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background: #0f6fd4;
+        }
+
+        .search-btn i {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Events Loading Placeholders */
+        .events-loading-container {
+            margin-bottom: 2rem;
+        }
+
+        .events-loading-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .event-loading-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease;
+        }
+
+        .event-loading-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(90deg, #e5e7eb, #f3f4f6, #e5e7eb);
+            background-size: 200px 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        .event-loading-content {
+            padding: 1.5rem;
+        }
+
+        .event-loading-title {
+            width: 80%;
+            height: 1.5rem;
+            background: linear-gradient(90deg, #e5e7eb, #f3f4f6, #e5e7eb);
+            background-size: 200px 100%;
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+            animation: shimmer 2s infinite;
+        }
+
+        .event-loading-description {
+            width: 100%;
+            height: 1rem;
+            background: linear-gradient(90deg, #e5e7eb, #f3f4f6, #e5e7eb);
+            background-size: 200px 100%;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            animation: shimmer 2s infinite;
+        }
+
+        .event-loading-description::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 1rem;
+            background: linear-gradient(90deg, #e5e7eb, #f3f4f6, #e5e7eb);
+            background-size: 200px 100%;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            animation: shimmer 2s infinite;
+        }
+
+        /* No Results Message */
+        .no-results-message {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .no-results-icon {
+            margin-bottom: 1rem;
+        }
+
+        .no-results-icon i {
+            width: 48px;
+            height: 48px;
+            color: #9ca3af;
+        }
+
+        /* Highlights Loading Placeholder */
+        .highlights-loading-placeholder {
+            display: block;
+        }
+
+        .highlights-loading-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            min-height: 200px;
+        }
+
+        .highlights-loading-content {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .highlights-loading-badge {
+            width: 120px;
+            height: 24px;
+            background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .highlights-loading-title {
+            width: 60%;
+            height: 28px;
+            background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .highlights-loading-description {
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlights-loading-description:last-child {
+            width: 80%;
+        }
+
+        .highlights-loading-image {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 0 12px 12px 0;
+        }
+
+        /* Past Events Loading Placeholder */
+        .past-events-loading-container {
+            display: block;
+        }
+
+        .past-events-loading-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            padding: 0 1rem;
+        }
+
+        /* Responsive: 2 cards on tablets and small screens */
+        @media (max-width: 768px) {
+            .past-events-loading-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+        }
+
+        /* Responsive: 1 card on mobile */
+        @media (max-width: 480px) {
+            .past-events-loading-grid {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+        }
+
+        .past-event-loading-item {
+            width: 100%;
+            height: 200px;
+            border-radius: 12px;
+            background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .past-event-loading-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            padding: 1rem;
+            color: white;
+        }
+
+        .past-event-loading-title {
+            width: 80%;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            animation: shimmer 1.5s infinite;
+        }
+
+        .past-event-loading-description {
+            width: 100%;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            animation: shimmer 1.5s infinite;
+        }
+
+        .past-event-loading-description:last-of-type {
+            width: 60%;
+        }
+
+        .past-event-loading-date {
+            width: 40%;
+            height: 14px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            animation: shimmer 1.5s infinite;
+        }
+
+        /* Notices Loading Placeholder */
+        .notices-loading-container {
+            display: block;
+        }
+
+        .notices-loading-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .notice-loading-item {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            padding: 1rem;
+            gap: 1rem;
+        }
+
+        .notice-loading-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .notice-loading-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .notice-loading-title {
+            width: 70%;
+            height: 20px;
+            background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 4px;
+        }
+
+        .notice-loading-description {
+            width: 50%;
+            height: 16px;
+            background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 4px;
+        }
+
+        .no-results-message h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .no-results-message p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section-header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1rem;
+            }
+
+            .search-input-wrapper {
+                min-width: auto;
+                width: 100%;
+            }
+
+            .events-loading-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.2), transparent);
+        }
+
+        .hero-content {
+            position: relative;
+            height: 100%;
+            min-height: 480px;
+            max-width: 94%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            color: white;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            color: #ffffff;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            width: fit-content;
+        }
+
+        .hero-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Section Styling */
+        .academy-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+        }
+
+        /* Filter Buttons */
+        .filter-buttons {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            border: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .filter-btn:not(.active) {
+            background: white;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .filter-btn:not(.active):hover {
+            background: rgba(19, 127, 236, 0.1);
+            color: var(--primary-color);
+        }
+
+        /* Event Cards */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            padding: 0 1rem;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        .event-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .event-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(45deg, #f0f9ff, #e0f2fe);
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover .event-image {
+            transform: scale(1.05);
+        }
+
+        .event-content {
+            padding: 1.5rem;
+        }
+
+        .event-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .event-description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Past Events Grid */
+        .past-events-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            padding: 0 1rem;
+        }
+
+        /* Responsive: 2 cards on tablets and small screens */
+        @media (max-width: 768px) {
+            .past-events-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+        }
+
+        /* Responsive: 1 card on mobile */
+        @media (max-width: 480px) {
+            .past-events-grid {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+        }
+
+        .past-event-item {
+            width: 100%;
+            height: 200px;
+            border-radius: 12px;
+            background: linear-gradient(45deg, #f0f9ff, #e0f2fe);
+            background-size: cover;
+            background-position: center;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .past-event-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Past Event Overlay */
+        .past-event-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2), transparent);
+            padding: 1rem;
+            color: white;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            
+        }
+
+
+        .past-event-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            line-height: 1.2;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .past-event-description {
+            font-size: 0.75rem;
+            opacity: 0.9;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .past-event-date {
+            font-size: 0.7rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* Notices Section */
+        .notices-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            margin: 0 1rem;
+            flex-direction: column;
+        }
+
+        .notice-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .notice-item:hover {
+            background: rgba(19, 127, 236, 0.05);
+            transform: translateX(8px);
+        }
+
+        .notice-item:last-child {
+            border-bottom: none;
+        }
+
+        .notice-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 12px;
+            background: rgba(19, 127, 236, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .notice-content h4 {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .notice-content p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .notice-date {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .show-all-notices-btn {
+            width: 100%;
+            padding: 1rem;
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .show-all-notices-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(19, 127, 236, 0.3);
+        }
+
+
+        /* Highlights Section */
+        .highlights-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            margin: 0 1rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .highlights-content {
+            flex: 1;
+        }
+
+        .highlights-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            width: fit-content;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlights-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .highlights-description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .highlights-image {
+            width: 16rem;
+            height: 10rem;
+            border-radius: 12px;
+            background: linear-gradient(45deg, #f0f9ff, #e0f2fe);
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+
+
+        /* Principal's Message */
+        .principal-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            margin: 0 1rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .principal-content {
+            flex: 1;
+        }
+
+        .principal-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .principal-description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .principal-image {
+            width: 16rem;
+            height: 10rem;
+            border-radius: 12px;
+            background: linear-gradient(45deg, #f0f9ff, #e0f2fe);
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+
+        /* Loading States */
+        .loading-skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .academy-header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .academy-nav {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-content {
+                padding: 1.5rem;
+            }
+
+            .filter-buttons {
+                flex-wrap: wrap;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .past-events-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .highlights-card,
+            .principal-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .highlights-image,
+            .principal-image {
+                width: 100%;
+                height: 12rem;
+            }
+
+        }
+
+        @media (max-width: 480px) {
+            .academy-container {
+                padding: 1rem 0.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .past-events-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Content -->
+    <main class="main">
+        
+        <!-- Featured Event Hero -->
+        <section class="featured-hero">
+            <!-- Loading Placeholder -->
+            <div id="featured-hero-loading" class="hero-loading-placeholder" style="display: block;">
+                <div class="hero-loading-bg"></div>
+                <div class="hero-loading-content ">
+                    <div class="hero-loading-title"></div>
+                    <div class="hero-loading-description"></div>
+                    <div class="hero-loading-button"></div>
+                </div>
+            </div>
+            
+            <!-- Dynamic Content -->
+            <div id="featured-hero-content" style="display: none;">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Featured Event: Annual Science Fair</h1>
+                <p class="hero-description">
+                    Join us for an exciting showcase of student projects and scientific discoveries. Explore innovative exhibits and interactive demonstrations.
+                </p>
+                <button class="hero-btn">Learn More</button>
+                </div>
+                </div>
+        </section>
+
+        <!-- Upcoming Events -->
+        <section class="container academy-section">
+            <div class="section-header">
+            <h2 class="section-title">Upcoming Events</h2>
+                        </div>
+            
+            <!-- Loading Placeholder -->
+            <div id="upcoming-events-loading" class="events-loading-container" style="display: block;">
+                <div class="events-loading-grid">
+                    <div class="event-loading-card">
+                        <div class="event-loading-image"></div>
+                        <div class="event-loading-content">
+                            <div class="event-loading-title"></div>
+                            <div class="event-loading-description"></div>
+                                </div>
+                            </div>
+                    <div class="event-loading-card">
+                        <div class="event-loading-image"></div>
+                        <div class="event-loading-content">
+                            <div class="event-loading-title"></div>
+                            <div class="event-loading-description"></div>
+                            </div>
+                        </div>
+                    <div class="event-loading-card">
+                        <div class="event-loading-image"></div>
+                        <div class="event-loading-content">
+                            <div class="event-loading-title"></div>
+                            <div class="event-loading-description"></div>
+                    </div>
+                        </div>
+                    <div class="event-loading-card">
+                        <div class="event-loading-image"></div>
+                        <div class="event-loading-content">
+                            <div class="event-loading-title"></div>
+                            <div class="event-loading-description"></div>
+                                </div>
+                            </div>
+                    <div class="event-loading-card">
+                        <div class="event-loading-image"></div>
+                        <div class="event-loading-content">
+                            <div class="event-loading-title"></div>
+                            <div class="event-loading-description"></div>
+                    </div>
+                        </div>
+                    <div class="event-loading-card">
+                        <div class="event-loading-image"></div>
+                        <div class="event-loading-content">
+                            <div class="event-loading-title"></div>
+                            <div class="event-loading-description"></div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+            <!-- Dynamic Content -->
+            <div id="upcoming-events-content" style="display: none;">
+                <div class="events-grid"></div>
+            </div>
+            
+            <!-- No Results Message -->
+            <div id="upcoming-events-no-results" class="no-results-message" style="display: none;">
+                <div class="no-results-icon">
+                    <i data-lucide="calendar-x"></i>
+                </div>
+                <h3>No upcoming events found</h3>
+                <p>Try adjusting your search terms or check back later for new events.</p>
+            </div>
+        </section>
+
+        <!-- Past Events -->
+        <section class="container academy-section">
+            <h2 class="section-title">Past Events</h2>
+            
+            <!-- Loading Placeholder -->
+            <div id="past-events-loading" class="past-events-loading-container">
+                <div class="past-events-loading-grid">
+                    <div class="past-event-loading-item">
+                        <div class="past-event-loading-overlay">
+                            <div class="past-event-loading-title"></div>
+                            <div class="past-event-loading-description"></div>
+                            <div class="past-event-loading-date"></div>
+                        </div>
+                    </div>
+                    <div class="past-event-loading-item">
+                        <div class="past-event-loading-overlay">
+                            <div class="past-event-loading-title"></div>
+                            <div class="past-event-loading-description"></div>
+                            <div class="past-event-loading-date"></div>
+                        </div>
+                    </div>
+                    <div class="past-event-loading-item">
+                        <div class="past-event-loading-overlay">
+                            <div class="past-event-loading-title"></div>
+                            <div class="past-event-loading-description"></div>
+                            <div class="past-event-loading-date"></div>
+                        </div>
+                    </div>
+                    <div class="past-event-loading-item">
+                        <div class="past-event-loading-overlay">
+                            <div class="past-event-loading-title"></div>
+                            <div class="past-event-loading-description"></div>
+                            <div class="past-event-loading-date"></div>
+                        </div>
+                    </div>
+                    <div class="past-event-loading-item">
+                        <div class="past-event-loading-overlay">
+                            <div class="past-event-loading-title"></div>
+                            <div class="past-event-loading-description"></div>
+                            <div class="past-event-loading-date"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dynamic Content -->
+            <div id="past-events-content" class="past-events-grid" style="display: none;">
+                <!-- Past events will be dynamically loaded here -->
+                </div>
+        </section>
+
+        <!-- Notices -->
+        <section class="container academy-section">
+            <h2 class="section-title">Notices</h2>
+            
+            <!-- Loading Placeholder -->
+            <div id="notices-loading" class="notices-loading-container">
+                <div class="notices-loading-list">
+                    <div class="notice-loading-item">
+                        <div class="notice-loading-icon"></div>
+                        <div class="notice-loading-content">
+                            <div class="notice-loading-title"></div>
+                            <div class="notice-loading-description"></div>
+                        </div>
+                    </div>
+                    <div class="notice-loading-item">
+                        <div class="notice-loading-icon"></div>
+                        <div class="notice-loading-content">
+                            <div class="notice-loading-title"></div>
+                            <div class="notice-loading-description"></div>
+                        </div>
+                    </div>
+                    <div class="notice-loading-item">
+                        <div class="notice-loading-icon"></div>
+                        <div class="notice-loading-content">
+                            <div class="notice-loading-title"></div>
+                            <div class="notice-loading-description"></div>
+                        </div>
+                    </div>
+                    <div class="notice-loading-item">
+                        <div class="notice-loading-icon"></div>
+                        <div class="notice-loading-content">
+                            <div class="notice-loading-title"></div>
+                            <div class="notice-loading-description"></div>
+                        </div>
+                    </div>
+                    <div class="notice-loading-item">
+                        <div class="notice-loading-icon"></div>
+                        <div class="notice-loading-content">
+                            <div class="notice-loading-title"></div>
+                            <div class="notice-loading-description"></div>
+                        </div>
+                    </div>
+                    <div class="notice-loading-item">
+                        <div class="notice-loading-icon"></div>
+                        <div class="notice-loading-content">
+                            <div class="notice-loading-title"></div>
+                            <div class="notice-loading-description"></div>
+                        </div>
+                    </div>
+                    <div class="notice-loading-item">
+                        <div class="notice-loading-icon"></div>
+                        <div class="notice-loading-content">
+                            <div class="notice-loading-title"></div>
+                            <div class="notice-loading-description"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dynamic Content -->
+            <div id="notices-content" class="notices-container" style="display: none;">
+                <!-- Notices will be dynamically loaded here -->
+            </div>
+        </section>
+
+       
+
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Footer content will be dynamically generated by footer.js -->
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <!-- Load cache manager first for better performance -->
+    <script src="/js/utils/cache-manager.js"></script>
+    <script src="/js/main.js" defer></script>
+    <script src="/js/footer.js" defer></script>
+    <script src="/js/components.js" defer></script>
+    <script src="/js/navbar.js" defer></script>
+    <script src="/js/application-modal.js" defer></script>
+    <script src="/js/pageLoader/eventsPageLoader.js"></script>
+    <script>
+        // Initialize Lucide icons and theme
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize theme
+            function initializeTheme() {
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                document.documentElement.setAttribute('data-theme', savedTheme);
+                
+                // Update theme toggle icon
+                const themeToggle = document.getElementById('theme-toggle');
+                if (themeToggle) {
+                    const icon = themeToggle.querySelector('i');
+                    if (icon) {
+                        icon.setAttribute('data-lucide', savedTheme === 'dark' ? 'moon' : 'sun');
+                    }
+                }
+            }
+            
+            // Theme toggle functionality
+            function setupThemeToggle() {
+                const themeToggle = document.getElementById('theme-toggle');
+                if (themeToggle) {
+                    themeToggle.addEventListener('click', function() {
+                        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                        
+                        document.documentElement.setAttribute('data-theme', newTheme);
+                        localStorage.setItem('theme', newTheme);
+                        
+                        // Update icon
+                        const icon = themeToggle.querySelector('i');
+                        if (icon) {
+                            icon.setAttribute('data-lucide', newTheme === 'dark' ? 'moon' : 'sun');
+                            if (typeof lucide !== 'undefined') {
+                                lucide.createIcons();
+                            }
+                        }
+                    });
+                }
+            }
+            
+            // Initialize theme and toggle
+            initializeTheme();
+            setupThemeToggle();
+            
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            // Filter button functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+        });
+    </script>
+    
+    <!-- Tawk.to Live Chat Widget -->
+    <script src="/js/components/tawk-to.js"></script>
+</body>
+</html>

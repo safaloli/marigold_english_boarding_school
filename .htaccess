@@ -1,0 +1,31 @@
+# ================================
+# 🌐 Node.js Proxy + Security Setup
+# ================================
+
+# 🛡️ 1. Protect sensitive files
+<FilesMatch "^\.env">
+    Require all denied
+</FilesMatch>
+
+# 🛡️ (Optional) Protect other hidden files
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# 🚀 2. Enable Rewrite Engine
+RewriteEngine On
+
+# 🔒 3. Force HTTPS (redirect HTTP → HTTPS)
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 🧩 4. Exclude Let's Encrypt / SSL verification routes
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/
+
+# 🔁 5. Proxy all remaining requests to Node.js (localhost:3000)
+RewriteRule ^(.*)$ http://127.0.0.1:3000/$1 [P,L]
+
+# ================================
+# ✅ End of Configuration
+# ================================

@@ -1,0 +1,735 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Marigold Education Foundation</title>
+    <meta name="description" content="Get in touch with Marigold Education Foundation. Contact us for admissions, inquiries, or any questions about our educational programs.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://unpkg.com/lucide@latest/dist/umd/lucide.js" as="script">
+    
+    <!-- Lucide Icons - Load async -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" async></script>
+    <script>
+        // Initialize Lucide icons after DOM is loaded
+        function initializeLucideIcons() {
+            if (typeof lucide !== 'undefined') {
+                console.log('Initializing Lucide icons...');
+                lucide.createIcons();
+            } else {
+                console.log('Lucide not loaded, trying fallback...');
+                // Fallback if unpkg fails
+                const script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js';
+                script.onload = function() {
+                    console.log('CDNJS loaded successfully');
+                    if (typeof lucide !== 'undefined') {
+                        lucide.createIcons();
+                    }
+                };
+                script.onerror = function() {
+                    console.log('CDNJS failed, trying jsDelivr...');
+                    const script2 = document.createElement('script');
+                    script2.src = 'https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.js';
+                    script2.onload = function() {
+                        console.log('jsDelivr loaded successfully');
+                        if (typeof lucide !== 'undefined') {
+                            lucide.createIcons();
+                        }
+                    };
+                    script2.onerror = function() {
+                        console.error('All CDN sources failed');
+                    };
+                    document.head.appendChild(script2);
+                };
+                document.head.appendChild(script);
+            }
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeLucideIcons);
+        } else {
+            initializeLucideIcons();
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Loading Screen Management -->
+    <script>
+        // Hide loading screen when page is fully loaded
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+                // Add a small delay to ensure smooth transition
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                }, 300);
+            }
+        });
+        
+        // Fallback: Hide loading screen after 3 seconds maximum
+        setTimeout(() => {
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen && !loadingScreen.classList.contains('hidden')) {
+                loadingScreen.classList.add('hidden');
+            }
+        }, 3000);
+    </script>
+    
+    <!-- Dynamic Favicon Loader -->
+    <script src="/js/favicon-loader.js"></script>
+</head>
+<body class="bg-secondary">
+    <!-- Main Content -->
+    <main class="main"> 
+
+        <!-- Main Contact Section -->
+        <section class="contact-main section">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="contact-main-loading" id="contact-main-loading">
+                    <div class="contact-grid">
+                        <div class="contact-info-column loading-placeholder">
+                            <div class="contact-info-content">
+                                <div class="loading-box contact-title-box"></div>
+                                <div class="loading-box contact-description-box"></div>
+                                <div class="contact-details">
+                                    <div class="contact-detail-item loading-placeholder">
+                                        <div class="loading-box contact-icon-box"></div>
+                                        <div class="loading-box contact-text-box"></div>
+                                    </div>
+                                    <div class="contact-detail-item loading-placeholder">
+                                        <div class="loading-box contact-icon-box"></div>
+                                        <div class="loading-box contact-text-box"></div>
+                                    </div>
+                                    <div class="contact-detail-item loading-placeholder">
+                                        <div class="loading-box contact-icon-box"></div>
+                                        <div class="loading-box contact-text-box"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-form-column loading-placeholder">
+                            <div class="loading-box contact-form-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="contact-main-dynamic" id="contact-main-dynamic" style="display: none;">
+                    <div class="contact-grid">
+                        <!-- Left Column - Contact Information -->
+                        <div class="contact-info-column">
+                            <div class="contact-info-content">
+                                <h2>Contact Us</h2>
+                                <p>Email, call, or complete the form to learn how Marigold Education Foundation can solve your educational needs.</p>
+                            
+                            <div class="contact-details">
+                                <div class="contact-detail-item">
+                                    <i data-lucide="mail"></i>
+                                    <a href="" class="support-link">info@school.edu.np</a>
+                                </div>
+                                <div class="contact-detail-item">
+                                    <i data-lucide="phone"></i>
+                                    <a href="tel:+977-1-4XXXXXX" class="support-link">+977-1-4XXXXXX</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Contact Form -->
+                    <div class="contact-form-column">
+                        <div class="contact-form-card">
+                            <!-- Contact form will be loaded dynamically by contact-form.js -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section class="location-section section">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="location-section-loading" id="location-section-loading">
+                    <div class="location-grid">
+                        <div class="map-column loading-placeholder">
+                            <div class="loading-box map-box"></div>
+                        </div>
+                        <div class="location-info-column loading-placeholder">
+                            <div class="loading-box location-title-box"></div>
+                            <div class="loading-box location-description-box"></div>
+                            <div class="loading-box transportation-info-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="location-section-dynamic" id="location-section-dynamic" style="display: none;">
+                    <div class="location-grid">
+                        <!-- Left Column - Map -->
+                        <div class="map-column">
+                            <div class="map-container">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2936.2087288550692!2d82.3103147!3d28.1478985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3997f3fd286ea6d9%3A0x1d8355c814a9f662!2sMarigold%20English%20Boarding%20School!5e1!3m2!1sen!2snp!4v1772419113765!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <div class="map-overlay">
+                                <a href="" target="_blank" class="btn btn-primary btn-small">
+                                    <i data-lucide="map-pin"></i>
+                                    Open in Google Maps
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Location Info -->
+                    <div class="location-info-column">
+                        <div class="location-info-content">
+                            <h2>Our Location</h2>
+                            <p class="location-subtitle">Connecting Near and Far</p>
+                            
+                            <div class="headquarters-info">
+                                <h4>Headquarters</h4>
+                                <div class="address-details">
+                                    <p><strong>Marigold Education Foundation</strong></p>
+                                    <p>Kathmandu, Nepal</p>
+                                    <p>123 Education Street, Suite 456</p>
+                                    <p>Kathmandu, NP 44600</p>
+                                    <p>Nepal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section section">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="faq-section-loading" id="faq-section-loading">
+                    <div class="faq-grid">
+                        <div class="faq-intro-column loading-placeholder">
+                            <div class="loading-box faq-title-box"></div>
+                            <div class="loading-box faq-subtitle-box"></div>
+                            <div class="loading-box faq-description-box"></div>
+                        </div>
+                        <div class="faq-questions-column loading-placeholder">
+                            <div class="faq-item loading-placeholder">
+                                <div class="loading-box faq-question-box"></div>
+                                <div class="loading-box faq-answer-box"></div>
+                            </div>
+                            <div class="faq-item loading-placeholder">
+                                <div class="loading-box faq-question-box"></div>
+                                <div class="loading-box faq-answer-box"></div>
+                            </div>
+                            <div class="faq-item loading-placeholder">
+                                <div class="loading-box faq-question-box"></div>
+                                <div class="loading-box faq-answer-box"></div>
+                            </div>
+                            <div class="faq-item loading-placeholder">
+                                <div class="loading-box faq-question-box"></div>
+                                <div class="loading-box faq-answer-box"></div>
+                            </div>
+                            <div class="faq-item loading-placeholder">
+                                <div class="loading-box faq-question-box"></div>
+                                <div class="loading-box faq-answer-box"></div>
+                            </div>
+                            <div class="faq-item loading-placeholder">
+                                <div class="loading-box faq-question-box"></div>
+                                <div class="loading-box faq-answer-box"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="faq-section-dynamic" id="faq-section-dynamic" style="display: none;">
+                    <div class="faq-grid">
+                        <!-- Left Column - FAQ Introduction -->
+                        <div class="faq-intro-column">
+                            <div class="faq-intro-content">
+                                <h2 class="faq-title">Do you have any questions for us?</h2>
+                                <p class="faq-subtitle">FAQ</p>
+                           
+                        </div>
+                    </div>
+
+                    <!-- Right Column - FAQ Questions -->
+                    <div class="faq-questions-column">
+                                                    <div class="faq-questions">
+                                <div class="faq-item" tabindex="0">
+                                    <div class="faq-question">
+                                        <h4>What makes Marigold Education Foundation different from other schools?</h4>
+                                        <i data-lucide="chevron-down"></i>
+                                    </div>
+                                    <div class="faq-answer">
+                                        <p>Our unique approach combines traditional values with modern education, personalized learning, and comprehensive development programs that focus on holistic growth.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="faq-item" tabindex="0">
+                                    <div class="faq-question">
+                                        <h4>How secure is my child's information at Marigold Education Foundation?</h4>
+                                        <i data-lucide="chevron-down"></i>
+                                    </div>
+                                    <div class="faq-answer">
+                                        <p>We maintain strict privacy policies and secure systems to protect all student and family information, ensuring complete confidentiality and data protection.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="faq-item" tabindex="0">
+                                    <div class="faq-question">
+                                        <h4>Can I personalize my child's learning experience?</h4>
+                                        <i data-lucide="chevron-down"></i>
+                                    </div>
+                                    <div class="faq-answer">
+                                        <p>Yes, we offer personalized learning plans tailored to each student's strengths, interests, and learning style, ensuring optimal academic growth.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="faq-item" tabindex="0">
+                                    <div class="faq-question">
+                                        <h4>What extracurricular activities does Marigold Education Foundation offer?</h4>
+                                        <i data-lucide="chevron-down"></i>
+                                    </div>
+                                    <div class="faq-answer">
+                                        <p>We offer a wide range of activities including sports, arts, music, technology, leadership programs, and community service to develop well-rounded individuals.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="faq-item" tabindex="0">
+                                    <div class="faq-question">
+                                        <h4>What are the admission requirements and process?</h4>
+                                        <i data-lucide="chevron-down"></i>
+                                    </div>
+                                    <div class="faq-answer">
+                                        <p>Our admission process includes an application form, academic assessment, and family interview. We welcome students from diverse backgrounds and provide support throughout the process.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="faq-item" tabindex="0">
+                                    <div class="faq-question">
+                                        <h4>How do you support students with different learning needs?</h4>
+                                        <i data-lucide="chevron-down"></i>
+                                    </div>
+                                    <div class="faq-answer">
+                                        <p>We provide individualized support through specialized programs, learning accommodations, and dedicated staff to ensure every student reaches their full potential.</p>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Media Section -->
+        <section class="social-media section">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="social-media-loading" id="social-media-loading">
+                    <div class="section-header text-center loading-placeholder">
+                        <div class="loading-box social-title-box"></div>
+                        <div class="loading-box social-subtitle-box"></div>
+                    </div>
+                    <div class="social-grid">
+                        <div class="social-card loading-placeholder">
+                            <div class="loading-box social-icon-box"></div>
+                            <div class="social-content">
+                                <div class="loading-box social-title-box"></div>
+                                <div class="loading-box social-description-box"></div>
+                            </div>
+                        </div>
+                        <div class="social-card loading-placeholder">
+                            <div class="loading-box social-icon-box"></div>
+                            <div class="social-content">
+                                <div class="loading-box social-title-box"></div>
+                                <div class="loading-box social-description-box"></div>
+                            </div>
+                        </div>
+                        <div class="social-card loading-placeholder">
+                            <div class="loading-box social-icon-box"></div>
+                            <div class="social-content">
+                                <div class="loading-box social-title-box"></div>
+                                <div class="loading-box social-description-box"></div>
+                            </div>
+                        </div>
+                        <div class="social-card loading-placeholder">
+                            <div class="loading-box social-icon-box"></div>
+                            <div class="social-content">
+                                <div class="loading-box social-title-box"></div>
+                                <div class="loading-box social-description-box"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="social-media-dynamic" id="social-media-dynamic" style="display: none;">
+                    <div class="section-header">
+                        <h2 class="section-title">Stay Connected</h2>
+                        <p class="section-subtitle">Stay connected with us on social media for the latest updates and events</p>
+                    </div>
+                
+                <div class="social-grid">
+                    <a href="#" class="social-card facebook">
+                        <div class="social-icon">
+                            <i data-lucide="facebook"></i>
+                        </div>
+                        <div class="social-content">
+                            <h3>Facebook</h3>
+                            <p>Follow us for school updates and events</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="social-card instagram">
+                        <div class="social-icon">
+                            <i data-lucide="instagram"></i>
+                        </div>
+                        <div class="social-content">
+                            <h3>Instagram</h3>
+                            <p>See daily moments from our school life</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="social-card youtube">
+                        <div class="social-icon">
+                            <i data-lucide="youtube"></i>
+                        </div>
+                        <div class="social-content">
+                            <h3>YouTube</h3>
+                            <p>Watch videos of our events and activities</p>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="social-card linkedin">
+                        <div class="social-icon">
+                            <i data-lucide="linkedin"></i>
+                        </div>
+                        <div class="social-content">
+                            <h3>LinkedIn</h3>
+                            <p>Connect with our professional network</p>
+                        </div>
+                    </a>
+                </div>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Call to Action Section -->
+        <section class="cta-section section">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="cta-section-loading" id="cta-section-loading">
+                    <div class="cta-content text-center loading-placeholder">
+                        <div class="loading-box cta-title-box"></div>
+                        <div class="cta-buttons">
+                            <div class="loading-box cta-button-box"></div>
+                            <div class="loading-box cta-button-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="cta-section-dynamic" id="cta-section-dynamic" style="display: none;">
+                    <div class="cta-content">
+                        <h2>Ready to experience the excellence and values of Marigold Education Foundation?</h2>
+                        <div class="cta-buttons">
+                            <button class="btn btn-primary btn-large" onclick="openApplicationModal()">Get Started</button>
+                            <a href="/about.html" class="btn btn-outline btn-large">
+                                Learn more
+                                <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Footer content will be dynamically generated by footer.js -->
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="/js/main.js"></script>
+    <script src="/js/footer.js"></script>
+    <script src="/js/components.js"></script>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/application-modal.js"></script>
+    <script src="/js/contact-form.js"></script>
+    <script>
+        // Initialize Lucide icons and theme
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize theme
+            function initializeTheme() {
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                document.documentElement.setAttribute('data-theme', savedTheme);
+                
+                // Update theme toggle icon
+                const themeToggle = document.getElementById('theme-toggle');
+                if (themeToggle) {
+                    const icon = themeToggle.querySelector('i');
+                    if (icon) {
+                        icon.setAttribute('data-lucide', savedTheme === 'dark' ? 'moon' : 'sun');
+                    }
+                }
+            }
+            
+            // Theme toggle functionality
+            function setupThemeToggle() {
+                const themeToggle = document.getElementById('theme-toggle');
+                if (themeToggle) {
+                    themeToggle.addEventListener('click', function() {
+                        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                        
+                        document.documentElement.setAttribute('data-theme', newTheme);
+                        localStorage.setItem('theme', newTheme);
+                        
+                        // Update icon
+                        const icon = themeToggle.querySelector('i');
+                        if (icon) {
+                            icon.setAttribute('data-lucide', newTheme === 'dark' ? 'moon' : 'sun');
+                            if (typeof lucide !== 'undefined') {
+                                lucide.createIcons();
+                            }
+                        }
+                    });
+                }
+            }
+
+            // FAQ functionality
+            function setupFAQ() {
+                const faqItems = document.querySelectorAll('.faq-item');
+                let currentActive = null;
+                
+                faqItems.forEach((item, index) => {
+                    const question = item.querySelector('.faq-question');
+                    const answer = item.querySelector('.faq-answer');
+                    const icon = question.querySelector('i');
+                    
+                    // Add ripple effect
+                    question.addEventListener('click', (e) => {
+                        // Create ripple effect
+                        const ripple = document.createElement('span');
+                        const rect = question.getBoundingClientRect();
+                        const size = Math.max(rect.width, rect.height);
+                        const x = e.clientX - rect.left - size / 2;
+                        const y = e.clientY - rect.top - size / 2;
+                        
+                        ripple.style.cssText = `
+                            position: absolute;
+                            width: ${size}px;
+                            height: ${size}px;
+                            left: ${x}px;
+                            top: ${y}px;
+                            background: rgba(var(--primary-color-rgb), 0.3);
+                            border-radius: 50%;
+                            transform: scale(0);
+                            animation: ripple 0.6s linear;
+                            pointer-events: none;
+                        `;
+                        
+                        question.appendChild(ripple);
+                        setTimeout(() => ripple.remove(), 600);
+                        
+                        // Simple toggle logic
+                        const isOpen = item.classList.contains('active');
+                        
+                        // Close all items first
+                        faqItems.forEach(faqItem => {
+                            faqItem.classList.remove('active');
+                        });
+                        
+                        // Open clicked item if it wasn't open
+                        if (!isOpen) {
+                            item.classList.add('active');
+                        }
+                    });
+                    
+                    // Add keyboard support
+                    question.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            question.click();
+                        }
+                    });
+                    
+                    // Add hover effects
+                    question.addEventListener('mouseenter', () => {
+                        item.style.transform = 'translateY(-2px)';
+                    });
+                    
+                    question.addEventListener('mouseleave', () => {
+                        if (!item.classList.contains('active')) {
+                            item.style.transform = 'translateY(0)';
+                        }
+                    });
+                });
+                
+                // Add CSS for ripple animation and FAQ see more styles
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes ripple {
+                        to {
+                            transform: scale(4);
+                            opacity: 0;
+                        }
+                    }
+                    
+                    /* FAQ See More Button Styles */
+                    .faq-see-more-container {
+                        text-align: center;
+                        margin-top: 2rem;
+                        padding-top: 2rem;
+                        border-top: 1px solid var(--border-color, #e5e7eb);
+                    }
+                    
+                    .faq-see-more-btn {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        padding: 0.75rem 1.5rem;
+                        background: transparent;
+                        border: 2px solid var(--primary-color, #3b82f6);
+                        color: var(--primary-color, #3b82f6);
+                        border-radius: 0.5rem;
+                        font-weight: 500;
+                        transition: all 0.3s ease;
+                        cursor: pointer;
+                    }
+                    
+                    .faq-see-more-btn:hover {
+                        background: var(--primary-color, #3b82f6);
+                        color: white;
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+                    }
+                    
+                    .faq-see-more-btn .btn-icon {
+                        transition: transform 0.3s ease;
+                    }
+                    
+                    .faq-item-hidden {
+                        opacity: 0;
+                        transform: translateY(20px);
+                        transition: opacity 0.3s ease, transform 0.3s ease;
+                    }
+                    
+                    .faq-item-hidden[style*="block"] {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                    
+                    /* FAQ Accordion Styles */
+                    .faq-item .faq-answer {
+                        max-height: 0;
+                        overflow: hidden;
+                        transition: max-height 0.3s ease;
+                        padding: 0 1rem;
+                    }
+                    
+                    .faq-item.active .faq-answer {
+                        max-height: 500px;
+                        padding: 1rem;
+                    }
+                    
+                    .faq-question {
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        padding: 1rem;
+                        border-radius: 0.5rem;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+                    
+                    .faq-question:hover {
+                        background-color: rgba(59, 130, 246, 0.05);
+                    }
+                    
+                    .faq-question i {
+                        transition: transform 0.3s ease;
+                        flex-shrink: 0;
+                    }
+                    
+                    .faq-question h4 {
+                        margin: 0;
+                        flex: 1;
+                        margin-right: 1rem;
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+
+            // Character counter for message textarea
+            function setupCharCounter() {
+                const textarea = document.getElementById('message');
+                const counter = document.querySelector('.char-counter');
+                
+                if (textarea && counter) {
+                    textarea.addEventListener('input', function() {
+                        const count = this.value.length;
+                        counter.textContent = `${count}/2000`;
+                        
+                        // Add visual feedback
+                        if (count > 1800) {
+                            counter.style.color = 'var(--error-color)';
+                        } else if (count > 1500) {
+                            counter.style.color = 'var(--warning-color)';
+                        } else {
+                            counter.style.color = 'var(--text-secondary)';
+                        }
+                    });
+                }
+            }
+            
+
+            
+            // Initialize everything
+            initializeTheme();
+            setupThemeToggle();
+            // setupFAQ(); // Disabled - FAQ functionality now handled by contact-loader.js
+            setupCharCounter();
+            
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+    </script>
+    
+    <!-- Cache manager for better performance -->
+    <script src="/js/utils/cache-manager.js"></script>
+    
+    <!-- Page Loader -->
+    <script src="/js/pageLoader/contact-loader.js"></script>
+    
+    <!-- Tawk.to Live Chat Widget -->
+    <script src="/js/components/tawk-to.js"></script>
+</body>
+</html> 
+

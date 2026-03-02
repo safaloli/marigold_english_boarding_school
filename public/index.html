@@ -1,0 +1,1977 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marigold School - Excellence in Education</title>
+    <meta name="description" content="Marigold School - Empowering minds, building futures. A premier educational institution committed to academic excellence and holistic development.">
+    
+    <!-- Content Security Policy - Managed by server -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unboxicons.com https://embed.tawk.to https://*.tawk.to https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net https://embed.tawk.to https://*.tawk.to; script-src-attr 'unsafe-inline'; connect-src 'self' https://embed.tawk.to https://*.tawk.to wss://*.tawk.to https://unpkg.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://api.cloudinary.com https://res.cloudinary.com; frame-src 'self' https://embed.tawk.to https://*.tawk.to https://tawk.to https://www.google.com https://maps.google.com; img-src 'self' data: https: blob:; media-src 'self' https://res.cloudinary.com https://*.cloudinary.com; font-src 'self' https://fonts.gstatic.com https://unboxicons.com https://embed.tawk.to https://*.tawk.to;">
+    
+    <!-- DNS Prefetch & Preconnect for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/js/utils/cache-manager.js" as="script">
+    <link rel="preload" href="/css/main.css" as="style">
+    <link rel="preload" href="https://unpkg.com/lucide@latest/dist/umd/lucide.js" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" as="script">
+    
+    <!-- Lucide Icons - Load async -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" async></script>
+    
+    <!-- jQuery - Load async -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" async></script>
+    
+    <!-- Owl Carousel - Load async -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" async></script>
+    <script>
+        // Initialize Lucide icons after DOM is loaded
+        function initializeLucideIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                // Fallback if unpkg fails
+                const script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js';
+                script.onload = function() {
+                    if (typeof lucide !== 'undefined') {
+                        lucide.createIcons();
+                    }
+                };
+                script.onerror = function() {
+                    const script2 = document.createElement('script');
+                    script2.src = 'https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.js';
+                    script2.onload = function() {
+                        if (typeof lucide !== 'undefined') {
+                            lucide.createIcons();
+                        }
+                    };
+                    script2.onerror = function() {
+                        console.error('All CDN sources failed');
+                    };
+                    document.head.appendChild(script2);
+                };
+                document.head.appendChild(script);
+            }
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeLucideIcons);
+        } else {
+            initializeLucideIcons();
+        }
+    </script>
+    
+    <!-- Custom CSS - Load critical CSS first -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preload" href="css/components.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/responsive.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/notice-modal.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link href="admin/css/output.tailwind.css" rel='stylesheet'">
+    
+    <!-- Fallback for browsers that don't support preload -->
+    <noscript>
+        <link rel="stylesheet" href="css/components.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/notice-modal.css">
+    </noscript>
+    
+    <!-- Tawk.to Widget CSS Override -->
+    <style>
+        /* Ensure Tawk.to widget is visible and properly styled */
+        #tawk-widget,
+        [id*="tawk"],
+        [class*="tawk"] {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            z-index: 999999 !important;
+            position: fixed !important;
+        }
+        
+        /* Override any potential hiding */
+        .tawk-widget,
+        .tawk-widget * {
+            display: block !important;
+            visibility: visible !important;
+        }
+        
+        /* Fix black chat box styling */
+        .tawk-widget,
+        [class*="tawk-widget"],
+        [id*="tawk-widget"] {
+            background: white !important;
+            color: #333 !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 10px !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
+        }
+        
+        /* Style the chat button */
+        .tawk-widget button,
+        [class*="tawk-widget"] button {
+            background: #6366f1 !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 50% !important;
+        }
+        
+        /* Style chat messages */
+        .tawk-widget .message,
+        [class*="tawk-widget"] .message {
+            background: #f8f9fa !important;
+            color: #333 !important;
+            border: 1px solid #e9ecef !important;
+        }
+        
+        /* Style input field */
+        .tawk-widget input,
+        .tawk-widget textarea,
+        [class*="tawk-widget"] input,
+        [class*="tawk-widget"] textarea {
+            background: white !important;
+            color: #333 !important;
+            border: 1px solid #ddd !important;
+        }
+        
+        /* Force light theme for Tawk.to */
+        .tawk-widget,
+        [class*="tawk-widget"],
+        [id*="tawk-widget"],
+        iframe[src*="tawk.to"] {
+            background: white !important;
+            color: #333 !important;
+        }
+        
+        /* Override any dark theme */
+        .tawk-widget *,
+        [class*="tawk-widget"] * {
+            background: inherit !important;
+            color: inherit !important;
+        }
+        
+        /* Specific overrides for common Tawk elements */
+        .tawk-widget .tawk-widget-header,
+        .tawk-widget .tawk-widget-body,
+        .tawk-widget .tawk-widget-footer {
+            background: white !important;
+            color: #333 !important;
+        }
+        
+        /* Fix Tawk.to icons */
+        .tawk-widget [class*="icon"],
+        .tawk-widget [class*="fa-"],
+        .tawk-widget [class*="tawk-"],
+        .tawk-widget i,
+        .tawk-widget svg,
+        [class*="tawk-widget"] [class*="icon"],
+        [class*="tawk-widget"] [class*="fa-"],
+        [class*="tawk-widget"] [class*="tawk-"],
+        [class*="tawk-widget"] i,
+        [class*="tawk-widget"] svg {
+            display: inline-block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            font-family: inherit !important;
+            color: inherit !important;
+        }
+        
+        /* Ensure Tawk.to icon fonts load */
+        @font-face {
+            font-family: 'tawk-icon';
+            src: url('https://embed.tawk.to/_s/v4/app/68b80124c9f/fonts/tawk-icon.woff2') format('woff2'),
+                 url('https://embed.tawk.to/_s/v4/app/68b80124c9f/fonts/tawk-icon.woff') format('woff');
+            font-display: swap;
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        /* Force Tawk.to icon visibility */
+        .tawk-icon,
+        [class*="tawk-icon"],
+        .tawk-widget .tawk-icon,
+        .tawk-widget [class*="tawk-icon"],
+        [class*="tawk-widget"] .tawk-icon,
+        [class*="tawk-widget"] [class*="tawk-icon"] {
+            font-family: 'tawk-icon' !important;
+            display: inline-block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            font-style: normal !important;
+            font-weight: normal !important;
+            font-variant: normal !important;
+            text-transform: none !important;
+            line-height: 1 !important;
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale !important;
+        }
+        
+        /* Specific icon fixes */
+        .tawk-icon-chevron-left:before { content: "\\e900" !important; }
+        .tawk-icon-chevron-right:before { content: "\\e901" !important; }
+        .tawk-icon-close:before { content: "\\e902" !important; }
+        .tawk-icon-send:before { content: "\\e903" !important; }
+        .tawk-icon-attach:before { content: "\\e904" !important; }
+        .tawk-icon-emoji:before { content: "\\e905" !important; }
+        .tawk-icon-minimize:before { content: "\\e906" !important; }
+        .tawk-icon-maximize:before { content: "\\e907" !important; }
+    </style>
+    
+    <!-- Loading Screen Management -->
+    <script>
+        // Optimized loading screen management
+        let loadingScreenHidden = false;
+        
+        function hideLoadingScreen() {
+            if (loadingScreenHidden) return;
+            loadingScreenHidden = true;
+            
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+                loadingScreen.style.transition = 'opacity 0.3s ease-out';
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                }, 300);
+            }
+        }
+        
+        // Hide loading screen when DOM is ready and critical resources loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if critical resources are loaded
+            const checkResources = () => {
+                const lucideLoaded = typeof lucide !== 'undefined';
+                const jqueryLoaded = typeof $ !== 'undefined';
+                
+                if (lucideLoaded && jqueryLoaded) {
+                    hideLoadingScreen();
+                } else {
+                    setTimeout(checkResources, 100);
+                }
+            };
+            
+            // Start checking after a minimum delay
+            setTimeout(checkResources, 500);
+        });
+        
+        // Fallback: Hide loading screen after 2 seconds maximum
+        setTimeout(hideLoadingScreen, 2000);
+    </script>
+    
+    <!-- Dynamic Favicon Loader -->
+    <script src="/js/favicon-loader.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i data-lucide="graduation-cap"></i>
+            </div>
+            <div class="loading-text">Marigold Secondary School</div>
+            <div class="loading-spinner"></div>
+        </div>
+    </div> 
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero section" id="home">
+            <div class="hero-container">
+                <div class="hero-visual">
+                    <!-- Loading Placeholder for Hero Visual -->
+                    <!-- <div class="hero-visual-loading loading-placeholder" id="hero-visual-loading" style="display: block;">
+                        <div class="loading-box hero-visual-box"></div>
+                    </div> -->
+                    
+                    <!-- Actual Content (hidden initially) -->
+                     <div class="home-hero-overlay hero-overlay"></div>
+                    <div class="hero-main-image" id="hero-main-image" style="display: none;">
+                    </div>
+                </div>
+
+
+                <div class="hero-content">
+                    <!-- Loading Placeholder -->
+                    <div class="hero-loading" id="hero-loading">
+                        <div class="hero-badge loading-placeholder">
+                            <div class="loading-box"></div>
+                        </div>
+                        
+                        <div class="hero-title loading-placeholder">
+                            <div class="loading-box main-title-box"></div>
+                        </div>
+                        
+                        <div class="hero-description loading-placeholder">
+                            <div class="loading-box description-box"></div>
+                        </div>
+                        
+                        <div class="hero-buttons loading-placeholder">
+                            <div class="loading-box button-box"></div>
+                            <div class="loading-box button-box"></div>
+                        </div>
+                        
+                        <div class="hero-stats loading-placeholder">
+                            <div class="loading-box stat-box"></div>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Content (hidden initially) -->
+                    <div class="hero-dynamic" id="hero-dynamic" style="display: none;">
+                    <!-- <div class="hero-badge">
+                        <i data-lucide="star"></i>
+                        <span>Excellence in Education Since 1995</span>
+                    </div> -->
+                    
+                    <h1 class="hero-title">
+                            <span class="main-title">Where <br> Learning Meets <br> Excellence.</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Inspiring students with knowledge, values, and opportunities to grow.
+                    </p>
+                    
+                    <div class="hero-buttons">
+                        <button class="btn-primary" onclick="openApplicationModal()">Apply Now</button>
+                        <a href="/contact.html" class="btn-outline">Contact Us</a>
+                    </div>
+                    
+                    <!-- <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="1500">1500+</span>
+                            <span class="stat-label">Happy Students</span>
+                            <div class="stat-avatars">
+                                <div class="stat-avatar">S</div>
+                                <div class="stat-avatar">T</div>
+                                <div class="stat-avatar">U</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                
+                
+            </div>
+            
+        </section>
+
+        <!-- Quick Facts Section -->
+        <section class="quick-facts section">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="quick-facts-loading" id="quick-facts-loading">
+                    <div class="loading-placeholder">
+                        <div class="loading-box quick-facts-title-box"></div>
+                    </div>
+                    <div class="quick-facts-grid">
+                        <div class="fact-card loading-placeholder">
+                            <div class="loading-box fact-icon-box"></div>
+                            <div class="loading-box fact-number-box"></div>
+                            <div class="loading-box fact-label-box"></div>
+                        </div>
+                        
+                        <div class="fact-card loading-placeholder">
+                            <div class="loading-box fact-icon-box"></div>
+                            <div class="loading-box fact-number-box"></div>
+                            <div class="loading-box fact-label-box"></div>
+                        </div>
+                        
+                        <div class="fact-card loading-placeholder">
+                            <div class="loading-box fact-icon-box"></div>
+                            <div class="loading-box fact-number-box"></div>
+                            <div class="loading-box fact-label-box"></div>
+                        </div>
+                        
+                        <div class="fact-card loading-placeholder">
+                            <div class="loading-box fact-icon-box"></div>
+                            <div class="loading-box fact-number-box"></div>
+                            <div class="loading-box fact-label-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="quick-facts-dynamic" id="quick-facts-dynamic" style="display: none;">
+                <h2 class="quick-facts-title">Our results in numbers</h2>
+                <div class="quick-facts-grid">
+                    <div class="fact-card">
+                        <div class="fact-icon">
+                            <i data-lucide="award"></i>
+                        </div>
+                            <div class="fact-number">
+                                <span class="counter-number" data-target="25">0</span><span class="fact-accent">+</span>
+                            </div>
+                        <div class="fact-label">Years of Excellence</div>
+                    </div>
+                    
+                    <div class="fact-card">
+                        <div class="fact-icon">
+                            <i data-lucide="users"></i>
+                        </div>
+                            <div class="fact-number">
+                                <span class="counter-number" data-target="50">0</span><span class="fact-accent">+</span>
+                            </div>
+                        <div class="fact-label">Qualified Teachers</div>
+                    </div>
+                    
+                    <div class="fact-card">
+                        <div class="fact-icon">
+                            <i data-lucide="graduation-cap"></i>
+                        </div>
+                            <div class="fact-number">
+                                <span class="counter-number" data-target="1000">0</span><span class="fact-accent">+</span>
+                            </div>
+                        <div class="fact-label">Students Enrolled</div>
+                    </div>
+                    
+                    <div class="fact-card">
+                        <div class="fact-icon">
+                            <i data-lucide="trophy"></i>
+                        </div>
+                            <div class="fact-number">
+                                <span class="counter-number" data-target="20">0</span><span class="fact-accent">+</span>
+                            </div>
+                        <div class="fact-label">Awards & Achievements</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="why-choose-us section" id="features">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="why-choose-loading" id="why-choose-loading">
+                    <div class="section-header text-center loading-placeholder">
+                        <div class="loading-box why-choose-title-box"></div>
+                        <div class="loading-box why-choose-accent-box"></div>
+                    </div>
+                    
+                    <div class="why-choose-content">
+                        <div class="benefits-list">
+                            <div class="benefit-card loading-placeholder">
+                                <div class="loading-box benefit-icon-box"></div>
+                                <div class="benefit-content">
+                                    <div class="loading-box benefit-title-box"></div>
+                                    <div class="loading-box benefit-description-box"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="benefit-card loading-placeholder">
+                                <div class="loading-box benefit-icon-box"></div>
+                                <div class="benefit-content">
+                                    <div class="loading-box benefit-title-box"></div>
+                                    <div class="loading-box benefit-description-box"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="benefit-card loading-placeholder">
+                                <div class="loading-box benefit-icon-box"></div>
+                                <div class="benefit-content">
+                                    <div class="loading-box benefit-title-box"></div>
+                                    <div class="loading-box benefit-description-box"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="benefit-card loading-placeholder">
+                                <div class="loading-box benefit-icon-box"></div>
+                                <div class="benefit-content">
+                                    <div class="loading-box benefit-title-box"></div>
+                                    <div class="loading-box benefit-description-box"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="why-choose-image loading-placeholder">
+                            <div class="loading-box why-choose-image-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="why-choose-dynamic" id="why-choose-dynamic" style="display: none;">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Why Choose Marigold?</h2>
+                    <div class="title-accent"></div>
+                </div>
+                
+                <div class="why-choose-content">
+                    <div class="benefits-list">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                    <i data-lucide="users"></i>
+                            </div>
+                            <div class="benefit-content">
+                                    <h3>Experienced Faculty</h3>
+                                    <p>Our team of highly qualified and experienced educators brings years of expertise to the classroom. They are dedicated to providing personalized attention and fostering a love for learning in every student.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                    <i data-lucide="building"></i>
+                            </div>
+                            <div class="benefit-content">
+                                    <h3>Modern Facilities</h3>
+                                    <p>State-of-the-art infrastructure with well-equipped laboratories, digital classrooms, library, and sports facilities. We provide the perfect environment for comprehensive learning and development.</p>
+                                </div>
+                            </div>
+                            
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                    <i data-lucide="activity"></i>
+                                </div>
+                            <div class="benefit-content">
+                                    <h3>Rich Extracurriculars</h3>
+                                    <p>From sports and arts to robotics and debate, we offer a wide range of extracurricular activities that help students discover their passions and develop essential life skills beyond academics.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-card">
+                            <div class="benefit-icon">
+                                    <i data-lucide="trophy"></i>
+                            </div>
+                            <div class="benefit-content">
+                                    <h3>Student Success</h3>
+                                    <p>Our students consistently achieve outstanding results in board examinations and excel in various competitions. We take pride in their academic achievements and holistic development.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="why-choose-image">
+                        <img src="" alt="Marigold School - Modern Learning Environment">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="mission-section">
+            <div class="mission-container">
+                <!-- Loading Placeholder -->
+                <div class="mission-loading" id="mission-loading">
+                    <div class="mission-header loading-placeholder">
+                        <div class="loading-box mission-title-box"></div>
+                        <div class="loading-box mission-underline-box"></div>
+                    </div>
+                    
+                    <div class="mission-cards">
+                        <div class="mission-card loading-placeholder">
+                            <div class="loading-box mission-icon-box"></div>
+                            <div class="loading-box mission-card-title-box"></div>
+                            <div class="loading-box mission-description-box"></div>
+                        </div>
+                        
+                        <div class="mission-card loading-placeholder">
+                            <div class="loading-box mission-icon-box"></div>
+                            <div class="loading-box mission-card-title-box"></div>
+                            <div class="loading-box mission-description-box"></div>
+                        </div>
+                        
+                        <div class="mission-card loading-placeholder">
+                            <div class="loading-box mission-icon-box"></div>
+                            <div class="loading-box mission-card-title-box"></div>
+                            <div class="loading-box mission-description-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="mission-dynamic" id="mission-dynamic" style="display: none;">
+                <div class="mission-header">
+                    <h2 class="mission-title">Our Mission</h2>
+                    <div class="mission-underline"></div>
+                </div>
+                
+                <div class="mission-cards">
+                    <div class="mission-connector"></div>
+                    
+                    <div class="mission-card mission">
+                        <div class="mission-card-icon">
+                            <i data-lucide="lightbulb"></i>
+                        </div>
+                        <div class="mission-card-title">Mission</div>
+                        <div class="mission-card-description">
+                            To provide quality education that empowers students with knowledge, skills, and values 
+                            to become responsible global citizens.
+                        </div>
+                    </div>
+                    
+                    <div class="mission-card vision">
+                        <div class="mission-card-icon">
+                            <i data-lucide="target"></i>
+                        </div>
+                        <div class="mission-card-title">Vision</div>
+                        <div class="mission-card-description">
+                            To be a leading educational institution that inspires excellence, fosters innovation, 
+                            and prepares students for global citizenship.
+                        </div>
+                    </div>
+                    
+                    <div class="mission-card values">
+                        <div class="mission-card-icon">
+                            <i data-lucide="heart"></i>
+                        </div>
+                        <div class="mission-card-title">Values</div>
+                        <div class="mission-card-description">
+                            Excellence, Integrity, Innovation, Compassion, and Respect - these core values guide 
+                            everything we do.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Programs Section -->
+        <section class="academic-programs section" id="programs">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="programs-loading" id="programs-loading">
+                    <div class="section-header text-center loading-placeholder">
+                        <div class="loading-box programs-title-box"></div>
+                        <div class="loading-box programs-subtitle-box"></div>
+                    </div>
+                    
+                    <div class="programs-grid">
+                        <div class="program-card loading-placeholder">
+                            <div class="loading-box program-image-box"></div>
+                            <div class="program-content">
+                                <div class="loading-box program-title-box"></div>
+                                <div class="loading-box program-description-box"></div>
+                                <div class="loading-box program-link-box"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="program-card loading-placeholder">
+                            <div class="loading-box program-image-box"></div>
+                            <div class="program-content">
+                                <div class="loading-box program-title-box"></div>
+                                <div class="loading-box program-description-box"></div>
+                                <div class="loading-box program-link-box"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="program-card loading-placeholder">
+                            <div class="loading-box program-image-box"></div>
+                            <div class="program-content">
+                                <div class="loading-box program-title-box"></div>
+                                <div class="loading-box program-description-box"></div>
+                                <div class="loading-box program-link-box"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="program-card loading-placeholder">
+                            <div class="loading-box program-image-box"></div>
+                            <div class="program-content">
+                                <div class="loading-box program-title-box"></div>
+                                <div class="loading-box program-description-box"></div>
+                                <div class="loading-box program-link-box"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="programs-dynamic" id="programs-dynamic" style="display: none;">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Academic Programs</h2>
+                    <p class="section-subtitle">Comprehensive education from early years to secondary level</p>
+                </div>
+                
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <div class="program-image">
+                                <img src="" alt="Pre-Primary Students Learning">
+                            <div class="program-overlay">
+                        <div class="program-icon">
+                            <i data-lucide="baby"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="program-content">
+                        <h3>Pre-Primary</h3>
+                        <p>Nursery to UKG - Foundation years focused on play-based learning and early development</p>
+                            <a href="/academics.html" class="program-link">
+                                Learn More <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="program-card">
+                        <div class="program-image">
+                                <img src="" alt="Primary Students in Classroom">
+                            <div class="program-overlay">
+                        <div class="program-icon">
+                            <i data-lucide="book-open"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="program-content">
+                        <h3>Primary</h3>
+                        <p>Grades 1-5 - Building strong foundations in core subjects with emphasis on creativity</p>
+                            <a href="/academics.html" class="program-link">
+                                Learn More <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="program-card">
+                        <div class="program-image">
+                                <img src="" alt="Middle School Science Lab">
+                            <div class="program-overlay">
+                        <div class="program-icon">
+                            <i data-lucide="flask-conical"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="program-content">
+                        <h3>Middle School</h3>
+                        <p>Grades 6-8 - Deeper subject knowledge with practical learning experiences</p>
+                            <a href="/academics.html" class="program-link">
+                                Learn More <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="program-card">
+                        <div class="program-image">
+                                <img src="" alt="Secondary Students Graduation">
+                            <div class="program-overlay">
+                        <div class="program-icon">
+                            <i data-lucide="graduation-cap"></i>
+                        </div>
+                </div>
+                        </div>
+                        <div class="program-content">
+                            <h3>Secondary</h3>
+                            <p>Grades 9-10 - Advanced academic preparation with focus on SEE examination</p>
+                            <a href="/academics.html" class="program-link">
+                                Learn More <i data-lucide="arrow-right"></i>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEB Board Toppers Section -->
+        <section class="neb-toppers section" id="toppers">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">NEB Board Toppers</h2>
+                    <p class="section-subtitle">Proud moments of Marigold excellence</p>
+                </div>
+                
+                <div class="toppers-carousel-wrapper">
+                    <div class="toppers-carousel owl-carousel owl-theme" id="toppers-carousel">
+                        <div class="topper-card">
+                            <div class="topper-image-wrapper">
+                                <div class="topper-image">
+                                    <img src="" alt="Aarav Sharma" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="topper-content">
+                                <h3 class="topper-name">Aarav Sharma</h3>
+                                <p class="topper-details">Batch 2080, GPA: 3.95</p>
+                                <blockquote class="topper-quote">
+                                    "Success is not final, failure is not fatal: it is the courage to continue that counts."
+                                </blockquote>
+                            </div>
+                        </div>
+                        
+                        <div class="topper-card">
+                            <div class="topper-image-wrapper">
+                                <div class="topper-image">
+                                    <img src="/images/testimonial-2.jpg" alt="Priya Gurung" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="topper-content">
+                                <h3 class="topper-name">Priya Gurung</h3>
+                                <p class="topper-details">Batch 2080, GPA: 3.92</p>
+                                <blockquote class="topper-quote">
+                                    "The future belongs to those who believe in the beauty of their dreams."
+                                </blockquote>
+                            </div>
+                        </div>
+                        
+                        <div class="topper-card">
+                            <div class="topper-image-wrapper">
+                                <div class="topper-image">
+                                    <img src="" alt="Rohan Thapa" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="topper-content">
+                                <h3 class="topper-name">Rohan Thapa</h3>
+                                <p class="topper-details">Batch 2080, GPA: 3.90</p>
+                                <blockquote class="topper-quote">
+                                    "Believe you can and you're halfway there. A great journey at Marigold!"
+                                </blockquote>
+                            </div>
+                        </div>
+                        
+                        <div class="topper-card">
+                            <div class="topper-image-wrapper">
+                                <div class="topper-image">
+                                    <img src="/images/testimonial-2.jpg" alt="Sunita Rai" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="topper-content">
+                                <h3 class="topper-name">Sunita Rai</h3>
+                                <p class="topper-details">Batch 2080, GPA: 3.88</p>
+                                <blockquote class="topper-quote">
+                                    "Strive for progress, not perfection. Thankful for my teachers and friends."
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Arrows -->
+                    <div class="toppers-nav">
+                        <button class="toppers-nav-btn toppers-nav-prev" aria-label="Previous topper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m15 18-6-6 6-6"></path>
+                            </svg>
+                        </button>
+                        <button class="toppers-nav-btn toppers-nav-next" aria-label="Next topper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m9 18 6-6-6-6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Pagination Dots -->
+                    <div class="toppers-dots" id="toppers-dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marigold Alumni Section -->
+        <section class="alumni section bg-light" id="alumni">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Marigold Alumni</h2>
+                    <p class="section-subtitle">Our proud graduates making an impact around the world</p>
+                </div>
+                
+                <div class="alumni-carousel-wrapper">
+                    <div class="alumni-carousel owl-carousel owl-theme" id="alumni-carousel">
+                        <div class="alumni-card">
+                            <div class="alumni-image">
+                                <img src="" alt="Sameer KC" loading="lazy">
+                            </div>
+                            <div class="alumni-content">
+                                <h3 class="alumni-name">Sameer KC</h3>
+                                <p class="alumni-batch">Batch 2070</p>
+                                <p class="alumni-position">Software Engineer at Google</p>
+                                <blockquote class="alumni-quote">
+                                    "Marigold provided the foundation for my career. The problem-solving skills I learned here are invaluable in the tech industry."
+                                </blockquote>
+                            </div>
+                        </div>
+                        
+                        <div class="alumni-card">
+                            <div class="alumni-image">
+                                <img src="/images/testimonial-2.jpg" alt="Anjali Lama" loading="lazy">
+                            </div>
+                            <div class="alumni-content">
+                                <h3 class="alumni-name">Anjali Lama</h3>
+                                <p class="alumni-batch">Batch 2068</p>
+                                <p class="alumni-position">Founder, Himalayan Crafts</p>
+                                <blockquote class="alumni-quote">
+                                    "The encouragement to think creatively at Marigold inspired me to start my own business and pursue my passion."
+                                </blockquote>
+                            </div>
+                        </div>
+                        
+                        <div class="alumni-card">
+                            <div class="alumni-image">
+                                <img src="" alt="Dr. Bishal Adhikari" loading="lazy">
+                            </div>
+                            <div class="alumni-content">
+                                <h3 class="alumni-name">Dr. Bishal Adhikari</h3>
+                                <p class="alumni-batch">Batch 2065</p>
+                                <p class="alumni-position">Cardiologist, Grande Hospital</p>
+                                <blockquote class="alumni-quote">
+                                    "My dream to become a doctor started in the science labs of Marigold. The school's focus on academic excellence was instrumental."
+                                </blockquote>
+                            </div>
+                        </div>
+                        
+                        <div class="alumni-card">
+                            <div class="alumni-image">
+                                <img src="" alt="Nikita Shrestha" loading="lazy">
+                            </div>
+                            <div class="alumni-content">
+                                <h3 class="alumni-name">Nikita Shrestha</h3>
+                                <p class="alumni-batch">Batch 2072</p>
+                                <p class="alumni-position">Civil Engineer, UN Habitat</p>
+                                <blockquote class="alumni-quote">
+                                    "The values and discipline instilled at Marigold have been my guiding principles throughout my professional journey."
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Arrows -->
+                    <div class="alumni-nav">
+                        <button class="alumni-nav-btn alumni-nav-prev" aria-label="Previous alumni">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m15 18-6-6 6-6"></path>
+                            </svg>
+                        </button>
+                        <button class="alumni-nav-btn alumni-nav-next" aria-label="Next alumni">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m9 18 6-6-6-6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Pagination Dots -->
+                    <div class="alumni-dots" id="alumni-dots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials section" id="testimonials">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="testimonials-loading" id="testimonials-loading">
+                    <div class="testimonials-header text-center loading-placeholder">
+                        <div class="loading-box testimonials-badge-box"></div>
+                        <div class="loading-box testimonials-title-box"></div>
+                        <div class="loading-box testimonials-subtitle-box"></div>
+                    </div>
+                    
+                    <div class="testimonials-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-track">
+                                <div class="testimonial-card loading-placeholder">
+                                    <div class="loading-box testimonial-quote-box"></div>
+                                    <div class="loading-box testimonial-text-box"></div>
+                                    <div class="loading-box testimonial-author-box"></div>
+                                </div>
+                                
+                                <div class="testimonial-card loading-placeholder">
+                                    <div class="loading-box testimonial-quote-box"></div>
+                                    <div class="loading-box testimonial-text-box"></div>
+                                    <div class="loading-box testimonial-author-box"></div>
+                                </div>
+                                
+                                <div class="testimonial-card loading-placeholder">
+                                    <div class="loading-box testimonial-quote-box"></div>
+                                    <div class="loading-box testimonial-text-box"></div>
+                                    <div class="loading-box testimonial-author-box"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="testimonials-dynamic" id="testimonials-dynamic" style="display: none;">
+                <div class="testimonials-header text-center">
+                    <div class="testimonials-badge">Testimonials</div>
+                    <h2 class="testimonials-title">Our trusted parents & students</h2>
+                    <p class="testimonials-subtitle">Our mission is to drive progress and enhance the lives of our students by delivering superior education and holistic development that exceeds expectations.</p>
+                </div>
+                
+                <div class="testimonials-carousel-container">
+                <div class="testimonials-carousel owl-carousel owl-theme" id="testimonials-carousel">
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote">
+                                    <i data-lucide="quote"></i>
+                                    </div>
+                                <blockquote class="testimonial-text">
+                                    "Marigold School has transformed my child's learning journey. The teachers are dedicated, the facilities are excellent, and the academic results speak for themselves. My son has grown not just academically but as a confident individual."
+                                </blockquote>
+                                <div class="testimonial-author">
+                                    <div class="author-image">
+                                        <div class="dummy-image-card testimonial-author-dummy" id="testimonial-1-dummy"></div>
+                                        <img src="/images/testimonial-2.jpg" alt="Priya Sharma" class="img-fluid" loading="lazy" data-dummy="testimonial-1-dummy" style="display: none;">
+                                </div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Priya Sharma</h4>
+                                        <div class="author-rating">
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                        </div>
+                                        <p class="author-role">Parent of Class 10 Student</p>
+                                    </div>
+                        </div>
+                            </div>
+                            
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote">
+                                    <i data-lucide="quote"></i>
+                                    </div>
+                                <blockquote class="testimonial-text">
+                                    "The school provides an amazing learning environment. I love the practical approach to science and the extracurricular activities. The teachers always encourage us to think creatively and ask questions."
+                                </blockquote>
+                                <div class="testimonial-author">
+                                    <div class="author-image">
+                                        <div class="dummy-image-card testimonial-author-dummy" id="testimonial-2-dummy"></div>
+                                        <img src="" alt="Rahul Patel" class="img-fluid" loading="lazy" data-dummy="testimonial-2-dummy" style="display: none;">
+                                </div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Rahul Patel</h4>
+                                        <div class="author-rating">
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star"></i>
+                                        </div>
+                                        <p class="author-role">Student, Class 9</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote">
+                                    <i data-lucide="quote"></i>
+                                </div>
+                                <blockquote class="testimonial-text">
+                                    "As a parent, I appreciate the school's focus on character building alongside academics. My daughter has developed strong values and leadership skills. The communication with parents is excellent."
+                                </blockquote>
+                                <div class="testimonial-author">
+                                    <div class="author-image">
+                                        <div class="dummy-image-card testimonial-author-dummy" id="testimonial-3-dummy"></div>
+                                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&auto=format" alt="Meera Singh" class="img-fluid" loading="lazy" data-dummy="testimonial-3-dummy" style="display: none;">
+                                    </div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Meera Singh</h4>
+                                        <div class="author-rating">
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star"></i>
+                                        </div>
+                                        <p class="author-role">Parent of Class 9 Student</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote">
+                                    <i data-lucide="quote"></i>
+                                </div>
+                                <blockquote class="testimonial-text">
+                                    "The school's approach to education is perfect. We get both theoretical knowledge and practical experience. The teachers are supportive and the school environment is very safe and welcoming."
+                                </blockquote>
+                                <div class="testimonial-author">
+                                    <div class="author-image">
+                                        <div class="dummy-image-card testimonial-author-dummy" id="testimonial-4-dummy"></div>
+                                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&h=60&fit=crop&auto=format" alt="Aisha Khan" class="img-fluid" loading="lazy" data-dummy="testimonial-4-dummy" style="display: none;">
+                                    </div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Aisha Khan</h4>
+                                        <div class="author-rating">
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                        </div>
+                                        <p class="author-role">Student, Class 11</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote">
+                                    <i data-lucide="quote"></i>
+                                </div>
+                                <blockquote class="testimonial-text">
+                                    "Choosing Marigold School was the best decision for my daughter's education. The school's commitment to excellence and the individual attention given to each child is remarkable."
+                                </blockquote>
+                                <div class="testimonial-author">
+                                    <div class="author-image">
+                                        <div class="dummy-image-card testimonial-author-dummy" id="testimonial-5-dummy"></div>
+                                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&auto=format" alt="Rajesh Kumar" class="img-fluid" loading="lazy" data-dummy="testimonial-5-dummy" style="display: none;">
+                                    </div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Rajesh Kumar</h4>
+                                        <div class="author-rating">
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star"></i>
+                                        </div>
+                                        <p class="author-role">Parent of Class 12 Student</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote">
+                                    <i data-lucide="quote"></i>
+                                </div>
+                                <blockquote class="testimonial-text">
+                                    "The school has prepared me well for my future. The SEE preparation was excellent, and the career guidance helped me choose the right path. I'm grateful for the strong foundation I received."
+                                </blockquote>
+                                <div class="testimonial-author">
+                                    <div class="author-image">
+                                        <div class="dummy-image-card testimonial-author-dummy" id="testimonial-6-dummy"></div>
+                                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&h=60&fit=crop&auto=format" alt="Vikram Malhotra" class="img-fluid" loading="lazy" data-dummy="testimonial-6-dummy" style="display: none;">
+                                    </div>
+                                    <div class="author-info">
+                                        <h4 class="author-name">Vikram Malhotra</h4>
+                                        <div class="author-rating">
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star filled" fill="currentColor"></i>
+                                            <i data-lucide="star" class="star"></i>
+                                        </div>
+                                        <p class="author-role">Alumni</p>
+                                    </div>
+                        </div>
+                            </div>
+                            
+                    </div>
+                    
+                    <!-- Navigation Arrows -->
+                    <div class="testimonials-nav">
+                        <button class="testimonials-nav-btn testimonials-nav-prev" aria-label="Previous testimonials">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m15 18-6-6 6-6"></path>
+                            </svg>
+                        </button>
+                        <button class="testimonials-nav-btn testimonials-nav-next" aria-label="Next testimonials">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m9 18 6-6-6-6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Pagination Dots -->
+                    <div class="testimonials-dots" id="testimonials-dots"></div>
+                    </div>
+            </div>
+        </section>
+
+        
+        <!-- Gallery Section -->
+        <section class="gallery section" id="gallery">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="gallery-loading" id="gallery-loading">
+                    <div class="section-header text-center loading-placeholder">
+                        <div class="loading-box gallery-title-box"></div>
+                        <div class="loading-box gallery-subtitle-box"></div>
+                        </div>
+                    
+                    <div class="gallery-grid">
+                        <div class="gallery-item loading-placeholder">
+                            <div class="loading-box gallery-image-box"></div>
+                            <div class="gallery-overlay">
+                                <div class="loading-box gallery-overlay-title-box"></div>
+                                <div class="loading-box gallery-overlay-description-box"></div>
+                    </div>
+                </div>
+                        
+                        <div class="gallery-item loading-placeholder">
+                            <div class="loading-box gallery-image-box"></div>
+                            <div class="gallery-overlay">
+                                <div class="loading-box gallery-overlay-title-box"></div>
+                                <div class="loading-box gallery-overlay-description-box"></div>
+            </div>
+                        </div>
+                        
+                        <div class="gallery-item loading-placeholder">
+                            <div class="loading-box gallery-image-box"></div>
+                            <div class="gallery-overlay">
+                                <div class="loading-box gallery-overlay-title-box"></div>
+                                <div class="loading-box gallery-overlay-description-box"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="gallery-item loading-placeholder">
+                            <div class="loading-box gallery-image-box"></div>
+                            <div class="gallery-overlay">
+                                <div class="loading-box gallery-overlay-title-box"></div>
+                                <div class="loading-box gallery-overlay-description-box"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="gallery-item loading-placeholder">
+                            <div class="loading-box gallery-image-box"></div>
+                            <div class="gallery-overlay">
+                                <div class="loading-box gallery-overlay-title-box"></div>
+                                <div class="loading-box gallery-overlay-description-box"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="gallery-item loading-placeholder">
+                            <div class="loading-box gallery-image-box"></div>
+                            <div class="gallery-overlay">
+                                <div class="loading-box gallery-overlay-title-box"></div>
+                                <div class="loading-box gallery-overlay-description-box"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-cta text-center loading-placeholder">
+                        <div class="loading-box gallery-cta-box"></div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="gallery-dynamic" id="gallery-dynamic" style="display: none;">
+                <div class="section-header text-center">
+                    <h2 class="section-title">School Life in Pictures</h2>
+                    <p class="section-subtitle">A glimpse into our vibrant school community</p>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="/images/" alt="Students in classroom" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Active Learning</h3>
+                            <p>Students engaged in collaborative learning</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                                <img src="/" alt="Science lab activities" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Science Experiments</h3>
+                            <p>Hands-on learning in our modern labs</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                                <img src="" alt="Sports activities" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Sports & Fitness</h3>
+                            <p>Physical development and team sports</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                                <img src="/images/testimonial-2.jpg" alt="Art and music" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Creative Arts</h3>
+                            <p>Nurturing creativity and artistic expression</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                                <img src="" alt="School events" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>School Events</h3>
+                            <p>Celebrating achievements and milestones</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                                <img src="" alt="School building" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h3>Modern Campus</h3>
+                            <p>State-of-the-art facilities and infrastructure</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-cta text-center">
+                    <a href="/gallery.html" class="btn btn-primary">
+                        <i data-lucide="image"></i>
+                        View Full Gallery
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section bg-secondary" id="contact">
+            <div class="container">
+                <!-- Loading Placeholder -->
+                <div class="contact-loading" id="contact-loading">
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <div class="section-header loading-placeholder">
+                                <div class="loading-box contact-title-box"></div>
+                                <div class="loading-box contact-subtitle-box"></div>
+                            </div>
+                            
+                            <div class="contact-details">
+                                <div class="contact-item loading-placeholder">
+                                    <div class="loading-box contact-icon-box"></div>
+                                    <div class="contact-text">
+                                        <div class="loading-box contact-item-title-box"></div>
+                                        <div class="loading-box contact-item-text-box"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item loading-placeholder">
+                                    <div class="loading-box contact-icon-box"></div>
+                                    <div class="contact-text">
+                                        <div class="loading-box contact-item-title-box"></div>
+                                        <div class="loading-box contact-item-text-box"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item loading-placeholder">
+                                    <div class="loading-box contact-icon-box"></div>
+                                    <div class="contact-text">
+                                        <div class="loading-box contact-item-title-box"></div>
+                                        <div class="loading-box contact-item-text-box"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item loading-placeholder">
+                                    <div class="loading-box contact-icon-box"></div>
+                                    <div class="contact-text">
+                                        <div class="loading-box contact-item-title-box"></div>
+                                        <div class="loading-box contact-item-text-box"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="social-links loading-placeholder">
+                                <div class="loading-box social-link-box"></div>
+                                <div class="loading-box social-link-box"></div>
+                                <div class="loading-box social-link-box"></div>
+                                <div class="loading-box social-link-box"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Column - Contact Form -->
+                        <div class="contact-form-column">
+                            <div class="contact-form-card">
+                                <!-- Contact form will be loaded dynamically by contact-form.js -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content (hidden initially) -->
+                <div class="contact-dynamic" id="contact-dynamic" style="display: none;">
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <div class="section-header">
+                                <h2 class="section-title">Get in Touch</h2>
+                                <p class="section-subtitle">We'd love to hear from you</p>
+                            </div>
+                            
+                            <div class="contact-details">
+                                <div class="contact-item">
+                                    <i data-lucide="map-pin"></i>
+                                    <div class="contact-text">
+                                        <h4>Address</h4>
+                                        <p>123 Education Street, City, State 123456</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <i data-lucide="phone"></i>
+                                    <div class="contact-text">
+                                        <h4>Phone</h4>
+                                        <p>+91-1234567890</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <i data-lucide="mail"></i>
+                                    <div class="contact-text">
+                                        <h4>Email</h4>
+                                        <p>info@school.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-item">
+                                    <i data-lucide="clock"></i>
+                                    <div class="contact-text">
+                                        <h4>School Hours</h4>
+                                        <p>Mon - Fri: 8:00 AM - 3:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="social-links">
+                                <a href="#" target="_blank" aria-label="Facebook">
+                                    <i data-lucide="facebook"></i>
+                                </a>
+                                <a href="#" target="_blank" aria-label="Instagram">
+                                    <i data-lucide="instagram"></i>
+                                </a>
+                                <a href="#" target="_blank" aria-label="Twitter">
+                                    <i data-lucide="twitter"></i>
+                                </a>
+                                <a href="#" target="_blank" aria-label="YouTube">
+                                    <i data-lucide="youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Column - Contact Form -->
+                        <div class="contact-form-column">
+                            <div class="contact-form-card">
+                                    <!-- Contact form will be loaded dynamically by contact-form.js -->
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <!-- Footer content will be dynamically generated by footer.js -->
+        </footer>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts - Load critical scripts first -->
+    <!-- Cache manager loads first (no defer) for immediate availability -->
+    <script src="/js/utils/cache-manager.js"></script>
+    <script src="/js/performance-optimizer.js" defer></script>
+    <script src="/js/main.js" defer></script>
+    <script src="/js/footer.js" defer></script>
+    <script src="/js/components.js" defer></script>
+    <script src="/js/navbar.js" defer></script>
+    <script src="/js/application-modal.js" defer></script>
+    <script src="/js/contact-form.js" defer></script>
+    <script src="/js/notice-modal.js" defer></script>
+    <script src="/js/pageLoader/homepage-loader.js" defer></script>
+    <script>
+        // Initialize Owl Carousel for testimonials
+        window.initializeTestimonialsCarousel = function() {
+            
+            if (typeof $ !== 'undefined' && $.fn.owlCarousel) {
+                // Check if carousel element exists
+                const carouselElement = document.getElementById('testimonials-carousel');
+                
+                if (carouselElement) {
+                    // Destroy existing carousel if it exists
+                    $('#testimonials-carousel').trigger('destroy.owl.carousel');
+                    
+                    $('#testimonials-carousel').owlCarousel({
+                        loop: true,
+                        margin: 20,
+                        nav: false,
+                        dots: false,
+                        autoplay: true,
+                        autoplayTimeout: 5000,
+                        autoplayHoverPause: true,
+                        smartSpeed: 750,
+                        stagePadding: 0,
+                        animateOut: 'fadeOut',
+                        animateIn: 'fadeIn',
+                        responsive: {
+                            0: {
+                                items: 1,
+                                margin: 10,
+                                stagePadding: 0,
+                                nav: false,
+                                dots: false
+                            },
+                            576: {
+                                items: 1,
+                                margin: 15,
+                                stagePadding: 0,
+                                nav: false,
+                                dots: false
+                            },
+                            992: {
+                                items: 2,
+                                margin: 20,
+                                stagePadding: 0,
+                                nav: false,
+                                dots: false
+                            },
+                            1280: {
+                                items: 3,
+                                margin: 20,
+                                stagePadding: 0,
+                                nav: false,
+                                dots: false
+                            }
+                        }
+                    });
+                    
+                    // Custom navigation setup
+                    const carousel = $('#testimonials-carousel');
+                    const prevBtn = document.querySelector('.testimonials-nav-prev');
+                    const nextBtn = document.querySelector('.testimonials-nav-next');
+                    const dotsContainer = document.querySelector('.testimonials-dots');
+                    
+                    // Navigation buttons
+                    if (prevBtn) {
+                        prevBtn.addEventListener('click', () => {
+                            carousel.trigger('prev.owl.carousel');
+                        });
+                    }
+                    
+                    if (nextBtn) {
+                        nextBtn.addEventListener('click', () => {
+                            carousel.trigger('next.owl.carousel');
+                        });
+                    }
+                    
+                    // Create custom dots
+                    if (dotsContainer) {
+                        const totalItems = carousel.find('.owl-item').length;
+                        dotsContainer.innerHTML = '';
+                        
+                        for (let i = 0; i < totalItems; i++) {
+                            const dot = document.createElement('button');
+                            dot.className = 'testimonials-dot';
+                            dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                            dot.addEventListener('click', () => {
+                                carousel.trigger('to.owl.carousel', i);
+                            });
+                            dotsContainer.appendChild(dot);
+                        }
+                    }
+                    
+                    // Update dots on carousel change
+                    carousel.on('changed.owl.carousel', function(event) {
+                        const dots = dotsContainer?.querySelectorAll('.testimonials-dot');
+                        dots?.forEach((dot, index) => {
+                            dot.classList.toggle('active', index === event.item.index);
+                        });
+                        
+                        // Update navigation button states
+                        const isFirst = event.item.index === 0;
+                        const isLast = event.item.index === event.item.count - 1;
+                        
+                        if (prevBtn) {
+                            prevBtn.disabled = isFirst;
+                            prevBtn.style.opacity = isFirst ? '0.5' : '1';
+                        }
+                        
+                        if (nextBtn) {
+                            nextBtn.disabled = isLast;
+                            nextBtn.style.opacity = isLast ? '0.5' : '1';
+                        }
+                    });
+                    
+                    
+                    // Reinitialize Lucide icons after carousel is created
+                    if (typeof lucide !== 'undefined') {
+                        lucide.createIcons();
+                    }
+                } else {
+                    setTimeout(initializeTestimonialsCarousel, 500);
+                }
+            } else {
+                setTimeout(initializeTestimonialsCarousel, 500);
+            }
+        }
+        
+        // Initialize Alumni Carousel
+        window.initializeAlumniCarousel = function() {
+            if (typeof $ !== 'undefined' && $.fn.owlCarousel) {
+                const carouselElement = document.getElementById('alumni-carousel');
+                
+                if (carouselElement) {
+                    // Destroy existing carousel if it exists
+                    $('#alumni-carousel').trigger('destroy.owl.carousel');
+                    
+                    const carousel = $('#alumni-carousel');
+                    
+                    // Initialize carousel
+                    carousel.owlCarousel({
+                        loop: true,
+                        margin: 30,
+                        nav: false,
+                        dots: false,
+                        autoplay: true,
+                        autoplayTimeout: 6000,
+                        autoplayHoverPause: true,
+                        smartSpeed: 750,
+                        stagePadding: 0,
+                        responsive: {
+                            0: {
+                                items: 1,
+                                margin: 15
+                            },
+                            768: {
+                                items: 2,
+                                margin: 20
+                            },
+                            1024: {
+                                items: 3,
+                                margin: 30
+                            }
+                        }
+                    });
+                    
+                    // Setup navigation after carousel is ready
+                    carousel.on('initialized.owl.carousel', function() {
+                        setupAlumniNavigation();
+                    });
+                    
+                    // Also setup with a small delay as fallback
+                    setTimeout(() => {
+                        setupAlumniNavigation();
+                    }, 200);
+                    
+                    function setupAlumniNavigation() {
+                        // Custom navigation setup
+                        const carouselWrapper = carouselElement.closest('.alumni-carousel-wrapper');
+                        const prevBtn = carouselWrapper ? carouselWrapper.querySelector('.alumni-nav-prev') : document.querySelector('.alumni-nav-prev');
+                        const nextBtn = carouselWrapper ? carouselWrapper.querySelector('.alumni-nav-next') : document.querySelector('.alumni-nav-next');
+                        const dotsContainer = carouselWrapper ? carouselWrapper.querySelector('.alumni-dots') : document.querySelector('.alumni-dots');
+                    
+                        // Remove existing event listeners by cloning and replacing buttons
+                        if (prevBtn && nextBtn) {
+                            // Clone buttons to remove old event listeners
+                            const prevBtnClone = prevBtn.cloneNode(true);
+                            const nextBtnClone = nextBtn.cloneNode(true);
+                            prevBtn.parentNode.replaceChild(prevBtnClone, prevBtn);
+                            nextBtn.parentNode.replaceChild(nextBtnClone, nextBtn);
+                            
+                            // Navigation buttons - attach fresh event listeners
+                            prevBtnClone.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                if (carousel.length && carousel.data('owl.carousel')) {
+                                    carousel.trigger('prev.owl.carousel');
+                                }
+                            });
+                            
+                            nextBtnClone.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                if (carousel.length && carousel.data('owl.carousel')) {
+                                    carousel.trigger('next.owl.carousel');
+                                }
+                            });
+                        } else {
+                            // Fallback: try to find buttons again
+                            const fallbackPrevBtn = document.querySelector('.alumni-nav-prev');
+                            const fallbackNextBtn = document.querySelector('.alumni-nav-next');
+                            
+                            if (fallbackPrevBtn) {
+                                fallbackPrevBtn.addEventListener('click', (e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    if (carousel.length && carousel.data('owl.carousel')) {
+                                        carousel.trigger('prev.owl.carousel');
+                                    }
+                                });
+                            }
+                            
+                            if (fallbackNextBtn) {
+                                fallbackNextBtn.addEventListener('click', (e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    if (carousel.length && carousel.data('owl.carousel')) {
+                                        carousel.trigger('next.owl.carousel');
+                                    }
+                                });
+                            }
+                        }
+                        
+                        // Create custom dots
+                        if (dotsContainer) {
+                            const totalItems = carousel.find('.owl-item:not(.cloned)').length;
+                            dotsContainer.innerHTML = '';
+                            
+                            for (let i = 0; i < totalItems; i++) {
+                                const dot = document.createElement('button');
+                                dot.className = 'alumni-dot';
+                                dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                                dot.addEventListener('click', () => {
+                                    carousel.trigger('to.owl.carousel', i);
+                                });
+                                dotsContainer.appendChild(dot);
+                            }
+                            
+                            // Set first dot as active
+                            if (dotsContainer.children[0]) {
+                                dotsContainer.children[0].classList.add('active');
+                            }
+                        }
+                        
+                        // Update dots on carousel change
+                        carousel.on('changed.owl.carousel', function(event) {
+                            if (dotsContainer) {
+                                const dots = dotsContainer.querySelectorAll('.alumni-dot');
+                                const currentIndex = event.item.index - event.relatedTarget._clones.length / 2;
+                                const normalizedIndex = ((currentIndex % event.item.count) + event.item.count) % event.item.count;
+                                
+                                dots.forEach((dot, index) => {
+                                    dot.classList.toggle('active', index === normalizedIndex);
+                                });
+                            }
+                        });
+                    }
+                } else {
+                    setTimeout(initializeAlumniCarousel, 500);
+                }
+            } else {
+                setTimeout(initializeAlumniCarousel, 500);
+            }
+        }
+        
+        // Initialize Toppers Carousel
+        window.initializeToppersCarousel = function() {
+            if (typeof $ !== 'undefined' && $.fn.owlCarousel) {
+                const carouselElement = document.getElementById('toppers-carousel');
+                
+                if (carouselElement) {
+                    // Destroy existing carousel if it exists
+                    $('#toppers-carousel').trigger('destroy.owl.carousel');
+                    
+                    $('#toppers-carousel').owlCarousel({
+                        loop: true,
+                        margin: 30,
+                        nav: false,
+                        dots: false,
+                        autoplay: true,
+                        autoplayTimeout: 5000,
+                        autoplayHoverPause: true,
+                        smartSpeed: 750,
+                        stagePadding: 0,
+                        responsive: {
+                            0: {
+                                items: 1,
+                                margin: 15
+                            },
+                            576: {
+                                items: 1,
+                                margin: 20
+                            },
+                            768: {
+                                items: 2,
+                                margin: 20
+                            },
+                            1024: {
+                                items: 3,
+                                margin: 30
+                            },
+                            1280: {
+                                items: 4,
+                                margin: 30
+                            }
+                        }
+                    });
+                    
+                    // Custom navigation setup
+                    const carousel = $('#toppers-carousel');
+                    const prevBtn = document.querySelector('.toppers-nav-prev');
+                    const nextBtn = document.querySelector('.toppers-nav-next');
+                    const dotsContainer = document.querySelector('.toppers-dots');
+                    
+                    // Navigation buttons
+                    if (prevBtn) {
+                        prevBtn.addEventListener('click', () => {
+                            carousel.trigger('prev.owl.carousel');
+                        });
+                    }
+                    
+                    if (nextBtn) {
+                        nextBtn.addEventListener('click', () => {
+                            carousel.trigger('next.owl.carousel');
+                        });
+                    }
+                    
+                    // Create custom dots
+                    if (dotsContainer) {
+                        const totalItems = carousel.find('.owl-item:not(.cloned)').length;
+                        dotsContainer.innerHTML = '';
+                        
+                        for (let i = 0; i < totalItems; i++) {
+                            const dot = document.createElement('button');
+                            dot.className = 'toppers-dot';
+                            dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                            dot.addEventListener('click', () => {
+                                carousel.trigger('to.owl.carousel', i);
+                            });
+                            dotsContainer.appendChild(dot);
+                        }
+                        
+                        // Set first dot as active
+                        if (dotsContainer.children[0]) {
+                            dotsContainer.children[0].classList.add('active');
+                        }
+                    }
+                    
+                    // Update dots on carousel change
+                    carousel.on('changed.owl.carousel', function(event) {
+                        if (dotsContainer) {
+                            const dots = dotsContainer.querySelectorAll('.toppers-dot');
+                            const currentIndex = event.item.index - event.relatedTarget._clones.length / 2;
+                            const normalizedIndex = ((currentIndex % event.item.count) + event.item.count) % event.item.count;
+                            
+                            dots.forEach((dot, index) => {
+                                dot.classList.toggle('active', index === normalizedIndex);
+                            });
+                        }
+                    });
+                } else {
+                    setTimeout(initializeToppersCarousel, 500);
+                }
+            } else {
+                setTimeout(initializeToppersCarousel, 500);
+            }
+        }
+        
+        // Initialize components
+        document.addEventListener('DOMContentLoaded', function() {
+            // Footer is already initialized in footer.js
+            
+            // Initialize testimonials carousel
+            initializeTestimonialsCarousel();
+            
+            // Initialize alumni carousel
+            initializeAlumniCarousel();
+            
+            // Initialize toppers carousel
+            initializeToppersCarousel();
+            
+            // Fallback initialization after a delay
+            setTimeout(() => {
+                if (typeof $ !== 'undefined' && $.fn.owlCarousel) {
+                    const carousel = $('#testimonials-carousel');
+                    if (carousel.length && !carousel.hasClass('owl-loaded')) {
+                        initializeTestimonialsCarousel();
+                    }
+                    
+                    const alumniCarousel = $('#alumni-carousel');
+                    if (alumniCarousel.length && !alumniCarousel.hasClass('owl-loaded')) {
+                        initializeAlumniCarousel();
+                    }
+                    
+                    const toppersCarousel = $('#toppers-carousel');
+                    if (toppersCarousel.length && !toppersCarousel.hasClass('owl-loaded')) {
+                        initializeToppersCarousel();
+                    }
+                }
+            }, 1000);
+            
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                // If lucide is not loaded, try to load it
+                const script = document.createElement('script');
+                script.src = 'https://unpkg.com/lucide@latest/dist/umd/lucide.js';
+                script.onload = function() {
+                    if (typeof lucide !== 'undefined') {
+                        lucide.createIcons();
+                    }
+                };
+                document.head.appendChild(script);
+            }
+            
+            // CSS Film Grain Effect Control
+            // Adjust grain intensity based on user preference or system performance
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const isMobile = window.innerWidth <= 768;
+            
+            if (prefersReducedMotion || isMobile) {
+                // Reduce grain effect for better performance and accessibility
+                document.documentElement.style.setProperty('--film-grain-opacity', '0.01');
+                document.documentElement.style.setProperty('--film-grain-opacity-dark', '0.015');
+            }
+            
+            // Optional: Add keyboard shortcut to toggle grain effect (Ctrl/Cmd + N)
+            document.addEventListener('keydown', function(e) {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'n') {
+                    e.preventDefault();
+                    const currentOpacity = getComputedStyle(document.documentElement).getPropertyValue('--film-grain-opacity');
+                    const newOpacity = currentOpacity === '0.03' ? '0.01' : '0.03';
+                    const newOpacityDark = currentOpacity === '0.03' ? '0.015' : '0.05';
+                    
+                    document.documentElement.style.setProperty('--film-grain-opacity', newOpacity);
+                    document.documentElement.style.setProperty('--film-grain-opacity-dark', newOpacityDark);
+                    
+                }
+            });
+        });
+    </script>
+
+    <!-- Tawk.to Live Chat Widget -->
+    <script src="/js/components/tawk-to.js"></script>
+    
+    <script>
+        // Image loading handler for testimonials
+        window.handleImageLoading = function() {
+            const images = document.querySelectorAll('img[data-dummy]');
+            images.forEach(img => {
+                const dummyId = img.getAttribute('data-dummy');
+                const dummyCard = document.getElementById(dummyId);
+                
+                if (dummyCard) {
+                    img.addEventListener('load', () => {
+                        dummyCard.style.display = 'none';
+                        img.style.display = 'block';
+                    });
+                    
+                    img.addEventListener('error', () => {
+                        dummyCard.style.display = 'none';
+                        img.style.display = 'block';
+                    });
+                }
+            });
+        };
+        
+        // Initialize image loading when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                if (typeof handleImageLoading === 'function') {
+                    handleImageLoading();
+                }
+            }, 100);
+            
+            // Add error handlers to all images that don't have one
+            // This prevents 404 errors from missing images
+            document.querySelectorAll('img').forEach(img => {
+                if (!img.hasAttribute('onerror') && !img.hasAttribute('data-fallback-applied')) {
+                    img.addEventListener('error', function() {
+                        if (window.handleImageError) {
+                            window.handleImageError(this, 'Image not available');
+                        } else {
+                            // Fallback if main.js hasn't loaded yet
+                            this.style.display = 'none';
+                            const placeholder = document.createElement('div');
+                            placeholder.className = 'image-placeholder';
+                            placeholder.innerHTML = '<span>Image not available</span>';
+                            placeholder.style.cssText = 'display: flex; align-items: center; justify-content: center; background: #f3f4f6; color: #9ca3af; padding: 20px; min-height: 100px;';
+                            this.parentNode.insertBefore(placeholder, this);
+                            this.setAttribute('data-fallback-applied', 'true');
+                        }
+                    }, { once: true });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+

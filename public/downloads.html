@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloads - Marigold Secondary School</title>
+    <meta name="description" content="Access official academic results, curriculum details, and syllabus outlines.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" async></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" async></script>
+    
+    <script>
+        function initializeLucideIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                setTimeout(initializeLucideIcons, 100);
+            }
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeLucideIcons);
+        } else {
+            initializeLucideIcons();
+        }
+    </script>
+
+    <!-- Dynamic Favicon Loader -->
+    <script src="/js/favicon-loader.js"></script>
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="admin/css/output.tailwind.css" rel='stylesheet'>
+</head>
+<body>    
+    <main class="main downloads">
+        <!-- Page Header -->
+        <section class="download-page-header">
+            <div class="container">
+                <div class="page-header-content">
+                    <h1 class="title">Downloads</h1>
+                    <p class="subtitle">Access official academic results, curriculum details, and syllabus outlines for the specific academic year.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Downloads Content -->
+        <section class="downloads-section section">
+            <div class="container">
+
+                <!--  Tabs -->
+                <div class="downloads-tabs">
+                    <button class="downloads-tab active" data-tab="results" data-action="show-results">
+                        <i class="tab-icon" data-lucide="check-circle"></i>
+                        <span>Results</span>
+                    </button>
+
+                    <button class="downloads-tab" data-tab="curriculum" data-action="show-curriculum">
+                        <i class="tab-icon" data-lucide="book"></i>
+                        <span>Curriculum</span>
+                    </button>
+
+                    <button class="downloads-tab" data-tab="syllabus" data-action="show-syllabus">
+                        <i class="tab-icon" data-lucide="book-open"></i>
+                        <span>Syllabus</span>
+                    </button>
+                </div>
+
+                <!-- Filter Section -->
+                    <div class="downloads-filters">
+                        <div class="filter-group">
+                            <label for="academic-year">Academic Year</label>
+                            <select id="academic-year" class="filter-select">
+                                <option value="all">All</option>
+                                <option value="2082" selected>2082 (current)</option>
+                                <option value="2080">2080</option>
+                                <option value="2079">2079</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="class-grade">Class / Grade</label>
+                            <select id="class-grade" class="filter-select">
+                                <option value="all">All Classes</option>
+                                <option value="Grade 10">Grade 10</option>
+                                <option value="Grade 9">Grade 9</option>
+                                <option value="Grade 8">Grade 8</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" class="filter-select">
+                                <option value="all">All Subjects</option>
+                                <option value="math">Mathematics</option>
+                                <option value="Science">Science</option>
+                                <option value="english">English</option>
+                            </select>
+                        </div>
+                        <button class="btn-clear-filters" data-action="filter-clear">
+                            <i data-lucide="x"></i>
+                            <span>Clear</span>
+                        </button>
+                    </div>
+                
+                <div id="tab-content-container"></div>
+
+                
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Footer content will be dynamically generated by footer.js -->
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="/js/utils/cache-manager.js"></script>
+    <script src="/js/performance-optimizer.js" defer></script>
+    <script src="/js/main.js" defer></script>
+    <script src="/js/footer.js" defer></script>
+    <script src="/js/components.js" defer></script>
+    <script src="/js/navbar.js" defer></script>
+    <script src="/js/application-modal.js" defer></script>
+    <script src="/js/pageLoader/downloadPageLoader.js" defer></script>
+    
+    <script>
+        // Initialize navbar and footer
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Tab switching functionality
+            const tabs = document.querySelectorAll('.downloads-tab');
+            const tabContents = document.querySelectorAll('.downloads-tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    const targetContent = document.getElementById(`${targetTab}-tab`);
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
+                    
+                    // Reinitialize icons
+                    if (typeof lucide !== 'undefined') {
+                        lucide.createIcons();
+                    }
+                });
+            });
+            
+            // Clear filters functionality
+            const clearBtn = document.querySelector('.btn-clear-filters');
+            if (clearBtn) {
+                clearBtn.addEventListener('click', function() {
+                    document.getElementById('academic-year').value = '2081';
+                    document.getElementById('class-grade').value = 'all';
+                    document.getElementById('subject').value = 'all';
+                });
+            }
+            
+            // Reinitialize icons after a short delay to ensure lucide is loaded
+            setTimeout(() => {
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>
+
